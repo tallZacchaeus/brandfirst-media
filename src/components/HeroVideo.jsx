@@ -45,7 +45,7 @@ export default function HeroVideo({ src = '/assets/hero-video.mp4?v=2' }) {
   const label = muted ? 'Play showreel with sound' : playing ? 'Pause showreel' : 'Play showreel';
 
   return (
-    <div className="hvideo" data-cursor="View">
+    <div className="hvideo">
       <video
         ref={video}
         className="hvideo__media"

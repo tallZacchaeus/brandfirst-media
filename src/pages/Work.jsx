@@ -49,7 +49,7 @@ export default function Work() {
 function CaseCard({ title, sector, index }) {
   const el = useFadeIn({ delay: index * 0.06 });
   return (
-    <li ref={el} className="case" data-cursor="View">
+    <li ref={el} className="case">
       <span className="case__sector">{sector}</span>
       <h3 className="case__title">{title}</h3>
       <span className="case__soon">Case study in preparation</span>

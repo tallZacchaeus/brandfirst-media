@@ -25,7 +25,7 @@ export default function Services() {
 function ServiceCard({ n, slug, title, card, index }) {
   const el = useFadeIn({ delay: index * 0.06 });
   return (
-    <article ref={el} className="services__card" data-cursor="View">
+    <article ref={el} className="services__card">
       <span className="services__num">{n}</span>
       <h3 className="services__name">{title}</h3>
       <p className="services__text">{card}</p>

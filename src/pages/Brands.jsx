@@ -28,7 +28,7 @@ function BrandCard({ slug, name, kind, line, blurb, services: svc, accent, index
   const el = useFadeIn({ delay: index * 0.08 });
   const named = svc.map((id) => services.find((s) => s.slug === id)).filter(Boolean);
   return (
-    <li ref={el} className={`brand-card brand-card--${accent}`} data-cursor="View">
+    <li ref={el} className={`brand-card brand-card--${accent}`}>
       <div className="brand-card__head">
         <span className="brand-card__kind">{kind}</span>
         <h2 className="brand-card__name">{name}</h2>

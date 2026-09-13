@@ -27,7 +27,7 @@ export default function Journal({ limit = 3 }) {
 function Topic({ text, index }) {
   const el = useFadeIn({ delay: index * 0.07 });
   return (
-    <li ref={el} className="topic" data-cursor="Read">
+    <li ref={el} className="topic">
       <span className="topic__n">{String(index + 1).padStart(2, '0')}</span>
       <h3 className="topic__title">{text}</h3>
       <span className="topic__soon">Article in preparation</span>

@@ -1,5 +1,4 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import Cursor from '../components/Cursor';
 import Header from './Header';
 import Footer from './Footer';
 import FooterInner from './FooterInner';
@@ -19,7 +18,6 @@ export default function SiteLayout() {
 
   return (
     <>
-      <Cursor />
       <Header variant={variant} />
       <Outlet />
       {isHome ? <Footer /> : <FooterInner />}
