@@ -43,64 +43,60 @@ export const site = {
 
 export const home = {
   hero: {
-    // Two explicit lines. Natural wrapping broke to three at common laptop
-    // widths and two on wide screens, so the balanced split is fixed here.
-    headlineLines: ['Putting Your Brand First', 'in Every Media Decision'],
-    headline: 'Putting Your Brand First in Every Media Decision',
+    // Two explicit lines; the longer one is 23 chars in Getaway and fits the
+    // headline row at the clamp cap. "Brand first" is the company's own
+    // phrase, kept as the promise the name makes.
+    headlineLines: ['Print. Apparel. Events.', 'Your Brand First.'],
+    headline: 'Print. Apparel. Events. Your Brand First.',
     // Short label for the left column of the lower hero row. The template puts
     // a 2-3 word label here (its own was "Who we are") against the large
     // statement on the right — the asymmetry is the point.
     label: 'What we do',
     // Kept short on purpose: this sits at 70px in the template's statement slot,
-    // so a full paragraph would run to six lines. The longer version lives in
-    // the intro section directly below.
-    sub: 'We help businesses plan, create, deliver and measure campaigns across traditional and digital media.',
+    // so a full paragraph would run to six lines. The three brands are named
+    // in the intro section directly below.
+    sub: 'A Lagos production group. We print it, dress your team in it, and light the stage it shows up on.',
     primary: { label: 'Start a Project', href: '/contact' },
-    secondary: { label: 'Explore Our Services', href: '/services' },
+    secondary: { label: 'See What We Produce', href: '/services' },
   },
   intro: {
-    headline: 'Strategic Media Solutions for Brands That Want to Grow',
+    headline: 'One Team From Artwork to Event Night',
     body: [
-      'Strong brands are not built by visibility alone. They are built through consistent messaging, smart channel choices, audience insight, and disciplined execution.',
-      'Brandfirst Media works with organizations to make their communications more focused, more engaging, and more effective. We support clients across brand strategy, media planning, digital communication, campaign management, and measurement.',
+      'Most campaigns come apart at the seams. The banner came from one supplier, the shirts from another, the stage from a third, and none of the colours agree. We produce all three under one roof, so the blues match and the deadlines line up.',
+      'Brandfirst Media handles print and publicity. ROOM16 rigs the lighting and stage. Aṣọ Ìgbàlódé makes the apparel. One brief, one production team, one result.',
     ],
   },
   why: {
-    headline: 'Built Around Strategy, Reach, and Results',
-    body: 'Every campaign needs more than creative ideas. It needs a clear objective, a defined audience, the right channel mix, and a practical way to measure success. Brandfirst Media brings these pieces together so brands can communicate with purpose and confidence.',
+    headline: 'Built for Deadlines and Colour That Matches',
+    body: 'Production is judged on two things: did it arrive on time, and does it look like the artwork. We plan every job backwards from the event date, proof before we print, and match brand colours across paper, fabric and light.',
     highlights: [
-      'Audience-led planning',
-      'Integrated campaign thinking',
-      'Traditional and digital media experience',
-      'Clear reporting and performance review',
-      'Practical strategies tailored to each client',
+      'Proofed before it prints',
+      'Colour matched across paper, fabric and light',
+      'Planned backwards from the event date',
+      'One crew from load-in to strike',
+      'Short runs and large runs, same standard',
     ],
   },
   industries: {
-    headline: 'Supporting Brands Across Sectors',
-    body: 'We work with brands, organizations, and institutions that need stronger communication, better visibility, and more effective audience engagement.',
+    headline: 'Who We Produce For',
+    body: 'Anyone whose brand has to show up in print, on people, or on a stage — and has a date it must be ready by.',
     sectors: [
-      'Consumer brands',
-      'Corporate organizations',
-      'Financial services',
-      'Public sector and government agencies',
-      'Nonprofits and development organizations',
-      'Education and professional services',
-      'Retail and lifestyle brands',
+      'Corporate organisations',
+      'Event and conference organisers',
+      'Consumer and retail brands',
+      'Public sector and government',
+      'Nonprofits and development organisations',
+      'Schools and professional bodies',
+      'Campaigns and activations',
     ],
   },
   cta: {
     headline: 'Ready to Put Your Brand First?',
-    body: 'Let us help you plan and deliver a campaign that reaches the right audience and supports your business goals.',
+    body: 'Send us the event, the deadline and the artwork. We will come back with a plan and a price.',
     button: { label: 'Contact Brandfirst Media', href: '/contact' },
   },
 };
 
-/**
- * Services — the production group's actual offer, drawn from the Facebook Page
- * ("print, publicity and events. Stage and light hiring.") and the three brands.
- * `brand` ties a service to the brand that delivers it.
- */
 export const services = [
   {
     n: '01', slug: 'print-production', brand: 'brandfirst',
@@ -184,79 +180,76 @@ export const brands = [
 export const about = {
   hero: {
     headline: 'About Brandfirst Media',
-    sub: 'A media and brand communications agency focused on helping organizations reach, engage, and influence their audiences.',
+    sub: 'A production group in Lagos — print, publicity and events, with lighting and stage through ROOM16 and branded apparel through Aṣọ Ìgbàlódé.',
   },
   overview: [
-    'Brandfirst Media is a strategic media and communications agency based in Lagos, Nigeria. We help brands and organizations develop communication plans, execute campaigns, manage media visibility, and measure campaign performance.',
-    'Our work is guided by a simple idea: the brand must come first. Before media is bought, content is produced, or campaigns are launched, we focus on the audience, the message, and the result the brand needs to achieve.',
+    'The whole business began in a single shop. Today Brandfirst Media produces print of all kinds, runs publicity for brands and events, and — through ROOM16 — rents, rigs and operates lighting and stage. Aṣọ Ìgbàlódé, our apparel brand, dresses teams and campaigns in their own colours.',
+    'The name is the promise. Whatever the job — a banner, a batch of shirts, a stage for a launch — the client’s brand comes first: their colours, their standard, their deadline.',
   ],
   philosophy: {
-    headline: 'Brand First. Audience Always.',
+    headline: 'Brand First. Every Surface.',
     body: [
-      'We believe effective communication starts with understanding. A campaign should not only be visible; it should be relevant, consistent, and useful to the people it is meant to reach.',
-      'That is why we combine media thinking, brand strategy, social communication, and performance measurement to help clients make informed decisions and build stronger relationships with their audiences.',
+      'A brand only exists where people can see it: on paper, on a shirt, on a lit stage. Our job is to make it look the same, and look right, in every one of those places.',
+      'That is why print, apparel and events sit under one roof. When one team handles all three, the blue on the banner is the blue on the polo is the blue in the wash across the stage.',
     ],
   },
-  mission: 'To help brands communicate clearly, reach the right people, and achieve measurable results through strategic media and integrated marketing communication.',
-  vision: 'To be a trusted media and communications partner for brands that want to build visibility, relevance, and long-term value.',
+  mission: 'To produce print, apparel and events that put the client’s brand first — on time, colour-accurate, and to a standard that holds up close.',
+  vision: 'To be the production partner brands in Lagos call first, because one brief to us covers everything the event needs.',
   values: [
-    { title: 'Strategy',       text: 'We start with the objective, the audience, and the message before choosing channels.' },
-    { title: 'Clarity',        text: 'We make communication focused, consistent, and easy to understand.' },
-    { title: 'Accountability', text: 'We believe campaigns should be reviewed, measured, and improved.' },
-    { title: 'Creativity',     text: 'We develop ideas and messages that help brands stand out meaningfully.' },
-    { title: 'Partnership',    text: 'We work closely with clients to understand their goals and deliver practical solutions.' },
+    { title: 'Craft',        text: 'Proof it, check it, then print it. The standard is the artwork, not “close enough”.' },
+    { title: 'Reliability',  text: 'Event dates do not move. We plan backwards from them and deliver ahead of them.' },
+    { title: 'Consistency',  text: 'One brand, one colour, every surface — paper, fabric and light.' },
+    { title: 'Straight talk', text: 'Clear quotes, honest timelines, and a call the moment something changes.' },
+    { title: 'Partnership',  text: 'We work with the client’s team as one crew, from first artwork to strike.' },
   ],
 };
 
 export const work = {
   hero: {
     headline: 'Our Work',
-    sub: 'Campaign thinking, media strategy, and communication support for brands that need to be seen, heard, and remembered.',
+    sub: 'Print, apparel, lighting and stage — the jobs we have produced and the events we have built.',
   },
   cta: {
-    headline: 'Have a Campaign in Mind?',
-    body: 'Let us help you turn your objective into a clear media and communication plan.',
+    headline: 'Have an Event Coming Up?',
+    body: 'Send us the date, the venue and the artwork. We will plan the print, the apparel and the stage together.',
     button: { label: 'Start a Project', href: '/contact' },
   },
   /**
-   * TODO: replace with approved client work. The content document supplies
-   * these titles as placeholders and a case-study format (client, sector,
-   * challenge, solution, channels, results) to fill in once available.
+   * TODO: replace with real projects and images. These are placeholders shaped
+   * like the work the group actually does, so a visitor understands the offer
+   * even before real cases land. Titles only — no invented clients or metrics.
    */
   placeholders: [
-    { slug: 'brand-awareness-campaign',   title: 'Brand Awareness Campaign for a Consumer Brand',      sector: 'Consumer brands' },
-    { slug: 'integrated-media-launch',    title: 'Integrated Media Launch for a Corporate Organization', sector: 'Corporate' },
-    { slug: 'social-media-strategy',      title: 'Social Media Strategy for Audience Engagement',       sector: 'Digital' },
-    { slug: 'public-communication',       title: 'Public Communication Campaign for an Institution',    sector: 'Public sector' },
-    { slug: 'multi-channel-review',       title: 'Performance Review for a Multi-Channel Campaign',     sector: 'Measurement' },
+    { slug: 'conference-print-and-stage',  title: 'Conference Print, Backdrop and Stage Package',     sector: 'Corporate event' },
+    { slug: 'product-launch-lighting',     title: 'Event Lighting and Stage for a Product Launch',    sector: 'Launch' },
+    { slug: 'corporate-team-apparel',      title: 'Branded Apparel for a Corporate Team',             sector: 'Apparel' },
+    { slug: 'campaign-large-format',       title: 'Large-Format Banners and Signage for a Campaign',  sector: 'Print' },
+    { slug: 'full-brand-activation',       title: 'Full Activation: Print, Apparel and Lighting',     sector: 'Activation' },
   ],
 };
 
 export const insights = {
   hero: {
     headline: 'Insights',
-    sub: 'Practical thinking on media, marketing communication, brand visibility, digital engagement, and campaign measurement.',
+    sub: 'Practical notes on print, apparel and event production — the things we wish every client knew before they briefed us.',
   },
-  intro: 'Brandfirst Media shares practical insights to help businesses and organizations make better communication decisions. Our articles focus on strategy, media planning, brand visibility, customer engagement, and performance measurement.',
-  /** TODO: suggested topics from the content document — not yet written articles. */
+  intro: 'Short, useful reading for anyone who orders print, dresses a team, or runs an event. No theory — just what makes a job go well.',
+  /** TODO: planned subjects, not yet written. Hide the route from the nav if
+   *  these are still unwritten at launch. */
   topics: [
-    'Why every brand needs a clear media strategy before buying media',
-    'How integrated marketing communication improves campaign performance',
-    'What brands should measure after a campaign',
-    'The role of social media in customer engagement',
-    'How to choose the right media channels for your audience',
-    'Why brand consistency matters across traditional and digital platforms',
-    'Turning audience insights into stronger campaign ideas',
-    'What businesses should know before launching a digital campaign',
+    'What to send your printer so the job comes out right',
+    'How to brief a lighting and stage setup for your venue',
+    'Getting brand colours to match on paper, fabric and screen',
+    'A realistic production timeline, working backwards from the event date',
   ],
 };
 
 export const contact = {
   hero: {
     headline: 'Let Us Talk About Your Brand',
-    sub: 'Whether you are planning a campaign, launching a product, strengthening your brand presence, or reviewing your media performance, Brandfirst Media can help.',
+    sub: 'A print run, a batch of branded apparel, or lighting and stage for an event — send the details and we will come back with a plan and a price.',
   },
-  body: 'Tell us what you want to achieve and we will help you identify the right communication approach. Share a few details about your brand, your audience, and your campaign goals.',
+  body: 'The more you send — artwork, quantities, the event date, the venue — the faster and more accurately we can quote.',
   fields: ['Name', 'Company or organization', 'Email address', 'Phone number', 'Service interest', 'Project budget range', 'Message'],
 };
 

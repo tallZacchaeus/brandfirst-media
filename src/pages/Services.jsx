@@ -13,20 +13,20 @@ export default function Services() {
     <main className="page">
       <div className="page__inner">
         <PageHero
-          title="Media and Communication Services That Move Brands Forward"
-          lede="From strategy to execution, Brandfirst Media helps organizations create campaigns that are clear, targeted, and measurable."
+          title="Everything We Produce"
+          lede="Six things we do, delivered by the three brands in the group. Brief one of us and you get all three."
         />
         <div className="sv__stack">
           {services.map((s, i) => <ServiceBlock key={s.slug} {...s} index={i} />)}
         </div>
 
         <section className="sv__cta">
-          <h2 className="sec__title">Need a Campaign Plan That Fits Your Brand?</h2>
+          <h2 className="sec__title">Need a Quote?</h2>
           <p className="page__lede">
-            Talk to Brandfirst Media about your goals, audience, and budget. We will
-            help you shape the right communication approach.
+            Send the artwork, the quantity and the date. We quote on real specs,
+            not estimates.
           </p>
-          <Link className="btn btn--primary" to="/contact">Request a Consultation</Link>
+          <Link className="btn btn--primary" to="/contact">Request a Quote</Link>
         </section>
       </div>
     </main>
