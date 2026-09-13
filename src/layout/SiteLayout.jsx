@@ -11,7 +11,7 @@ export default function SiteLayout() {
   useSmoothScroll();
   const { pathname } = useLocation();
 
-  // The homepage header floats over the lime hero (#13 + #1354).
+  // The homepage header floats over the brand-blue hero (#13 + #1354).
   // Inner pages sit on a light ground and use the in-flow header (#7259)
   // and the CTA-led footer (#558).
   const isHome = pathname === '/';

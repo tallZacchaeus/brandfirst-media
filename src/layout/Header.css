@@ -3,9 +3,21 @@
    columns:   logo 20% · nav 60% · action 20% (flex-end) */
 .header { padding: 32px 20px; }
 
-/* #13 — floats over the lime hero */
+/* #13 — floats over the hero. The hero is now deep brand blue rather than the
+   template's lime, so the overlay header's type inverts to white. */
 .header--overlay {
   position: absolute; top: 0; left: 0; right: 0; z-index: 2;
+}
+.header--overlay .header__wordmark,
+.header--overlay .nav__link { color: var(--paper); }
+.header--overlay .header__burger span,
+.header--overlay .header__burger span::before,
+.header--overlay .header__burger span::after { background: var(--paper); }
+.header--overlay .btn--primary { background: var(--paper); color: var(--brand-deep); }
+.header--overlay .btn--primary:hover { background: var(--brand-bright); color: var(--paper); }
+@media (max-width: 1024px) {
+  /* The open mobile panel sits on its own white card, so type returns to ink. */
+  .header--overlay .header__nav-col.is-open .nav__link { color: var(--ink); }
 }
 /* #6033 — dark page header: #121212 ground, white nav, columns 20/60/20 */
 .header--dark {
@@ -17,7 +29,7 @@
 .header--dark .header__burger span::after { color: var(--paper); background-color: var(--paper); }
 .header--dark .nav__link { background: none; color: var(--paper); }
 .header--dark .btn--primary { background: var(--paper); color: var(--ink); }
-.header--dark .btn--primary:hover { background: var(--lime); color: var(--ink); }
+.header--dark .btn--primary:hover { background: var(--brand-bright); color: var(--paper); }
 @media (max-width: 1024px) {
   .header--dark .header__nav-col.is-open { background: var(--sec-dark-card); }
   .header--dark .header__nav-col.is-open .nav__sub a { color: var(--muted-2); }
@@ -74,7 +86,7 @@
 }
 .nav__sub a:hover { color: var(--ink); background: rgba(18,18,18,.04); }
 
-/* Header sits on the lime hero, so the pill button inverts for contrast */
+/* Shared pill sizing for the header button */
 /* "Start a Project" is longer than the demo's "Lets Talk", so keep it on one
    line and give the inner variant's action column room for it. */
 .header .btn--primary { padding: 16px 26px; white-space: nowrap; }

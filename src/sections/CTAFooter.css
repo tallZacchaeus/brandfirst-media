@@ -1,6 +1,17 @@
 /* Section 10 — bg #D8E9E4, padding 147/20. Centred column:
    eyebrow @30px, display line @150px (947px wide), button. */
-.cta { background: var(--sec-mint); padding-top: 147px; }
+/* Bookends the hero: the page opens and closes on brand blue. */
+.cta {
+  background-color: var(--brand-deep);
+  background-image:
+    radial-gradient(110% 80% at 18% 10%, var(--brand-bright) 0%, rgba(41,171,226,0) 55%),
+    linear-gradient(28deg, var(--brand) 0%, var(--brand-deep) 70%);
+  padding-top: 147px;
+}
+.cta .cta__line { color: var(--paper); }
+.cta .cta__body { color: rgba(255,255,255,.82); }
+.cta .btn--primary { background: var(--paper); color: var(--brand-deep); }
+.cta .btn--primary:hover { background: var(--brand-bright); color: var(--paper); }
 .cta__col { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; }
 .cta__eyebrow {
   font-family: var(--font-hero); font-weight: 400;

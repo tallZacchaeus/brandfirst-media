@@ -8,7 +8,7 @@
 }
 .nf__code {
   font-family: var(--font-display); font-weight: 400;
-  font-size: 180px; line-height: 1; color: var(--lime);
+  font-size: 180px; line-height: 1; color: var(--brand-bright);
   -webkit-text-stroke: 1px var(--ink);
 }
 .nf__title { font-family: var(--font-display); font-weight: 400; font-size: 60px; line-height: 65px; color: var(--ink); }

@@ -20,7 +20,7 @@
   font-size: 26px; line-height: 1.25em; color: var(--paper);
 }
 .services__text { font-size: 16px; line-height: 1.6em; color: var(--muted-2); flex: 1; }
-.services__link { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--lime); border-bottom: 1px solid currentColor; align-self: flex-start; }
+.services__link { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--brand-bright); border-bottom: 1px solid currentColor; align-self: flex-start; }
 @media (max-width: 1200px) { .services__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 767px)  {
   .services__grid { grid-template-columns: 1fr; padding-top: 40px; gap: 14px; }

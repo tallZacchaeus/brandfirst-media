@@ -23,7 +23,7 @@
   transition: transform .45s cubic-bezier(.22,1,.36,1), background .3s ease;
 }
 .hvideo__play:hover { transform: scale(1.08); background: rgba(18,18,18,.34); }
-.hvideo__play:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+.hvideo__play:focus-visible { outline: 2px solid var(--brand-bright); outline-offset: 4px; }
 .hvideo__icon { display: grid; place-items: center; width: 16px; height: 16px; }
 
 @media (prefers-reduced-motion: reduce) {

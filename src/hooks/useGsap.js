@@ -56,7 +56,10 @@ export function useTextReveal({ stagger = 0.05, by = 'chars', rootMargin } = {})
 
     (document.fonts?.ready ?? Promise.resolve()).then(() => {
       if (cancelled || !ref.current) return;
-      split = new SplitText(el, { type: 'chars,words,lines' });
+      /* Split words and chars only. Splitting lines generates wrapper divs that
+         collide with manually authored line spans (Hero's two-line headline),
+         forcing one word per row — and nothing here animates by line. */
+      split = new SplitText(el, { type: 'chars,words' });
       const targets = split[by] ?? split.chars;
       gsap.set(targets, { yPercent: 110, opacity: 0 });
       stop = observeOnce(el, () => {

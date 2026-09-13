@@ -5,7 +5,6 @@
   --ink: #121212;          /* dominant dark ground */
   --ink-soft: #1C1C1C;
   --paper: #FFFFFF;
-  --lime: #BAE900;         /* hero accent */
   --muted: #555555;
   --muted-2: #999999;
 
@@ -26,13 +25,20 @@
   --aso: #D8452C;            /* Aṣọ Ìgbàlódé — warm red-orange */
 
   /* Section grounds — exact values from each section's background_color */
-  --sec-stats: #D9DCED;    /* 3  StatsIntro */
-  --sec-dark: #121212;     /* 4  Services  */
-  --sec-dark-card: #1C1C1C;/* 4  service card */
-  --sec-mint: #D8E9E4;     /* 5  ProcessSteps + 10 CTAFooter */
-  --sec-sand: #F9F3EE;     /* 7  Testimonials */
-  --sec-sand-card: #FDFAF8;/* 7  rating card */
-  --sec-blush: #F4E0E0;    /* 8  Team */
+  /* Section grounds, retuned to the brand system. The Arolax demo's mint,
+     sand, lavender and blush read as a different company; these are cool
+     neutrals derived from the mark's silver, so the blue stays the only
+     colour doing work. Light grounds carry print work (judged against white);
+     the dark ground carries event and lighting work (which only reads against
+     darkness). */
+  --sec-tint: #EDF1F7;     /* cool tint — intro, industries */
+  --sec-dark: #121212;     /* services, event/lighting content */
+  --sec-dark-card: #1C1C1C;
+  --sec-stats: var(--sec-tint);
+  --sec-mint: #F4F7FB;     /* near-white cool — process */
+  --sec-sand: var(--sec-tint);
+  --sec-sand-card: #FFFFFF;
+  --sec-blush: var(--sec-tint);
   --tint-grey: #EFEFEF;
   --step-label: #7D8683;   /* 5  "Step - 01" */
 
