@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Work from './pages/Work';
+import Brands from './pages/Brands';
+import BrandDetail from './pages/BrandDetail';
 import Insights from './pages/Insights';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
           <Route path="work" element={<Work />} />
+          <Route path="brands" element={<Brands />} />
+          <Route path="brands/:slug" element={<BrandDetail />} />
           <Route path="insights" element={<Insights />} />
           <Route path="contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

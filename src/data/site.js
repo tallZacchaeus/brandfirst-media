@@ -8,16 +8,19 @@
 
 export const site = {
   name: 'Brandfirst Media',
-  tagline: 'Media and Brand Communications Agency',
+  tagline: 'Print, Publicity and Event Production',
   location: 'Lagos, Nigeria',
-  // The content document leaves these blank — do not invent them.
-  phone: null,   // TODO: client to supply
-  email: null,   // TODO: client to supply
+  // From the Brandfirst Media Facebook Page.
+  phone: '0814 212 2000',
+  phoneIntl: '+2348142122000',
+  // TODO: replace with a domain address before launch — a gmail.com address
+  // undercuts the positioning on an agency/production site.
+  email: 'brandfirstmedia@gmail.com',
   social: [{ label: 'Facebook', href: 'https://www.facebook.com/BrandfirstMedia' }],
   meta: {
-    title: 'Brandfirst Media | Media and Brand Communications Agency in Lagos',
+    title: 'Brandfirst Media | Print, Publicity and Event Production in Lagos',
     description:
-      'Brandfirst Media helps brands plan, execute, and measure strategic media, digital, and integrated marketing communication campaigns in Lagos, Nigeria.',
+      'Brandfirst Media is a production group in Lagos, Nigeria — print of all kinds, branded apparel, and event staging and lighting through ROOM16 and Aṣọ Ìgbàlódé.',
   },
 };
 
@@ -71,55 +74,88 @@ export const home = {
   },
 };
 
-/** Six services — short cards on the homepage, full detail on /services. */
+/**
+ * Services — the production group's actual offer, drawn from the Facebook Page
+ * ("print, publicity and events. Stage and light hiring.") and the three brands.
+ * `brand` ties a service to the brand that delivers it.
+ */
 export const services = [
   {
-    n: '01',
-    slug: 'media-strategy-and-planning',
-    title: 'Media Strategy and Planning',
-    card: 'We help brands understand their audience, select the right platforms, and build media plans that support clear business objectives.',
-    body: 'A strong media plan begins with a clear understanding of the brand, audience, market, budget, and desired outcome. We help clients define campaign priorities and choose the right mix of channels to reach their target audience effectively.',
-    includes: ['Audience and market review', 'Campaign objective setting', 'Channel recommendation', 'Media plan development', 'Budget allocation guidance', 'Campaign rollout planning'],
+    n: '01', slug: 'print-production', brand: 'brandfirst',
+    title: 'Print Production',
+    card: 'Print of all kinds — from business stationery and brochures to full campaign collateral, produced to a consistent standard.',
+    body: 'Print is the core of what we do. We handle artwork preparation, proofing, production and delivery, so what arrives matches what was approved. Short runs and long runs, on stock that suits the job rather than whatever is cheapest.',
+    includes: ['Artwork and pre-press preparation', 'Brochures, flyers and stationery', 'Proofing and colour checks', 'Short and long production runs', 'Finishing and binding', 'Delivery coordination'],
   },
   {
-    n: '02',
-    slug: 'integrated-marketing-communications',
-    title: 'Integrated Marketing Communications',
-    card: 'We align advertising, public relations, social media, content, and direct communication into one consistent brand message.',
-    body: 'Customers interact with brands across many channels. We help clients create a consistent communication approach across advertising, public relations, digital platforms, social media, direct marketing, and content.',
-    includes: ['Communication strategy', 'Campaign messaging', 'Brand storytelling', 'Channel alignment', 'Promotional campaign planning', 'Stakeholder communication support'],
+    n: '02', slug: 'large-format-and-signage', brand: 'brandfirst',
+    title: 'Large Format and Signage',
+    card: 'Banners, roll-ups, backdrops and outdoor signage sized and finished for the space they have to hold.',
+    body: 'Large format is judged from a distance and up close at the same time. We produce banners, backdrops, pull-up stands and signage with the resolution and finishing to survive both, and we size artwork to the actual site rather than a template.',
+    includes: ['Banners and backdrops', 'Roll-up and pull-up stands', 'Outdoor and site signage', 'Event and exhibition graphics', 'Substrate and finish selection', 'On-site fitting coordination'],
   },
   {
-    n: '03',
-    slug: 'digital-and-social-media-marketing',
-    title: 'Digital and Social Media Marketing',
-    card: 'We create digital strategies that help brands build awareness, engage communities, generate leads, and strengthen customer relationships.',
-    body: 'Digital platforms give brands the opportunity to build communities, listen to customers, promote offers, and generate leads. We help clients use digital and social media with purpose, structure, and measurable goals.',
-    includes: ['Social media strategy', 'Content planning', 'Community engagement direction', 'Campaign calendar development', 'Paid digital campaign support', 'Reporting and recommendations'],
+    n: '03', slug: 'branded-apparel', brand: 'aso-igbalode',
+    title: 'Branded Apparel and Merchandise',
+    card: 'Shirts, vests, caps and merchandise branded for teams, campaigns and events — delivered through Aṣọ Ìgbàlódé.',
+    body: 'Aṣọ Ìgbàlódé is our apparel arm. We produce branded shirts, vests, caps and merchandise for corporate teams, campaigns, conferences and events, matching brand colours properly rather than approximately.',
+    includes: ['Branded shirts and polos', 'Vests and workwear', 'Caps and headwear', 'Event and campaign merchandise', 'Colour matching to brand standards', 'Bulk production and sizing'],
   },
   {
-    n: '04',
-    slug: 'media-buying-and-campaign-placement',
-    title: 'Media Buying and Campaign Placement',
-    card: 'We support campaign placement across relevant media channels, helping brands reach the people who matter most.',
-    body: 'Good placement helps the right message reach the right audience at the right time. We support brands in planning and placing campaigns across suitable traditional and digital media channels.',
-    includes: ['Media channel selection', 'Campaign scheduling', 'Placement coordination', 'Budget management support', 'Vendor liaison', 'Campaign monitoring'],
+    n: '04', slug: 'event-lighting', brand: 'room16',
+    title: 'Event Lighting',
+    card: 'Lighting rental, rigging and operation for events of any size — delivered through ROOM16.',
+    body: 'ROOM16 supplies and sets up lighting for events. We plan the rig around the venue and the programme, install it, and operate it on the night, so the room looks the way it was designed to look rather than the way the house lights leave it.',
+    includes: ['Lighting design for the venue', 'Rental of fixtures and control', 'Rigging and installation', 'On-site operation', 'Power and cabling planning', 'Strike and removal'],
   },
   {
-    n: '05',
-    slug: 'brand-and-content-development',
-    title: 'Brand and Content Development',
-    card: 'We help shape messages, campaign ideas, and content that connect with audiences and support long-term brand equity.',
-    body: 'Content should reflect the brand, serve the audience, and support campaign goals. We help clients create communication materials that are clear, persuasive, and aligned with their brand identity.',
-    includes: ['Campaign concepts', 'Copy direction', 'Social content themes', 'Brand messaging', 'Promotional content', 'Presentation and proposal support'],
+    n: '05', slug: 'stage-and-event-equipment', brand: 'room16',
+    title: 'Stage and Event Equipment',
+    card: 'Staging, trussing and event equipment, set up and struck on schedule — delivered through ROOM16.',
+    body: 'We supply and build the physical structure of an event: staging, trussing and the equipment around it. Setup and strike run to the programme, not the other way round, so rehearsal and handover happen when they were meant to.',
+    includes: ['Stage supply and construction', 'Truss and rigging structures', 'Equipment rental', 'Setup and strike scheduling', 'Venue survey and load-in planning', 'On-site crew'],
   },
   {
-    n: '06',
-    slug: 'research-and-performance-measurement',
-    title: 'Research and Performance Measurement',
-    card: 'We track campaign activity and results so clients can understand what is working and make better marketing decisions.',
-    body: 'Measurement helps brands understand the value of their campaigns. We support clients with tracking, reporting, and performance review so future decisions can be based on evidence.',
-    includes: ['Campaign performance tracking', 'Media monitoring', 'Competitor review', 'Audience feedback review', 'Report preparation', 'Post-campaign recommendations'],
+    n: '06', slug: 'publicity-and-brand-visibility', brand: 'brandfirst',
+    title: 'Publicity and Brand Visibility',
+    card: 'Getting a brand seen — coordinating the print, the apparel and the event presence so they read as one campaign.',
+    body: 'Most visibility problems are coordination problems: the banner, the shirts and the stage all exist but were ordered separately and do not match. We plan and produce them together so a campaign reads as one thing across every surface.',
+    includes: ['Campaign visibility planning', 'Coordinated collateral across formats', 'Event brand presence', 'Brand consistency across production', 'Launch and activation support', 'Supplier and vendor coordination'],
+  },
+];
+
+/** The group. Brandfirst Media is the parent; ROOM16 and Aṣọ Ìgbàlódé are
+ *  in-house brands, not client work — labelled as such throughout. */
+export const brands = [
+  {
+    slug: 'brandfirst-media',
+    name: 'Brandfirst Media',
+    kind: 'Parent brand',
+    line: 'Print, publicity and event production',
+    blurb: 'The parent brand. Print of all kinds, publicity, and the coordination that holds a campaign together across every surface it touches.',
+    services: ['print-production', 'large-format-and-signage', 'publicity-and-brand-visibility'],
+    accent: 'brand',
+    social: [{ label: 'Facebook', href: 'https://web.facebook.com/BrandfirstMedia' }],
+  },
+  {
+    slug: 'room16',
+    name: 'ROOM16',
+    kind: 'In-house brand',
+    line: 'Lighting and stage for events',
+    blurb: 'ROOM16 rents, rigs and operates lighting and staging for events. Named after the shop number where the business began.',
+    services: ['event-lighting', 'stage-and-event-equipment'],
+    accent: 'room16',
+    social: [],
+  },
+  {
+    slug: 'aso-igbalode',
+    name: 'Aṣọ Ìgbàlódé',
+    kind: 'In-house brand',
+    line: 'Branded apparel',
+    blurb: 'Where fashion meets identity. High-quality branded shirts, vests, caps and merchandise for teams, campaigns and events.',
+    services: ['branded-apparel'],
+    accent: 'aso',
+    social: [{ label: 'Instagram', href: 'https://www.instagram.com/asoigbalode/' }],
   },
 ];
 
@@ -206,6 +242,7 @@ export const nav = [
   { label: 'Home',     href: '/' },
   { label: 'About',    href: '/about' },
   { label: 'Services', href: '/services' },
+  { label: 'Brands',   href: '/brands' },
   { label: 'Work',     href: '/work' },
   { label: 'Insights', href: '/insights' },
   { label: 'Contact',  href: '/contact' },

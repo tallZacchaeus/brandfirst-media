@@ -9,6 +9,22 @@
   --muted: #555555;
   --muted-2: #999999;
 
+  /* Brand colours.
+     Read off the Brandfirst "B" mark: a gradient from deep navy in the bowl,
+     through royal blue, to bright cyan at the top right, over a white swoosh.
+     Sampled by eye from the supplied artwork — drop the source file into
+     public/assets/ and these can be measured exactly.
+     The sub-brands both sit in the red family, so a blue parent anchors the
+     group without competing with either. */
+  --brand-deep: #0A2E8C;     /* navy, bowl of the mark */
+  --brand: #1150C4;          /* royal blue, primary */
+  --brand-bright: #29ABE2;   /* cyan, highlights and hover */
+  --brand-silver: #E8EDF2;   /* the mark's light edge */
+
+  /* Sub-brand accents */
+  --room16: #E4032E;         /* ROOM16 — lighting and stage */
+  --aso: #D8452C;            /* Aṣọ Ìgbàlódé — warm red-orange */
+
   /* Section grounds — exact values from each section's background_color */
   --sec-stats: #D9DCED;    /* 3  StatsIntro */
   --sec-dark: #121212;     /* 4  Services  */

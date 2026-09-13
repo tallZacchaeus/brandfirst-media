@@ -12,7 +12,7 @@ export default function Services() {
     <section className="sec services">
       <div className="sec__inner">
         <div className="services__lead">
-          <h2 ref={heading} className="sec__title">How We Help</h2>
+          <h2 ref={heading} className="sec__title">What We Produce</h2>
         </div>
         <div className="services__grid">
           {services.map((s, i) => <ServiceCard key={s.slug} {...s} index={i} />)}
