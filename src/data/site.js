@@ -52,10 +52,11 @@ export const home = {
     // a 2-3 word label here (its own was "Who we are") against the large
     // statement on the right — the asymmetry is the point.
     label: 'What we do',
-    // Kept short on purpose: this sits at 70px in the template's statement slot,
-    // so a full paragraph would run to six lines. The three brands are named
-    // in the intro section directly below.
-    sub: 'A Lagos production group. We print it, dress your team in it, and light the stage it shows up on.',
+    // Support, not a second headline. An earlier version restated the three
+    // words in the headline at 70px, which gave the first screen two competing
+    // display blocks. This adds what the headline cannot say: where we are, how
+    // the group is structured, and who carries the job.
+    sub: 'A production group in Lagos. Three in-house brands, one brief, and one team accountable from first proof to pack-down.',
     primary: { label: 'Start a Project', href: '/contact' },
     secondary: { label: 'See What We Produce', href: '/services' },
   },

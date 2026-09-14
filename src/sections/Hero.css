@@ -62,12 +62,16 @@
   letter-spacing: .02em;
 }
 
-.hero__lede-col { width: 930px; max-width: 100%; display: flex; flex-direction: column; row-gap: 50px; align-items: flex-start; }
+.hero__lede-col { width: 930px; max-width: 100%; display: flex; flex-direction: column; row-gap: 44px; align-items: flex-start; }
+/* Body scale, not display. The template runs a 70px statement here because its
+   headline row is a single short line; ours is two full lines at the clamp cap,
+   so a second display block made the first screen read as a wall of type. */
 .hero__lede {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 70px; line-height: 1em;
-  color: var(--paper);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 24px; line-height: 1.55em;
+  color: var(--paper); opacity: .88;
+  max-width: 720px;
 }
 
 /* --- responsive ladder (widths taken from the demo's per-device values) --- */
@@ -75,12 +79,12 @@
   .hero { padding: 150px 20px 180px; }
   .hero__inner { row-gap: 95px; }
   .hero__headline-wrap { width: 100%; }
-  .hero__lede { font-size: 56px; }
+  .hero__lede { font-size: 22px; }
 }
 @media (max-width: 1024px) {
   .hero__label-col { width: 33%; }
   .hero__lede-col { width: 67%; row-gap: 36px; }
-  .hero__lede { font-size: 44px; }
+  .hero__lede { font-size: 21px; }
 }
 @media (max-width: 880px) {
   .hero__label-col { width: 35%; }
@@ -94,7 +98,7 @@
   .hero__headline-col, .hero__label-col, .hero__lede-col { width: 100%; }
   .hero__headline-wrap { width: 100%; }
   .hero__label-col { padding-top: 0; }
-  .hero__lede { font-size: 32px; line-height: 1.08em; }
+  .hero__lede { font-size: 18px; line-height: 1.55em; }
 }
 
 /* Content document specifies a primary and a secondary hero button. */
