@@ -153,6 +153,28 @@ export const brands = [
     blurb: 'The parent brand. Print of all kinds, publicity, and the coordination that holds a campaign together across every surface it touches.',
     services: ['print-production', 'large-format-and-signage', 'publicity-and-brand-visibility'],
     accent: 'brand',
+    // Page content. Written from what the group has described about itself;
+    // specific formats, turnaround and minimums should be confirmed by the client.
+    offer: [
+      ['Business print', 'Business cards, letterheads, flyers, brochures, folders and forms.'],
+      ['Marketing print', 'Posters, handbills, stickers, labels, calendars and branded stationery.'],
+      ['Large format', 'Banners, roll-ups, backdrops, billboards and vehicle and window graphics.'],
+      ['Signage', 'Shop fronts, directional and event signage, cut vinyl and mounted boards.'],
+      ['Publicity', 'Campaign coordination so print, outdoor, apparel and event all say the same thing.'],
+      ['Event collateral', 'Programmes, badges, table cards, wristbands and everything else the day needs.'],
+    ],
+    process: [
+      ['Brief', 'Tell us what the job is for, where it will be seen and when it is needed.'],
+      ['Proof', 'You get artwork or a print proof to sign off before anything runs.'],
+      ['Produce', 'We print, finish and quality-check in-house or with vetted partners.'],
+      ['Deliver', 'Collected, delivered or installed on site — including event-day setup.'],
+    ],
+    useCases: ['Product launches', 'Conferences and AGMs', 'Retail and shop branding', 'Political and public campaigns', 'Church and school programmes', 'Weddings and private events'],
+    faq: [
+      ['Can you handle design as well as printing?', 'Yes. Send finished artwork if you have it, or brief us and we will design to your brand.'],
+      ['What is the minimum order?', 'There is no fixed minimum for most business print. Large-format and signage are quoted per job.'],
+      ['Do you deliver and install?', 'Yes, across Lagos, and further afield by arrangement. Signage and event print can be installed by our team.'],
+    ],
     social: [{ label: 'Facebook', href: 'https://web.facebook.com/BrandfirstMedia' }],
   },
   {
@@ -163,6 +185,26 @@ export const brands = [
     blurb: 'ROOM16 rents, rigs and operates lighting and staging for events. Named after the shop number where the business began.',
     services: ['event-lighting', 'stage-and-event-equipment'],
     accent: 'room16',
+    offer: [
+      ['Stage lighting', 'Moving heads, LED pars, profiles and washes for stage and performance.'],
+      ['Ambient and decor lighting', 'Uplighting, string and festoon, colour washes and gobo projection for venues.'],
+      ['Stage and truss', 'Modular staging, truss structures, risers, steps and skirting.'],
+      ['Rigging and power', 'Safe rigging, cabling and power distribution for the whole setup.'],
+      ['Operation', 'A crew on site to programme, run and strike the show.'],
+      ['Design', 'Lighting plans and stage layouts drawn to the venue before the day.'],
+    ],
+    process: [
+      ['Site visit', 'We look at the venue, power and access, or work from your floor plan.'],
+      ['Plan and quote', 'A lighting and stage plan with a quote for hire, crew and transport.'],
+      ['Set up', 'Rig, focus and test ahead of the event, with time built in for rehearsal.'],
+      ['Run and strike', 'Operated through the event, then taken down and cleared out.'],
+    ],
+    useCases: ['Concerts and live shows', 'Product launches', 'Conferences and award nights', 'Church and worship events', 'Weddings and receptions', 'Fashion shows and pageants'],
+    faq: [
+      ['Do you supply an operator?', 'Yes. Every hire includes a crew to set up, and a lighting operator can run the show for the duration.'],
+      ['Can you work in a venue with limited power?', 'We survey power on the site visit and bring distribution, and can advise on generator sizing.'],
+      ['How far ahead should we book?', 'Two weeks is comfortable for most events. Large stage builds or peak dates should be booked earlier.'],
+    ],
     social: [],
   },
   {
@@ -173,6 +215,26 @@ export const brands = [
     blurb: 'Where fashion meets identity. High-quality branded shirts, vests, caps and merchandise for teams, campaigns and events.',
     services: ['branded-apparel'],
     accent: 'aso',
+    offer: [
+      ['T-shirts and polos', 'Screen-printed, DTF or embroidered on quality cotton and blends.'],
+      ['Vests and jerseys', 'Event vests, volunteer bibs and team jerseys with numbering.'],
+      ['Caps and headwear', 'Embroidered caps, bucket hats and face caps in brand colours.'],
+      ['Corporate wear', 'Embroidered shirts and uniforms for front-of-house and field teams.'],
+      ['Merchandise', 'Tote bags, lanyards, wristbands and giveaway items to match the apparel.'],
+      ['Custom pieces', 'Limited runs and statement pieces for campaigns and special occasions.'],
+    ],
+    process: [
+      ['Brief', 'Quantities, sizes, colours and where the logo goes.'],
+      ['Mockup', 'A visual mockup and, for larger runs, a physical sample to approve.'],
+      ['Production', 'Printed or embroidered, checked piece by piece, packed by size.'],
+      ['Delivery', 'Delivered ahead of the event, or handed over on site with the rest of the setup.'],
+    ],
+    useCases: ['Corporate teams', 'Event staff and volunteers', 'Political and public campaigns', 'Schools and alumni groups', 'Church and community groups', 'Brand launches and giveaways'],
+    faq: [
+      ['Which is better: printing or embroidery?', 'Embroidery suits polos, caps and corporate wear. Printing suits large, colourful designs and larger runs. We advise per job.'],
+      ['Can I order a small quantity?', 'Yes. Small runs are possible; unit prices fall as quantity rises.'],
+      ['Can you match our brand colours?', 'We work from your brand guide and match garment and thread or ink colours as closely as stock allows.'],
+    ],
     // Social-post crop of the wordmark on fabric — the only Aṣọ Ìgbàlódé art
     // supplied so far. Swap for a clean logo/product shot when one exists.
     image: { src: '/assets/aso-igbalode-card.webp', srcSet: '/assets/aso-igbalode-card-sm.webp 600w, /assets/aso-igbalode-card.webp 1200w' },

@@ -5,6 +5,7 @@ import { brands, services, site } from '../data/site';
 import NotFound from './NotFound';
 import '../styles/page.css';
 import '../styles/section.css';
+import './Brands.css';
 import './BrandDetail.css';
 
 /** A single brand in the group. Portfolio slots stay empty until real project
@@ -45,6 +46,65 @@ export default function BrandDetail() {
           </ul>
         </section>
 
+
+        {brand.offer && (
+          <section className="bd__block">
+            <h2 className="sec__title bd__h2">What {brand.name} produces</h2>
+            <ul className="bd__offer">
+              {brand.offer.map(([t, d]) => (
+                <li key={t}><h3>{t}</h3><p>{d}</p></li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {brand.process && (
+          <section className="bd__block">
+            <h2 className="sec__title bd__h2">How a job runs</h2>
+            <ol className="bd__process">
+              {brand.process.map(([t, d], i) => (
+                <li key={t}><span className="bd__n">0{i + 1}</span><h3>{t}</h3><p>{d}</p></li>
+              ))}
+            </ol>
+          </section>
+        )}
+
+        {brand.useCases && (
+          <section className="bd__block bd__block--tight">
+            <h2 className="sec__title bd__h2">Good for</h2>
+            <ul className="bd__tags">
+              {brand.useCases.map((u) => <li key={u}>{u}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {brand.faq && (
+          <section className="bd__block">
+            <h2 className="sec__title bd__h2">Questions we get asked</h2>
+            <dl className="bd__faq">
+              {brand.faq.map(([q, a]) => (
+                <div key={q}><dt>{q}</dt><dd>{a}</dd></div>
+              ))}
+            </dl>
+          </section>
+        )}
+
+        <section className="bd__block">
+          <h2 className="sec__title bd__h2">Works with</h2>
+          <p className="bd__works-lede">
+            {brand.name} is one part of the group. The other two cover the rest of an event, and one brief can book all three.
+          </p>
+          <ul className="bd__siblings">
+            {brands.filter((b) => b.slug !== brand.slug).map((b) => (
+              <li key={b.slug} className={`bd__sibling bd__sibling--${b.accent}`}>
+                <span className="brand-card__kind">{b.kind}</span>
+                <h3>{b.name}</h3>
+                <p>{b.line}</p>
+                <Link to={`/brands/${b.slug}`}>About {b.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </section>
 
         <section className="bd__foot">
           {brand.social.length > 0 && (
