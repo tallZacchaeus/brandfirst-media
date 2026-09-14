@@ -9,7 +9,7 @@
     radial-gradient(120% 90% at 82% 8%, var(--brand-bright) 0%, rgba(41,171,226,0) 58%),
     linear-gradient(152deg, var(--brand) 0%, var(--brand-deep) 72%);
   background-repeat: no-repeat;
-  padding: 195px 20px 250px;
+  padding: 170px 20px 190px;
   overflow: hidden;
 }
 .hero__noise {
@@ -21,16 +21,18 @@
   position: relative;
   max-width: 1720px; margin: 0 auto;
   display: flex; flex-direction: column;
-  row-gap: 165px;                              /* laptop → 95px */
+  row-gap: 120px;
 }
 
 /* --- row 1: headline (75%) + video (25%) --- */
 .hero__row { display: flex; }
-.hero__headline-col { width: 75%; }
+/* Full width now the video slot is gone. Restore `width: 75%` and the
+   .hero__video-col block below if a still image goes back beside the headline. */
+.hero__headline-col { width: 100%; }
 /* Was flex to seat the demo's "Pro" badge beside the headline; that badge is
    Arolax copy and is gone. Block avoids the h1 collapsing to min-content as a
    flex item once SplitText replaces its text with line divs. */
-.hero__headline-wrap { width: 1160px; max-width: 100%; }
+.hero__headline-wrap { width: 1420px; max-width: 100%; }
 /* Block on desktop to hold the balanced two-line split; inline below the
    mobile breakpoint so the headline reflows evenly instead of leaving an
    orphan word from the forced break. */
@@ -50,20 +52,15 @@
 }
 
 
-.hero__video-col {
-  width: 25%;
-  display: flex; justify-content: flex-end; align-items: flex-end;
-  padding-bottom: 18px;
-}
-.hero__video {
-  width: 435px; max-width: 100%; height: 260px;
-  border-radius: 30px; overflow: hidden;
-}
 
 /* --- row 2: label (36.15%) + lede 930px + button --- */
 .hero__row--foot { justify-content: space-between; }
 .hero__label-col { width: 36.15%; padding-top: 8px; }
-.hero__eyebrow { font-size: 17px; line-height: 1.5em; color: var(--paper); opacity: .78; max-width: 420px; }
+/* Template value: 18px / 0.9em. A short caption, not a paragraph. */
+.hero__eyebrow {
+  font-size: 18px; line-height: .9em; color: var(--paper); opacity: .72;
+  letter-spacing: .02em;
+}
 
 .hero__lede-col { width: 930px; max-width: 100%; display: flex; flex-direction: column; row-gap: 50px; align-items: flex-start; }
 .hero__lede {
@@ -77,30 +74,15 @@
 @media (max-width: 1366px) {
   .hero { padding: 150px 20px 180px; }
   .hero__inner { row-gap: 95px; }
-  .hero__headline-col { width: 67%; }
-  .hero__headline-wrap { width: 760px; }
-  .hero__video-col { width: 33%; }
-  .hero__video { width: 400px; }
-  .hero__label-col { width: 40%; }
-  .hero__lede-col { width: 60%; }
+  .hero__headline-wrap { width: 100%; }
   .hero__lede { font-size: 56px; }
 }
-@media (max-width: 1200px) {
-  .hero__headline-col { width: 60%; }
-  .hero__headline-wrap { width: 592px; }
-  .hero__video-col { width: 40%; }
-  .hero__video { width: 365px; }
-}
 @media (max-width: 1024px) {
-  .hero__headline-col { width: 58%; }
-  .hero__headline-wrap { width: 480px; }
-  .hero__video-col { width: 42%; }
   .hero__label-col { width: 33%; }
-  .hero__lede-col { width: 67%; }
+  .hero__lede-col { width: 67%; row-gap: 36px; }
   .hero__lede { font-size: 44px; }
 }
 @media (max-width: 880px) {
-  .hero__headline-wrap { width: 380px; }
   .hero__label-col { width: 35%; }
   .hero__lede-col { width: 65%; }
 }
@@ -108,12 +90,11 @@
   .hero__line { display: inline; }
   .hero { padding: 110px 20px 120px; }
   .hero__inner { row-gap: 56px; }
-  .hero__row, .hero__row--foot { flex-direction: column; }
-  .hero__headline-col, .hero__video-col, .hero__label-col, .hero__lede-col { width: 100%; }
+  .hero__row, .hero__row--foot { flex-direction: column; row-gap: 18px; }
+  .hero__headline-col, .hero__label-col, .hero__lede-col { width: 100%; }
   .hero__headline-wrap { width: 100%; }
-  .hero__video-col { justify-content: flex-start; padding-top: 40px; }
-  .hero__lede { font-size: 32px; }
-  .hero__lede-col { row-gap: 32px; margin-top: 40px; }
+  .hero__label-col { padding-top: 0; }
+  .hero__lede { font-size: 32px; line-height: 1.08em; }
 }
 
 /* Content document specifies a primary and a secondary hero button. */

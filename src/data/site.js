@@ -47,11 +47,16 @@ export const home = {
     // widths and two on wide screens, so the balanced split is fixed here.
     headlineLines: ['Putting Your Brand First', 'in Every Media Decision'],
     headline: 'Putting Your Brand First in Every Media Decision',
-    sub: 'Brandfirst Media helps businesses and organizations plan, create, deliver, and measure strategic campaigns across traditional and digital media.',
+    // Short label for the left column of the lower hero row. The template puts
+    // a 2-3 word label here (its own was "Who we are") against the large
+    // statement on the right — the asymmetry is the point.
+    label: 'What we do',
+    // Kept short on purpose: this sits at 70px in the template's statement slot,
+    // so a full paragraph would run to six lines. The longer version lives in
+    // the intro section directly below.
+    sub: 'We help businesses plan, create, deliver and measure campaigns across traditional and digital media.',
     primary: { label: 'Start a Project', href: '/contact' },
     secondary: { label: 'Explore Our Services', href: '/services' },
-    support:
-      'From media strategy and brand communications to campaign execution and performance measurement, we help brands show up with the right message, in the right channels, at the right time.',
   },
   intro: {
     headline: 'Strategic Media Solutions for Brands That Want to Grow',
