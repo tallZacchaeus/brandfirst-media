@@ -65,7 +65,7 @@ export function useTextReveal({ stagger = 0.05, by = 'chars', rootMargin } = {})
       stop = observeOnce(el, () => {
         tween = gsap.to(targets, {
           yPercent: 0, opacity: 1, ease: 'power3.out',
-          duration: 0.8, stagger, overwrite: 'auto',
+          duration: 0.55, stagger, overwrite: 'auto',
         });
       }, { rootMargin });
     });
@@ -84,7 +84,7 @@ export function useFadeIn({ y = 40, delay = 0, rootMargin } = {}) {
     gsap.set(el, { y, opacity: 0 });
     let tween;
     const stop = observeOnce(el, () => {
-      tween = gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power2.out', delay, overwrite: 'auto' });
+      tween = gsap.to(el, { y: 0, opacity: 1, duration: 0.5, ease: 'power2.out', delay, overwrite: 'auto' });
     }, { rootMargin });
     return () => { stop(); tween?.kill(); gsap.set(el, { clearProps: 'transform,opacity' }); };
   }, [y, delay, rootMargin]);
@@ -100,7 +100,7 @@ export function useImageReveal({ rootMargin } = {}) {
     gsap.set(el, { clipPath: 'inset(0 0 100% 0)' });
     let tween;
     const stop = observeOnce(el, () => {
-      tween = gsap.to(el, { clipPath: 'inset(0 0 0% 0)', duration: 1.1, ease: 'power3.inOut', overwrite: 'auto' });
+      tween = gsap.to(el, { clipPath: 'inset(0 0 0% 0)', duration: 0.7, ease: 'power3.inOut', overwrite: 'auto' });
     }, { rootMargin });
     return () => { stop(); tween?.kill(); gsap.set(el, { clearProps: 'clipPath' }); };
   }, [rootMargin]);

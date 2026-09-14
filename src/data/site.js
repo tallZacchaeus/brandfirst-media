@@ -17,6 +17,23 @@ export const site = {
   // undercuts the positioning on an agency/production site.
   email: 'brandfirstmedia@gmail.com',
   social: [{ label: 'Facebook', href: 'https://www.facebook.com/BrandfirstMedia' }],
+
+  /**
+   * Where contact-form submissions go.
+   *
+   * null means the form falls back to opening the visitor's mail client with
+   * every field pre-filled. Unglamorous, but it cannot silently lose an
+   * enquiry — which is exactly what the previous version did.
+   *
+   * To take submissions properly: create a form at https://formspree.io (the
+   * free tier covers this volume), paste the endpoint here, and the form will
+   * POST to it with success and error states. No other change needed.
+   */
+  formEndpoint: null,
+
+  /** WhatsApp is how most Lagos SMB enquiries actually arrive. */
+  whatsapp: '2348142122000',
+
   meta: {
     title: 'Brandfirst Media | Print, Publicity and Event Production in Lagos',
     description:
@@ -238,12 +255,14 @@ export const contact = {
   fields: ['Name', 'Company or organization', 'Email address', 'Phone number', 'Service interest', 'Project budget range', 'Message'],
 };
 
+/* Work and Insights are intentionally absent. Both pages exist in the codebase
+   but have no real content — publishing "Case study in preparation" five times
+   advertises that the company cannot yet prove itself. Restore them here the
+   day real projects and articles land. */
 export const nav = [
   { label: 'Home',     href: '/' },
   { label: 'About',    href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Brands',   href: '/brands' },
-  { label: 'Work',     href: '/work' },
-  { label: 'Insights', href: '/insights' },
   { label: 'Contact',  href: '/contact' },
 ];

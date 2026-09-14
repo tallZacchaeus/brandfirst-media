@@ -19,9 +19,12 @@ export function useSmoothScroll({ enabled = true } = {}) {
   useEffect(() => {
     if (!enabled) return;
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    // Touch devices have good native momentum scrolling; emulating it costs a
+    // rAF loop on the least powerful hardware for no perceptible gain.
+    if (window.matchMedia?.('(hover: none), (pointer: coarse)').matches) return;
 
     const lenis = new Lenis({
-      duration: 1.1,
+      duration: 0.85,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
       syncTouch: false, // native momentum on touch feels better than emulated

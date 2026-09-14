@@ -39,13 +39,6 @@ export default function BrandDetail() {
           </ul>
         </section>
 
-        <section className="bd__work">
-          <h2 className="sec__title bd__h2">Selected work</h2>
-          <p className="bd__pending">
-            Project images for {brand.name} are being prepared from original
-            production files.
-          </p>
-        </section>
 
         <section className="bd__foot">
           {brand.social.length > 0 && (

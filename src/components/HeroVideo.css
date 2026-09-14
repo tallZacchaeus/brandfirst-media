@@ -26,9 +26,6 @@
 .hvideo__play:focus-visible { outline: 2px solid var(--brand-bright); outline-offset: 4px; }
 .hvideo__icon { display: grid; place-items: center; width: 16px; height: 16px; }
 
-@media (prefers-reduced-motion: reduce) {
-  /* Autoplay is motion the viewer did not ask for. */
-  .hvideo__media { display: none; }
-  .hvideo { background: var(--ink-soft); }
-}
+/* Under reduced motion the video stays, but as a still poster — the element is
+   no longer autoplayed, so hiding it would just remove the image. */
 @media (max-width: 767px) { .hvideo__play { width: 62px; height: 62px; } }
