@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
-import { useFadeIn } from '../hooks/useGsap';
+import { useFadeIn, useImageReveal } from '../hooks/useGsap';
 import { brands, services, site } from '../data/site';
 import NotFound from './NotFound';
 import '../styles/page.css';
@@ -13,6 +13,7 @@ export default function BrandDetail() {
   const { slug } = useParams();
   const brand = brands.find((b) => b.slug === slug);
   const blurb = useFadeIn();
+  const hero = useImageReveal();
 
   if (!brand) return <NotFound />;
   const named = brand.services.map((id) => services.find((s) => s.slug === id)).filter(Boolean);
@@ -21,6 +22,11 @@ export default function BrandDetail() {
     <main className={`page bd bd--${brand.accent}`}>
       <div className="page__inner">
         <PageHero eyebrow={brand.kind} title={brand.name} lede={brand.line} />
+        {brand.heroImage && (
+          <figure ref={hero} className="bd__hero">
+            <img src={brand.heroImage.src} alt={brand.heroImage.alt} width="1204" height="550" fetchPriority="high" />
+          </figure>
+        )}
 
         <p ref={blurb} className="bd__blurb">{brand.blurb}</p>
 

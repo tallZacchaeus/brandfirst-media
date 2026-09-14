@@ -2,6 +2,10 @@
 .bd--room16 { --card-accent: var(--room16); }
 .bd--aso    { --card-accent: var(--aso); }
 .bd .phero__eyebrow { color: var(--card-accent); }
+/* Full-width image band between the page hero and the blurb. Source art is
+   1204px, so it is held at 2.2:1 and cover-fitted rather than stretched taller. */
+.bd__hero { margin: 0 0 72px; border-radius: 22px; overflow: hidden; aspect-ratio: 2.2 / 1; background: var(--card-accent); }
+.bd__hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .bd__blurb { max-width: 760px; font-size: 21px; line-height: 1.6em; color: var(--muted); padding-bottom: 80px; border-bottom: 1px solid rgba(18,18,18,.12); }
 .bd__h2 { margin-bottom: 36px; }
 .bd__services { padding: 80px 0; }
@@ -17,6 +21,7 @@
 .bd__social-label { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .bd__social a { font-size: 16px; color: var(--card-accent); border-bottom: 1px solid currentColor; }
 @media (max-width: 767px) {
+  .bd__hero { aspect-ratio: 3 / 2; margin-bottom: 40px; border-radius: 14px; }
   .bd__blurb { font-size: 18px; padding-bottom: 48px; }
   .bd__service { grid-template-columns: 1fr; gap: 6px; }
   .bd__service h3 { font-size: 22px; }

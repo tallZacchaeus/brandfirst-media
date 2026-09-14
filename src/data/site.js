@@ -176,6 +176,8 @@ export const brands = [
     // Social-post crop of the wordmark on fabric — the only Aṣọ Ìgbàlódé art
     // supplied so far. Swap for a clean logo/product shot when one exists.
     image: { src: '/assets/aso-igbalode-card.webp', srcSet: '/assets/aso-igbalode-card-sm.webp 600w, /assets/aso-igbalode-card.webp 1200w' },
+    // Wider band of the same post for the detail-page hero (1204×550).
+    heroImage: { src: '/assets/aso-igbalode-hero.webp', alt: 'Aṣọ Ìgbàlódé wordmark over folded red fabric' },
     social: [{ label: 'Instagram', href: 'https://www.instagram.com/asoigbalode/' }],
   },
 ];
