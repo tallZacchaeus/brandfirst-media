@@ -13,7 +13,8 @@ import { nav as NAV, site } from '../data/site';
  * inner pages sit on a light ground with no hero to overlay.
  * `variant="dark"` = template #6033, kept for any future dark-hero page.
  *
- * The wordmark is text: no Brandfirst logo asset has been supplied.
+ * Lockup: the Brandfirst "B" mark (public/assets/brandfirst-logo-sm.png,
+ * white background knocked out) beside the name in the hero face.
  */
 export default function Header({ variant = 'overlay' }) {
   const [open, setOpen] = useState(false);
@@ -23,6 +24,7 @@ export default function Header({ variant = 'overlay' }) {
       <div className="header__inner">
         <div className="header__logo-col">
           <a className="header__logo" href="/" aria-label={`${site.name} home`}>
+            <img className="header__mark" src="/assets/brandfirst-logo-sm.png" alt="" width="300" height="400" />
             <span className="header__wordmark">{site.name}</span>
           </a>
         </div>

@@ -13,6 +13,8 @@
 
 .footer__top { display: flex; padding: 0 20px; }
 .footer__brand { width: 37.7%; padding: 130px 0 90px; }
+.footer__logo { display: inline-flex; align-items: center; gap: 14px; }
+.footer__mark { height: 56px; width: auto; display: block; }
 .footer__wordmark { font-family: var(--font-hero); font-size: 30px; line-height: 1; color: var(--paper); }
 .footer__blurb {
   margin-top: 28px; max-width: 320px;

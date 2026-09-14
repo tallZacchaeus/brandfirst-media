@@ -13,6 +13,7 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <Link className="footer__logo" to="/" aria-label={`${site.name} home`}>
+              <img className="footer__mark" src="/assets/brandfirst-logo-sm.png" alt="" width="300" height="400" />
               <span className="footer__wordmark">{site.name}</span>
             </Link>
             <p className="footer__blurb">
