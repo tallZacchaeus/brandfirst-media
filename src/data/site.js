@@ -48,10 +48,6 @@ export const home = {
     // phrase, kept as the promise the name makes.
     headlineLines: ['Print. Apparel. Events.', 'Your Brand First.'],
     headline: 'Print. Apparel. Events. Your Brand First.',
-    // Short label for the left column of the lower hero row. The template puts
-    // a 2-3 word label here (its own was "Who we are") against the large
-    // statement on the right — the asymmetry is the point.
-    label: 'What we do',
     // Support, not a second headline. An earlier version restated the three
     // words in the headline at 70px, which gave the first screen two competing
     // display blocks. This adds what the headline cannot say: where we are, how

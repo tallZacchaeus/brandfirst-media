@@ -53,14 +53,7 @@
 
 
 
-/* --- row 2: label (36.15%) + lede 930px + button --- */
-.hero__row--foot { justify-content: space-between; }
-.hero__label-col { width: 36.15%; padding-top: 8px; }
-/* Template value: 18px / 0.9em. A short caption, not a paragraph. */
-.hero__eyebrow {
-  font-size: 18px; line-height: .9em; color: var(--paper); opacity: .72;
-  letter-spacing: .02em;
-}
+/* --- row 2: statement + actions, aligned left under the headline --- */
 
 .hero__lede-col { width: 930px; max-width: 100%; display: flex; flex-direction: column; row-gap: 44px; align-items: flex-start; }
 /* Body scale, not display. The template runs a 70px statement here because its
@@ -82,22 +75,16 @@
   .hero__lede { font-size: 22px; }
 }
 @media (max-width: 1024px) {
-  .hero__label-col { width: 33%; }
-  .hero__lede-col { width: 67%; row-gap: 36px; }
+  .hero__lede-col { row-gap: 36px; }
   .hero__lede { font-size: 21px; }
-}
-@media (max-width: 880px) {
-  .hero__label-col { width: 35%; }
-  .hero__lede-col { width: 65%; }
 }
 @media (max-width: 767px) {
   .hero__line { display: inline; }
   .hero { padding: 110px 20px 120px; }
   .hero__inner { row-gap: 56px; }
   .hero__row, .hero__row--foot { flex-direction: column; row-gap: 18px; }
-  .hero__headline-col, .hero__label-col, .hero__lede-col { width: 100%; }
+  .hero__headline-col, .hero__lede-col { width: 100%; }
   .hero__headline-wrap { width: 100%; }
-  .hero__label-col { padding-top: 0; }
   .hero__lede { font-size: 18px; line-height: 1.55em; }
 }
 

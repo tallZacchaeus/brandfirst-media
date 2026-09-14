@@ -5,14 +5,14 @@ import './Hero.css';
 /**
  * Home hero. Layout follows Elementor section 1 of page #9322:
  *
- *   row 1   headline, boxed to 1160px inside a 75% column
- *   row 2   short label (36.15%)  |  large statement + action (930px)
+ *   row 1   headline, full width
+ *   row 2   supporting statement + actions
  *   gap     165px between rows, 195/250 padding on the section
  *
- * The asymmetry in row 2 is the template's own device: a two- or three-word
- * label on the left against a 70px statement on the right. An earlier version
- * put a full paragraph in the label slot, which made the row read as two
- * competing blocks instead of a caption and a statement.
+ * The template runs a short label in a left column against a 70px statement on
+ * the right. Both are gone: the label earned nothing on the first screen, and
+ * without it the 36% indent was arbitrary, so the statement and buttons align
+ * left under the headline.
  *
  * Deliberately unanimated — everything here is above the fold, and entry
  * animations previously made the lede the Largest Contentful Paint element at
@@ -39,10 +39,6 @@ export default function Hero() {
         </div>
 
         <div className="hero__row hero__row--foot">
-          <div className="hero__label-col">
-            <p className="hero__eyebrow">{hero.label}</p>
-          </div>
-
           <div className="hero__lede-col">
             <p className="hero__lede">{hero.sub}</p>
             <div className="hero__actions">
