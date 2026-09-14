@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
+import BrandMedia from '../components/BrandMedia';
 import { useFadeIn, useImageReveal } from '../hooks/useGsap';
 import { brands, services, site } from '../data/site';
 import NotFound from './NotFound';
@@ -23,11 +24,15 @@ export default function BrandDetail() {
     <main className={`page bd bd--${brand.accent}`}>
       <div className="page__inner">
         <PageHero eyebrow={brand.kind} title={brand.name} lede={brand.line} />
-        {brand.heroImage && (
+        {brand.heroImage ? (
           <figure ref={hero} className="bd__hero">
             <img src={brand.heroImage.src} alt={brand.heroImage.alt} width="1204" height="550" fetchPriority="high" />
           </figure>
-        )}
+        ) : brand.logo ? (
+          <figure ref={hero} className="bd__hero bd__hero--logo">
+            <img src={brand.logo.src} alt={`${brand.name} logo`} width={brand.logo.w} height={brand.logo.h} fetchPriority="high" />
+          </figure>
+        ) : null}
 
         <p ref={blurb} className="bd__blurb">{brand.blurb}</p>
 
@@ -97,6 +102,7 @@ export default function BrandDetail() {
           <ul className="bd__siblings">
             {brands.filter((b) => b.slug !== brand.slug).map((b) => (
               <li key={b.slug} className={`bd__sibling bd__sibling--${b.accent}`}>
+                <BrandMedia brand={b} className="bd__sibling-media" />
                 <span className="brand-card__kind">{b.kind}</span>
                 <h3>{b.name}</h3>
                 <p>{b.line}</p>

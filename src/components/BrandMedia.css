@@ -1,0 +1,27 @@
+/* Every brand band is the same 3:2 box whether it holds a photo or a logo, so
+   a row of cards lines up regardless of which artwork exists yet. */
+.bmedia {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bmedia--photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Logos sit on a pale wash of the brand's accent, not the accent itself: both
+   marks in hand carry white and near-white elements that vanish on a saturated
+   ground. The wash keeps them legible and still reads as the brand's colour. */
+.bmedia--logo {
+  background: var(--sec-tint);
+  background: color-mix(in srgb, var(--card-accent, var(--brand)) 10%, #fff);
+  padding: 30px;
+}
+.bmedia__logo { display: block; object-fit: contain; }
+/* Two shapes cover the marks in hand: a tall roundel and a wide lockup. */
+.bmedia__logo--tall { height: 78%; width: auto; max-width: 100%; }
+.bmedia__logo--wide { width: 72%; height: auto; max-height: 100%; }
+
+@media (max-width: 767px) {
+  .bmedia--logo { padding: 22px; }
+}

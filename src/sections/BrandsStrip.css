@@ -1,0 +1,36 @@
+/* Light tinted ground so the group reads as its own chapter between the white
+   intro and the dark services section. */
+.bstrip { background: var(--sec-tint); }
+.bstrip__head { align-items: flex-end; gap: 60px; }
+.bstrip__lede { font-size: 19px; line-height: 1.6em; color: var(--muted); max-width: 520px; }
+
+.bstrip__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.bstrip__item { --card-accent: var(--brand); }
+.bstrip__item--room16 { --card-accent: var(--room16); }
+.bstrip__item--aso { --card-accent: var(--aso); }
+
+.bstrip__link {
+  display: flex; flex-direction: column; height: 100%;
+  background: var(--paper); border-radius: 22px; overflow: hidden;
+  border-top: 4px solid var(--card-accent);
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
+}
+.bstrip__link:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(18,18,18,.10); }
+.bstrip__media { flex-shrink: 0; }
+.bstrip__body { padding: 30px 32px 34px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.bstrip__kind { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--card-accent); }
+.bstrip__name { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1.15em; color: var(--ink); margin-top: 6px; }
+.bstrip__line { font-size: 16px; line-height: 1.5em; color: var(--muted); }
+/* Pushed to the foot so the count lines up across cards of unequal copy. */
+.bstrip__count { margin-top: auto; padding-top: 20px; font-size: 14px; color: var(--muted-2); }
+
+@media (max-width: 1024px) {
+  .bstrip__head { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .bstrip__grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 767px) {
+  .bstrip__grid { grid-template-columns: 1fr; gap: 20px; }
+  .bstrip__body { padding: 24px 26px 28px; }
+  .bstrip__name { font-size: 26px; }
+  .bstrip__lede { font-size: 17px; }
+}

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
+import BrandMedia from '../components/BrandMedia';
 import { useFadeIn } from '../hooks/useGsap';
 import { brands, services } from '../data/site';
 import '../styles/page.css';
@@ -24,17 +25,13 @@ export default function Brands() {
   );
 }
 
-function BrandCard({ slug, name, kind, line, blurb, services: svc, accent, image, index }) {
+function BrandCard({ index, ...brand }) {
+  const { slug, name, kind, line, blurb, services: svc, accent, image } = brand;
   const el = useFadeIn({ delay: index * 0.08 });
   const named = svc.map((id) => services.find((s) => s.slug === id)).filter(Boolean);
   return (
     <li ref={el} className={`brand-card brand-card--${accent}${image ? ' brand-card--has-image' : ''}`}>
-      {image && (
-        <div className="brand-card__media">
-          <img src={image.src} srcSet={image.srcSet} sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 33vw"
-               alt={`${name} wordmark on red fabric`} width="1200" height="800" loading="lazy" />
-        </div>
-      )}
+      <BrandMedia brand={brand} className="brand-card__media" />
       <div className="brand-card__head">
         <span className="brand-card__kind">{kind}</span>
         <h2 className="brand-card__name">{name}</h2>

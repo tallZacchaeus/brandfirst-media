@@ -66,6 +66,12 @@ export const home = {
       'Brandfirst Media handles print and publicity. ROOM16 rigs the lighting and stage. Aṣọ Ìgbàlódé makes the apparel. One brief, one production team, one result.',
     ],
   },
+  // The hero claims print, apparel and events; this section names the three
+  // brands that deliver them so the claim is backed before the services list.
+  group: {
+    headline: 'One group, three brands',
+    body: 'Brandfirst Media prints and publicises. ROOM16 lights and builds the stage. Aṣọ Ìgbàlódé dresses the team. One brief can book all three.',
+  },
   why: {
     headline: 'Built for Deadlines and Colour That Matches',
     body: 'Production is judged on two things: did it arrive on time, and does it look like the artwork. We plan every job backwards from the event date, proof before we print, and match brand colours across paper, fabric and light.',
@@ -153,6 +159,7 @@ export const brands = [
     blurb: 'The parent brand. Print of all kinds, publicity, and the coordination that holds a campaign together across every surface it touches.',
     services: ['print-production', 'large-format-and-signage', 'publicity-and-brand-visibility'],
     accent: 'brand',
+    logo: { src: '/assets/brandfirst-logo-sm.png', w: 300, h: 400, ratio: 'tall' },
     // Page content. Written from what the group has described about itself;
     // specific formats, turnaround and minimums should be confirmed by the client.
     offer: [
@@ -185,6 +192,10 @@ export const brands = [
     blurb: 'ROOM16 rents, rigs and operates lighting and staging for events. Named after the shop number where the business began.',
     services: ['event-lighting', 'stage-and-event-equipment'],
     accent: 'room16',
+    // Supplied artwork reads "RE16 Pro" — the brand's earlier name. Flagged for
+    // the client: either a ROOM16 version of this mark, or confirmation that
+    // the RE16 lockup is still the one in use.
+    logo: { src: '/assets/room16-logo.png', w: 380, h: 144, ratio: 'wide' },
     offer: [
       ['Stage lighting', 'Moving heads, LED pars, profiles and washes for stage and performance.'],
       ['Ambient and decor lighting', 'Uplighting, string and festoon, colour washes and gobo projection for venues.'],

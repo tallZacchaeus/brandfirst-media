@@ -1,6 +1,7 @@
 import { useStackedPin } from '../hooks/useStackedPin';
 import Hero from '../sections/Hero';
 import StatsIntro from '../sections/StatsIntro';
+import BrandsStrip from '../sections/BrandsStrip';
 import Services from '../sections/Services';
 import ProcessSteps from '../sections/ProcessSteps';
 import ShowcaseImage from '../sections/ShowcaseImage';
@@ -8,8 +9,11 @@ import Testimonials from '../sections/Testimonials';
 import CTAFooter from '../sections/CTAFooter';
 
 // Team is omitted: the Brandfirst content document has no team content.
-// Sections 2 and 3 pin at "bottom bottom-=150" in the demo; the rest at "bottom bottom".
-const PIN_OFFSETS = { 1: 150, 2: 150 };
+// Offsets are by position in `main`, so they move when a section is inserted.
+// The demo pins its intro and services sections at "bottom bottom-=150" and the
+// rest at "bottom bottom"; here those are StatsIntro (1) and Services (3), with
+// BrandsStrip added between them at 2.
+const PIN_OFFSETS = { 1: 150, 3: 150 };
 
 /* SelectedWork and Journal are omitted: both rendered placeholder cards
    labelled "in preparation". They return when there is real work to show. */
@@ -22,6 +26,7 @@ export default function Home() {
     <main>
       <Hero />
       <StatsIntro />
+      <BrandsStrip />
       <Services />
       <ProcessSteps />
       <ShowcaseImage />
