@@ -9,8 +9,10 @@
 }
 /* Optional image band. Bleeds to the card edges (negative padding offset) and
    sits under the accent top border. */
-.brand-card__media { margin: -44px -38px 8px; border-radius: 0 0 18px 18px; overflow: hidden; aspect-ratio: 3 / 2; background: var(--card-accent); }
-.brand-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Position only. The band itself — box, ground and how a photo or a logo sits
+   inside it — belongs to BrandMedia.css; duplicating the fill here forced logos
+   through the photo's object-fit: cover and cropped them. */
+.brand-card__media { margin: -44px -38px 8px; border-radius: 0 0 18px 18px; }
 /* The image already carries the wordmark, so the heading is hidden visually
    and kept for assistive tech / the document outline. */
 .brand-card--has-image .brand-card__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

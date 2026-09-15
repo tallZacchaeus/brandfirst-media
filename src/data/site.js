@@ -189,10 +189,14 @@ export const brands = [
     blurb: 'ROOM16 rents, rigs and operates lighting and staging for events. Named after the shop number where the business began.',
     services: ['event-lighting', 'stage-and-event-equipment'],
     accent: 'room16',
-    // Supplied artwork reads "RE16 Pro" — the brand's earlier name. Flagged for
-    // the client: either a ROOM16 version of this mark, or confirmation that
-    // the RE16 lockup is still the one in use.
-    logo: { src: '/assets/room16-logo.png', w: 380, h: 144, ratio: 'wide' },
+    // Reconstruction of the supplied "RE16 Pro" artwork with the name corrected
+    // to ROOM16 and the "Pro" badge dropped, at the client's request. The slabs,
+    // the red (#FF0000, sampled from the original) and the obliqued heavy
+    // grotesque are matched; the letterforms are Arial Black sheared, not the
+    // original's custom cut. Replace with a proper vector from the designer
+    // before this goes on anything printed. The source artwork is kept beside it
+    // as room16-logo-source.png.
+    logo: { src: '/assets/room16-logo.png', w: 520, h: 144, ratio: 'wide' },
     offer: [
       ['Stage lighting', 'Moving heads, LED pars, profiles and washes for stage and performance.'],
       ['Ambient and decor lighting', 'Uplighting, string and festoon, colour washes and gobo projection for venues.'],

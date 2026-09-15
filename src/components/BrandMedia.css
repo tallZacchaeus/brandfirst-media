@@ -20,7 +20,7 @@
 .bmedia__logo { display: block; object-fit: contain; }
 /* Two shapes cover the marks in hand: a tall roundel and a wide lockup. */
 .bmedia__logo--tall { height: 78%; width: auto; max-width: 100%; }
-.bmedia__logo--wide { width: 72%; height: auto; max-height: 100%; }
+.bmedia__logo--wide { width: 80%; height: auto; max-height: 100%; }
 
 @media (max-width: 767px) {
   .bmedia--logo { padding: 22px; }
