@@ -1,5 +1,11 @@
 /* Home "Why Brandfirst Media". Keeps Elementor section 5's mint ground. */
+/* The section below this one (.industries) overlaps by 150px rather than the
+   standard 100px, so the shared 125px bottom padding left -25px of clearance
+   and the second line of every highlight was painted over. Extra padding here
+   restores the same 25px gap the other sections get. Under 1024px .industries
+   reverts to -100px, so the override is desktop-only. */
 .process { background: var(--sec-mint); overflow: hidden; }
+@media (min-width: 1025px) { .process { padding-bottom: 175px; } }
 .process__head { display: flex; justify-content: space-between; align-items: flex-start; gap: 60px; }
 .process__title { max-width: 620px; line-height: 1.1em; }
 .process__body { max-width: 480px; font-size: 18px; line-height: 1.66em; color: var(--muted); }
