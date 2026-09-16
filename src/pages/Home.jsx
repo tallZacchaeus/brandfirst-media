@@ -16,9 +16,9 @@ const PIN_OFFSETS = { 1: 150, 3: 150 };
 
 /* SelectedWork and Journal are omitted: both rendered placeholder cards
    labelled "in preparation". They return when there is real work to show.
-   ShowcaseImage is omitted too: it was the Arolax demo's decorative divider
-   image, carrying nothing of this business. It returns when there is a real
-   production photograph to put in it. */
+   ShowcaseImage is gone entirely: it was the Arolax demo's decorative divider
+   image, carrying nothing of this business. Real production photography now
+   lives in the hero and on the brand pages instead. */
 
 /** Home. Started from Elementor page #9322 ("Home", Branding Agency demo) and
  *  still follows its section order, less the demo sections that carried no

@@ -1,8 +1,0 @@
-/* Section 6 — full-bleed divider image, radius 80 on the image itself. */
-.showcase { background: var(--paper); padding: 0 0 0; }
-.showcase__img {
-  display: block; width: 100%; height: auto;
-  border-radius: var(--sec-radius);
-  object-fit: cover;
-}
-@media (max-width: 767px) { .showcase__img { border-radius: 32px; } }

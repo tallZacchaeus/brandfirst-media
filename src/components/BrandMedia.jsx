@@ -17,9 +17,9 @@ export default function BrandMedia({ brand, className = '' }) {
           src={image.src}
           srcSet={image.srcSet}
           sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          alt={`${name} brand image`}
-          width="1200"
-          height="800"
+          alt={image.alt || `${name} brand image`}
+          width={image.w}
+          height={image.h}
           loading="lazy"
         />
       ) : (

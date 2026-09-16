@@ -26,7 +26,15 @@ export default function BrandDetail() {
         <PageHero eyebrow={brand.kind} title={brand.name} lede={brand.line} />
         {brand.heroImage ? (
           <figure ref={hero} className="bd__hero">
-            <img src={brand.heroImage.src} alt={brand.heroImage.alt} width="1204" height="550" fetchPriority="high" />
+            <img
+              src={brand.heroImage.src}
+              srcSet={brand.heroImage.srcSet}
+              sizes="(max-width: 1024px) 100vw, 1250px"
+              alt={brand.heroImage.alt}
+              width={brand.heroImage.w}
+              height={brand.heroImage.h}
+              fetchPriority="high"
+            />
           </figure>
         ) : brand.logo ? (
           <figure ref={hero} className="bd__hero bd__hero--logo">
@@ -79,6 +87,27 @@ export default function BrandDetail() {
             <h2 className="sec__title bd__h2">Good for</h2>
             <ul className="bd__tags">
               {brand.useCases.map((u) => <li key={u}>{u}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {brand.gallery && (
+          <section className="bd__block">
+            <h2 className="sec__title bd__h2">{brand.name} at work</h2>
+            <ul className="bd__gallery">
+              {brand.gallery.map((g) => (
+                <li key={g.src}>
+                  <img
+                    src={g.src}
+                    srcSet={g.srcSet}
+                    sizes="(max-width: 767px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    alt={g.alt}
+                    width={g.w}
+                    height={g.h}
+                    loading="lazy"
+                  />
+                </li>
+              ))}
             </ul>
           </section>
         )}

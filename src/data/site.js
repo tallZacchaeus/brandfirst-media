@@ -153,6 +153,21 @@ export const services = [
 
 /** The group. Brandfirst Media is the parent; ROOM16 and Aṣọ Ìgbàlódé are
  *  in-house brands, not client work — labelled as such throughout. */
+/** Builds an image entry from the optimised set in public/media. Every photo
+ *  is exported at the widths listed here, so a srcSet is just the name plus the
+ *  widths that exist for it — no point repeating the paths per entry. */
+const media = (name, widths, w, h, alt) => ({
+  src: `/media/${name}-${widths[0]}.webp`,
+  srcSet: widths.map((x) => `/media/${name}-${x}.webp ${x}w`).join(', '),
+  w, h, alt,
+});
+// Photographs: 480/900/1400. Frames pulled from the stage videos: 480/832,
+// which is all the source footage holds.
+const PHOTO = [480, 900, 1400];
+const FRAME = [480, 832];
+// Live stage stills, shot on a phone: 1080px is the source width.
+const LIVE = [480, 900];
+
 export const brands = [
   {
     slug: 'brandfirst-media',
@@ -163,6 +178,16 @@ export const brands = [
     services: ['print-production', 'large-format-and-signage', 'publicity-and-brand-visibility'],
     accent: 'brand',
     logo: { src: '/assets/brandfirst-logo-sm.png', w: 300, h: 400, ratio: 'tall' },
+    image: media('bfm-wide-format', PHOTO, 4000, 1800, 'A wide-format press running a printed panel'),
+    heroImage: media('bfm-billboard', PHOTO, 4024, 1993, 'An installed roadside billboard printed by Brandfirst Media'),
+    gallery: [
+      media('bfm-press-operator', PHOTO, 1440, 2560, 'An operator guiding a sheet off the press'),
+      media('bfm-rollups', PHOTO, 1784, 4131, 'Roll-up banners coming off the press'),
+      media('bfm-banner-red', PHOTO, 1784, 4131, 'A large-format campaign banner'),
+      media('bfm-finishing', PHOTO, 1784, 4131, 'The team laying out a printed banner for finishing'),
+      media('bfm-press-run', PHOTO, 1784, 4132, 'A campaign print run on the press bed'),
+      media('bfm-banners-green', PHOTO, 1784, 4132, 'Event banners printed and checked'),
+    ],
     // Page content. Written from what the group has described about itself;
     // specific formats, turnaround and minimums should be confirmed by the client.
     offer: [
@@ -199,6 +224,16 @@ export const brands = [
     // brand is named ROOM16 throughout the site; that is the client's call, made
     // after a redrawn ROOM16 version was offered and declined.
     logo: { src: '/assets/room16-logo.png', w: 380, h: 144, ratio: 'wide' },
+    image: media('room16-live-beams', LIVE, 1080, 718, 'A ROOM16 lighting rig in use during a live event'),
+    heroImage: media('room16-screens', FRAME, 832, 464, 'Stage, truss and LED screens built for a 74th anniversary event'),
+    gallery: [
+      media('room16-truss', FRAME, 832, 464, 'Truss and moving heads rigged over an outdoor stage'),
+      media('room16-fixtures', FRAME, 832, 464, 'Moving-head fixtures staged before rigging'),
+      media('room16-stage-lit', FRAME, 832, 464, 'The finished stage under a full lighting rig'),
+      media('room16-live-red', LIVE, 1080, 692, 'Stage lighting during a live performance'),
+      media('room16-live-wide', LIVE, 1080, 694, 'Beam and wash fixtures over a full stage'),
+      media('room16-stage-night', FRAME, 832, 464, 'A ROOM16 stage lit green at night'),
+    ],
     offer: [
       ['Stage lighting', 'Moving heads, LED pars, profiles and washes for stage and performance.'],
       ['Ambient and decor lighting', 'Uplighting, string and festoon, colour washes and gobo projection for venues.'],
@@ -249,11 +284,17 @@ export const brands = [
       ['Can I order a small quantity?', 'Yes. Small runs are possible; unit prices fall as quantity rises.'],
       ['Can you match our brand colours?', 'We work from your brand guide and match garment and thread or ink colours as closely as stock allows.'],
     ],
-    // Social-post crop of the wordmark on fabric — the only Aṣọ Ìgbàlódé art
-    // supplied so far. Swap for a clean logo/product shot when one exists.
-    image: { src: '/assets/aso-igbalode-card.webp', srcSet: '/assets/aso-igbalode-card-sm.webp 600w, /assets/aso-igbalode-card.webp 1200w' },
-    // Wider band of the same post for the detail-page hero (1204×550).
-    heroImage: { src: '/assets/aso-igbalode-hero.webp', alt: 'Aṣọ Ìgbàlódé wordmark over folded red fabric' },
+    image: media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'),
+    heroImage: media('aso-group-wide', PHOTO, 5600, 4000, 'The Aṣọ Ìgbàlódé range worn by four models'),
+    gallery: [
+      media('aso-jersey-white', PHOTO, 4516, 5644, 'White Aṣọ Ìgbàlódé jersey with an orange 83'),
+      media('aso-jersey-hold', PHOTO, 4708, 5884, 'A jersey held up to show the front print'),
+      media('aso-back-print', PHOTO, 4844, 6055, 'Back of a jersey reading HALLELUYAH 83'),
+      media('aso-pair-white', PHOTO, 4000, 5600, 'Two models in the white colourway'),
+      media('aso-family', PHOTO, 4612, 5764, 'A customer and child in Aṣọ Ìgbàlódé apparel'),
+      media('aso-solo-white', PHOTO, 4708, 5884, 'Full-length shot of the white jersey'),
+      media('aso-corporate-wear', PHOTO, 4024, 1996, 'Branded corporate shirts bagged and ready to deliver'),
+    ],
     social: [{ label: 'Instagram', href: 'https://www.instagram.com/asoigbalode/' }],
   },
 ];

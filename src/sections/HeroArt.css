@@ -3,24 +3,76 @@
    land — the CTA's position above the fold is hard-won. */
 .hero-art {
   position: absolute;
-  top: 50%; right: 4%;
-  width: min(46vw, 620px);
-  aspect-ratio: 1;
+  top: 50%; right: 3%;
+  width: min(46vw, 640px);
+  aspect-ratio: 1 / 1.16;
   transform: translateY(-50%);
   pointer-events: none;
   z-index: 0;
 }
-.hero-art svg { width: 100%; height: 100%; display: block; }
 
-.hero-art__ring { transform-origin: 200px 200px; animation: ha-spin 64s linear infinite; }
-.hero-art__core { transform-origin: 200px 200px; animation: ha-spin 44s linear infinite reverse; }
+/* The headline pill, reused as a photo frame. */
+.hero-art__cap {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .35);
+  box-shadow: 0 30px 70px rgba(4, 20, 64, .38);
+  animation: ha-float 11s ease-in-out infinite;
+}
+/* The three shots are stacked; only one is opaque at a time. */
+.hero-art__shot {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  opacity: 0;
+  animation: ha-cycle 18s ease-in-out infinite;
+}
+/* A third of the cycle each, offset by a third. The first frame carries no
+   delay, so a capsule is never blank on first paint. */
+.hero-art__shot--1 { animation-delay: 0s; }
+.hero-art__shot--2 { animation-delay: -12s; }
+.hero-art__shot--3 { animation-delay: -6s; }
 
-@keyframes ha-spin { to { transform: rotate(360deg); } }
+@keyframes ha-cycle {
+  0%   { opacity: 1; }
+  28%  { opacity: 1; }
+  36%  { opacity: 0; }
+  92%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Overlapped rather than tiled: the stack is what stops four capsules reading
+   as a gallery. Each drifts a different distance, on its own clock.
+     a  stage, top
+     b  apparel, portrait, left
+     d  print, between the two stage shots
+     c  stage, bottom */
+.hero-art__cap--a { top: 0;    right: 0;   width: 86%; aspect-ratio: 16 / 9; }
+.hero-art__cap--b { top: 30%;  left: 0;    width: 44%; aspect-ratio: 3 / 4;  animation-duration: 14s; animation-delay: -3s; }
+.hero-art__cap--b .hero-art__shot { animation-duration: 21s; }
+.hero-art__cap--b .hero-art__shot--2 { animation-delay: -14s; }
+.hero-art__cap--b .hero-art__shot--3 { animation-delay: -7s; }
+.hero-art__cap--d { top: 41%;  right: 2%;  width: 54%; aspect-ratio: 20 / 9; animation-duration: 12s; animation-delay: -8s; }
+.hero-art__cap--d .hero-art__shot { animation-duration: 24s; }
+.hero-art__cap--d .hero-art__shot--2 { animation-delay: -16s; }
+.hero-art__cap--d .hero-art__shot--3 { animation-delay: -8s; }
+.hero-art__cap--c { bottom: 0; right: 6%;  width: 72%; aspect-ratio: 16 / 9; animation-duration: 13s; animation-delay: -6s; }
+.hero-art__cap--c .hero-art__shot { animation-duration: 27s; }
+.hero-art__cap--c .hero-art__shot--2 { animation-delay: -18s; }
+.hero-art__cap--c .hero-art__shot--3 { animation-delay: -9s; }
+
+@keyframes ha-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50%      { transform: translate3d(0, -14px, 0); }
+}
 
 /* Below this the hero content spans the full width and there is no empty half
-   left to fill, so the mark would sit under the type rather than beside it. */
+   left to fill, so the capsules would sit under the type rather than beside it. */
 @media (max-width: 1100px) { .hero-art { display: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-art__ring, .hero-art__core { animation: none; }
+  .hero-art__cap { animation: none; }
+  .hero-art__shot { animation: none; opacity: 0; }
+  .hero-art__shot--1 { opacity: 1; }
 }

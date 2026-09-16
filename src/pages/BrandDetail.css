@@ -40,12 +40,25 @@
 .bd__faq div:first-child { border-top: 0; padding-top: 0; }
 .bd__faq dt { font-family: var(--font-inner); font-size: 22px; line-height: 1.3em; color: var(--ink); margin-bottom: 8px; }
 .bd__faq dd { font-size: 17px; line-height: 1.6em; color: var(--muted); }
+/* Portrait apparel shots and 16:9 stage frames share this grid, so the tiles
+   are a fixed 4:5 and the images cover — mixing native ratios here made the
+   rows ragged. */
+.bd__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.bd__gallery li { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--sec-tint); }
+.bd__gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Stage frames are 832px wide at most, so they get a shorter tile rather than
+   being blown up to fill a portrait one. */
+.bd--room16 .bd__gallery li { aspect-ratio: 4 / 3; }
+
 .bd__works-lede { font-size: 18px; line-height: 1.6em; color: var(--muted); max-width: 640px; margin-bottom: 36px; }
 .bd__siblings { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .bd__sibling { overflow: hidden; padding: 32px 30px; border-radius: 18px; border: 1px solid rgba(18,18,18,.14); border-top: 4px solid var(--sib-accent); }
-.bd__sibling--brand  { --sib-accent: var(--brand); }
-.bd__sibling--room16 { --sib-accent: var(--room16); }
-.bd__sibling--aso    { --sib-accent: var(--aso); }
+/* --card-accent is set on the page root for the brand being viewed, and
+   BrandMedia reads it for the logo wash. Reset it per sibling or every card on
+   the page borrows the host brand's colour. */
+.bd__sibling--brand  { --sib-accent: var(--brand);  --card-accent: var(--brand); }
+.bd__sibling--room16 { --sib-accent: var(--room16); --card-accent: var(--room16); }
+.bd__sibling--aso    { --sib-accent: var(--aso);    --card-accent: var(--aso); }
 .bd__sibling h3 { font-family: var(--font-inner); font-weight: 700; font-size: 26px; color: var(--ink); margin-top: 6px; }
 .bd__sibling p { font-size: 15px; color: var(--muted); margin: 4px 0 18px; }
 .bd__sibling a { font-size: 15px; color: var(--sib-accent); border-bottom: 1px solid currentColor; }
@@ -54,7 +67,8 @@
 .bd__social-label { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .bd__social a { font-size: 16px; color: var(--card-accent); border-bottom: 1px solid currentColor; }
 @media (max-width: 767px) {
-  .bd__block { padding: 48px 0; } .bd__offer, .bd__process, .bd__siblings { grid-template-columns: 1fr; gap: 24px; } .bd__offer h3, .bd__process h3 { font-size: 21px; } .bd__faq dt { font-size: 19px; }
+  .bd__block { padding: 48px 0; }
+  .bd__gallery { grid-template-columns: 1fr 1fr; gap: 12px; } .bd__offer, .bd__process, .bd__siblings { grid-template-columns: 1fr; gap: 24px; } .bd__offer h3, .bd__process h3 { font-size: 21px; } .bd__faq dt { font-size: 19px; }
   .bd__hero { aspect-ratio: 3 / 2; }
   .bd__hero--logo { aspect-ratio: 5 / 2; margin-bottom: 40px; border-radius: 14px; }
   .bd__blurb { font-size: 18px; padding-bottom: 48px; }
