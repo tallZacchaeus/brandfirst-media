@@ -43,15 +43,9 @@ export const site = {
 
 export const home = {
   hero: {
-    // What the group does, at full display size. Set uppercase and tracked, so
-    // it is ~30% wider than the same words in mixed case: split across two
-    // lines rather than dropped a size to fit one.
-    headlineLines: ['Print. Apparel.', 'Events.'],
-    // The company's own phrase, set small beneath the statement as a tagline
-    // rather than a second display line. Still inside the h1, so the heading
-    // reads whole to search engines and screen readers.
-    headlineTag: 'Your Brand First.',
-    headline: 'Print. Apparel. Events. Your Brand First.',
+    // What the group does, at full display size.
+    headlineLines: ['Print. Apparel. Events.'],
+    headline: 'Print. Apparel. Events.',
     // Support, not a second headline. An earlier version restated the three
     // words in the headline at 70px, which gave the first screen two competing
     // display blocks. This adds what the headline cannot say: where we are, how

@@ -21,9 +21,8 @@
   position: relative;
   max-width: 1720px; margin: 0 auto;
   display: flex; flex-direction: column;
-  /* Was 120px against a two-line display headline. The headline is now one
-     line plus a small tagline, so that gap left the two halves looking
-     unrelated. */
+  /* Was 120px against a two-line display headline; the headline is one line
+     now, and that gap left the two halves looking unrelated. */
   row-gap: 84px;
 }
 
@@ -41,28 +40,12 @@
    orphan word from the forced break. */
 .hero__line { display: block; }
 
-/* The tagline is the company's own phrase, set at a fraction of the statement
-   above it so the first screen has one display line, not two. Block so it takes
-   its own line; the em-relative size keeps the ratio as the headline clamps. */
-.hero__tagline {
-  display: block;
-  font-size: .3em; line-height: 1.2em;
-  font-weight: 800;
-  /* Same treatment as the line above, a size down, so the two read as one
-     lockup rather than two unrelated settings. */
-  text-transform: uppercase; letter-spacing: .06em;
-  opacity: .82;
-  margin-top: .5em;
-}
-
 .hero__headline {
   font-family: var(--font-hero);
+  /* Black. At display size this face needs negative tracking or the counters
+     read as gaps. */
   font-weight: 900;
-  /* Uppercase and tracked out, matching the buttons below it. The tracking is
-     the buttons' own .04em: the letterforms want air at this weight, and the
-     negative tracking display type normally takes would fight the treatment. */
-  text-transform: uppercase;
-  letter-spacing: .04em;
+  letter-spacing: -.02em;
   /* Fluid so the longer line ("Putting Your Brand First", 985px per 100px in
      Getaway) always fits the 75% headline column without reflowing to three
      lines. Capped at 108px. */
@@ -102,7 +85,6 @@
 }
 @media (max-width: 767px) {
   .hero__line { display: inline; }
-  .hero__tagline { font-size: .46em; margin-top: .6em; }
   .hero { padding: 110px 20px 120px; }
   .hero__inner { row-gap: 56px; }
   .hero__row, .hero__row--foot { flex-direction: column; row-gap: 18px; }
