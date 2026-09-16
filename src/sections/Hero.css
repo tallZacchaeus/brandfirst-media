@@ -9,7 +9,7 @@
     radial-gradient(120% 90% at 82% 8%, var(--brand-bright) 0%, rgba(41,171,226,0) 58%),
     linear-gradient(152deg, var(--brand) 0%, var(--brand-deep) 72%);
   background-repeat: no-repeat;
-  padding: 170px 20px 190px;
+  padding: 140px 20px 170px;
   overflow: hidden;
 }
 .hero__noise {
@@ -21,9 +21,9 @@
   position: relative;
   max-width: 1720px; margin: 0 auto;
   display: flex; flex-direction: column;
-  /* Was 120px against a two-line display headline; the headline is one line
-     now, and that gap left the two halves looking unrelated. */
-  row-gap: 84px;
+  /* The three stacked pills are tall; at the old 84px the buttons fell below
+     the fold on a 900px-high screen. */
+  row-gap: 56px;
 }
 
 /* --- row 1: headline (75%) + video (25%) --- */
@@ -54,9 +54,9 @@
      read as gaps. */
   font-weight: 900;
   letter-spacing: -.02em;
-  /* Flex so the three pills sit in a row with a real gap and wrap as one unit
-     when the column runs out. */
-  display: flex; flex-wrap: wrap; gap: .16em .2em;
+  /* Stacked, each pill shrink-wrapped to its own text and aligned left, so the
+     rising word lengths give the block a stepped right edge. */
+  display: flex; flex-direction: column; align-items: flex-start; gap: .14em;
   /* Fluid so the longer line ("Putting Your Brand First", 985px per 100px in
      Getaway) always fits the 75% headline column without reflowing to three
      lines. Capped at 108px. */

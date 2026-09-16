@@ -13,7 +13,10 @@ export default function StatsIntro() {
     <section className="sec stats">
       <div className="sec__inner">
         <div className="stats__lead">
-          <h2 ref={title} className="stats__copy">{intro.headline}</h2>
+          <h2 ref={title} className="stats__copy">
+            <span className="stats__lead-phrase">{intro.headlineLead}</span>{' '}
+            <span className="stats__rest">{intro.headlineRest}</span>
+          </h2>
         </div>
         <div ref={body} className="stats__body">
           {intro.body.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}

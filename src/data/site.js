@@ -43,10 +43,13 @@ export const site = {
 
 export const home = {
   hero: {
-    // What the group does. Each item is set in its own pill in the hero, so they
-    // are three entries rather than one string.
-    headlineLines: ['Print.', 'Apparel.', 'Events.'],
-    headline: 'Print. Apparel. Events.',
+    // What the group does, one pill per item, stacked. Ordered shortest to
+    // longest rather than alphabetically or by importance: set left-aligned in
+    // a column, that is what gives the block its stepped edge. Reordering is
+    // safe here because these are three items in a list, not a sentence — and
+    // DOM order is kept identical to visual order so it reads the same aloud.
+    headlineLines: ['Print.', 'Events.', 'Apparel.'],
+    headline: 'Print. Events. Apparel.',
     // Support, not a second headline. An earlier version restated the three
     // words in the headline at 70px, which gave the first screen two competing
     // display blocks. This adds what the headline cannot say: where we are, how
@@ -56,6 +59,10 @@ export const home = {
     secondary: { label: 'See What We Produce', href: '/services' },
   },
   intro: {
+    // Split so the lead phrase carries the section at headline size and the
+    // qualifier sits under it a size down. Both are inside the same h2.
+    headlineLead: 'One Team',
+    headlineRest: 'From Artwork to Event Night',
     headline: 'One Team From Artwork to Event Night',
     body: [
       'Most campaigns come apart at the seams. The banner came from one supplier, the shirts from another, the stage from a third, and none of the colours agree. We produce all three under one roof, so the blues match and the deadlines line up.',
