@@ -1,0 +1,45 @@
+.vcard {
+  position: relative; margin: 0;
+  border-radius: 18px; overflow: hidden;
+  background: var(--sec-tint);
+  /* Portrait phone clips and landscape stage clips share a row, so the tile is
+     a fixed shape and the video covers it. */
+  aspect-ratio: 4 / 5;
+}
+.vcard__video { width: 100%; height: 100%; object-fit: cover; display: block; cursor: pointer; }
+
+/* Sits over the poster; shrinks out of the way once the clip is running. */
+.vcard__toggle {
+  position: absolute; left: 16px; bottom: 16px;
+  width: 48px; height: 48px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(10,20,50,.55); color: var(--paper);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: transform .3s ease, opacity .3s ease, background .3s ease;
+}
+.vcard__toggle:hover { background: rgba(10,20,50,.8); }
+.vcard__icon { font-size: 13px; line-height: 1; transform: translateX(1px); }
+.vcard.is-playing .vcard__toggle { opacity: 0; transform: scale(.8); }
+.vcard.is-playing:hover .vcard__toggle,
+.vcard:focus-within .vcard__toggle { opacity: 1; transform: none; }
+
+.vcard__caption {
+  position: absolute; inset: auto 0 0 0;
+  padding: 46px 18px 18px 76px;
+  font-size: 14px; line-height: 1.4em; color: var(--paper);
+  background: linear-gradient(to top, rgba(6,14,38,.85), rgba(6,14,38,0));
+  opacity: 0; transition: opacity .3s ease;
+  pointer-events: none;
+}
+.vcard:hover .vcard__caption, .vcard:focus-within .vcard__caption { opacity: 1; }
+
+/* A grid of clips, shared by the Work page and the brand pages. */
+.vgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+@media (max-width: 1024px) { .vgrid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 767px) {
+  .vgrid { grid-template-columns: 1fr; gap: 14px; }
+  /* No hover on touch, so the caption would never appear. */
+  .vcard__caption { opacity: 1; }
+}

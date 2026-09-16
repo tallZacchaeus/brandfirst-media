@@ -1,8 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import BrandMedia from '../components/BrandMedia';
+import VideoCard from '../components/VideoCard';
 import { useFadeIn, useImageReveal } from '../hooks/useGsap';
-import { brands, services, showcase, site } from '../data/site';
+import { brands, services, showcase, site, videos } from '../data/site';
 import NotFound from './NotFound';
 import '../styles/page.css';
 import '../styles/section.css';
@@ -22,6 +23,7 @@ export default function BrandDetail() {
   // Everything shot for this brand, rather than a hand-picked subset that has
   // to be kept in step with the media folder.
   const shots = showcase.filter((s) => s.brand === brand.accent);
+  const clips = videos.filter((v) => v.brand === brand.accent);
 
   return (
     <main className={`page bd bd--${brand.accent}`}>
@@ -90,6 +92,15 @@ export default function BrandDetail() {
             <h2 className="sec__title bd__h2">Good for</h2>
             <ul className="bd__tags">
               {brand.useCases.map((u) => <li key={u}>{u}</li>)}
+            </ul>
+          </section>
+        )}
+
+        {clips.length > 0 && (
+          <section className="bd__block">
+            <h2 className="sec__title bd__h2">{brand.name} in motion</h2>
+            <ul className="vgrid">
+              {clips.map((c) => <li key={c.name}><VideoCard clip={c} /></li>)}
             </ul>
           </section>
         )}

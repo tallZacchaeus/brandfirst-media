@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import { useFadeIn } from '../hooks/useGsap';
-import { showcase, work } from '../data/site';
+import VideoCard from '../components/VideoCard';
+import { showcase, videos, work } from '../data/site';
 import '../styles/page.css';
 import '../styles/section.css';
 import './Work.css';
@@ -23,6 +24,12 @@ export default function Work() {
   const [filter, setFilter] = useState('All');
   const shots = useMemo(
     () => (filter === 'All' ? showcase : showcase.filter((s) => s.tag === filter)),
+    [filter],
+  );
+  // The filter chips drive the clips too, so "Print" does not leave stage
+  // footage sitting under a filtered gallery.
+  const clips = useMemo(
+    () => (filter === 'All' ? videos : videos.filter((v) => v.tag === filter)),
     [filter],
   );
 
@@ -53,6 +60,19 @@ export default function Work() {
         <ul className="wk__gallery" key={filter}>
           {shots.map((s, i) => <Shot key={s.src} shot={s} index={i} />)}
         </ul>
+
+        {clips.length > 0 && (
+          <section className="wk__film">
+            <h2 className="sec__title">On the floor</h2>
+            <p className="wk__film-note">
+              Clips from our own jobs — presses running, rigs going up. Hover or
+              tap to play.
+            </p>
+            <ul className="vgrid" key={`v-${filter}`}>
+              {clips.map((c) => <li key={c.name}><VideoCard clip={c} /></li>)}
+            </ul>
+          </section>
+        )}
 
         <section className="wk__cta">
           <h2 className="sec__title">{work.cta.headline}</h2>

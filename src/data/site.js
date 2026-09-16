@@ -313,6 +313,29 @@ export const about = {
 /** Everything in public/media, tagged by discipline, for the Work page. One
  *  list: the page filters it rather than keeping three that can drift apart.
  *  `tag` drives the filter chips; `brand` drives the accent. */
+/** The client's own footage, trimmed to ~10s loops and re-encoded for the web
+ *  (see public/media). Silent production clips rather than films with sound, so
+ *  they play muted. `brand` puts each on the right brand page; the Work page
+ *  shows all of them. */
+export const videos = [
+  { name: 'vid-print-wideformat', w: 540, h: 960, tag: 'Print',  brand: 'brand',
+    alt: 'A wide-format press running a full-colour panel' },
+  { name: 'vid-print-banner', w: 540, h: 960, tag: 'Print',  brand: 'brand',
+    alt: 'A campaign banner coming off the press' },
+  { name: 'vid-print-check', w: 540, h: 960, tag: 'Print',  brand: 'brand',
+    alt: 'Checking colour and registration against the artwork' },
+  { name: 'vid-print-run', w: 540, h: 960, tag: 'Print',  brand: 'brand',
+    alt: 'An event print run feeding through the machine' },
+  { name: 'vid-stage-beams', w: 832, h: 464, tag: 'Events', brand: 'room16',
+    alt: 'Beam fixtures working an indoor stage' },
+  { name: 'vid-stage-green', w: 832, h: 464, tag: 'Events', brand: 'room16',
+    alt: 'A full outdoor rig lit for the evening' },
+  { name: 'vid-event-white', w: 540, h: 960, tag: 'Events', brand: 'room16',
+    alt: 'Stage and lighting built for a white-themed event' },
+  { name: 'vid-event-decor', w: 540, h: 960, tag: 'Events', brand: 'room16',
+    alt: 'Decor lighting across a finished event set' },
+];
+
 export const showcase = [
   // --- Print and large format ---
   { ...media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'), tag: 'Print', brand: 'brand' },
