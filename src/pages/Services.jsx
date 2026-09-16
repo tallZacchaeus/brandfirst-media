@@ -33,7 +33,7 @@ export default function Services() {
   );
 }
 
-function ServiceBlock({ n, slug, title, body, includes, index }) {
+function ServiceBlock({ n, slug, title, body, includes, image, index }) {
   const el = useFadeIn({ delay: index * 0.04 });
   return (
     <section ref={el} id={slug} className="sv__block">
@@ -42,7 +42,9 @@ function ServiceBlock({ n, slug, title, body, includes, index }) {
         <h2 className="sv__block-title">{title}</h2>
       </div>
       <div className="sv__block-body">
-        <p>{body}</p>
+        <div className="sv__block-copy">
+          <p>{body}</p>
+        </div>
         <div>
           <h3 className="sv__includes-label">What this includes</h3>
           <ul className="sv__includes">
@@ -50,6 +52,20 @@ function ServiceBlock({ n, slug, title, body, includes, index }) {
           </ul>
         </div>
       </div>
+      {image && (
+        <figure className="sv__shot">
+          <img
+            src={image.src}
+            srcSet={image.srcSet}
+            sizes="(max-width: 1024px) 100vw, 40vw"
+            alt={image.alt}
+            width={image.w}
+            height={image.h}
+            loading="lazy"
+            decoding="async"
+          />
+        </figure>
+      )}
     </section>
   );
 }

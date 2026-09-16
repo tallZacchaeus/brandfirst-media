@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import BrandMedia from '../components/BrandMedia';
 import { useFadeIn, useImageReveal } from '../hooks/useGsap';
-import { brands, services, site } from '../data/site';
+import { brands, services, showcase, site } from '../data/site';
 import NotFound from './NotFound';
 import '../styles/page.css';
 import '../styles/section.css';
@@ -19,6 +19,9 @@ export default function BrandDetail() {
 
   if (!brand) return <NotFound />;
   const named = brand.services.map((id) => services.find((s) => s.slug === id)).filter(Boolean);
+  // Everything shot for this brand, rather than a hand-picked subset that has
+  // to be kept in step with the media folder.
+  const shots = showcase.filter((s) => s.brand === brand.accent);
 
   return (
     <main className={`page bd bd--${brand.accent}`}>
@@ -91,12 +94,12 @@ export default function BrandDetail() {
           </section>
         )}
 
-        {brand.gallery && (
+        {shots.length > 0 && (
           <section className="bd__block">
             <h2 className="sec__title bd__h2">{brand.name} at work</h2>
             <ul className="bd__gallery">
-              {brand.gallery.map((g) => (
-                <li key={g.src}>
+              {shots.map((g) => (
+                <li key={g.src} className={g.h > g.w ? 'bd__tall' : undefined}>
                   <img
                     src={g.src}
                     srcSet={g.srcSet}
@@ -105,6 +108,7 @@ export default function BrandDetail() {
                     width={g.w}
                     height={g.h}
                     loading="lazy"
+                    decoding="async"
                   />
                 </li>
               ))}

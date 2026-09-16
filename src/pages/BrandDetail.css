@@ -43,12 +43,12 @@
 /* Portrait apparel shots and 16:9 stage frames share this grid, so the tiles
    are a fixed 4:5 and the images cover — mixing native ratios here made the
    rows ragged. */
-.bd__gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.bd__gallery li { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 5; background: var(--sec-tint); }
+/* Same treatment as the Work page: fixed tiles, portraits twice as tall, and
+   dense flow so the tall ones do not strand gaps. */
+.bd__gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: dense; gap: 20px; }
+.bd__gallery li { border-radius: 16px; overflow: hidden; aspect-ratio: 4 / 3; background: var(--sec-tint); }
+.bd__gallery .bd__tall { aspect-ratio: 4 / 5; grid-row: span 2; }
 .bd__gallery img { width: 100%; height: 100%; object-fit: cover; display: block; }
-/* Stage frames are 832px wide at most, so they get a shorter tile rather than
-   being blown up to fill a portrait one. */
-.bd--room16 .bd__gallery li { aspect-ratio: 4 / 3; }
 
 .bd__works-lede { font-size: 18px; line-height: 1.6em; color: var(--muted); max-width: 640px; margin-bottom: 36px; }
 .bd__siblings { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -68,7 +68,8 @@
 .bd__social a { font-size: 16px; color: var(--card-accent); border-bottom: 1px solid currentColor; }
 @media (max-width: 767px) {
   .bd__block { padding: 48px 0; }
-  .bd__gallery { grid-template-columns: 1fr 1fr; gap: 12px; } .bd__offer, .bd__process, .bd__siblings { grid-template-columns: 1fr; gap: 24px; } .bd__offer h3, .bd__process h3 { font-size: 21px; } .bd__faq dt { font-size: 19px; }
+  .bd__gallery { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .bd__gallery .bd__tall { grid-row: auto; } .bd__offer, .bd__process, .bd__siblings { grid-template-columns: 1fr; gap: 24px; } .bd__offer h3, .bd__process h3 { font-size: 21px; } .bd__faq dt { font-size: 19px; }
   .bd__hero { aspect-ratio: 3 / 2; }
   .bd__hero--logo { aspect-ratio: 5 / 2; margin-bottom: 40px; border-radius: 14px; }
   .bd__blurb { font-size: 18px; padding-bottom: 48px; }

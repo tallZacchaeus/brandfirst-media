@@ -39,9 +39,9 @@ const CAPSULES = [
   {
     cls: 'd',
     shots: [
-      { name: 'bfm-billboard', widths: [480, 900], w: 4024, h: 1993 },
+      { name: 'bfm-billboard', widths: [480, 900], w: 4024, h: 1713 },
       { name: 'bfm-wide-format', widths: [480, 900], w: 4000, h: 1800 },
-      { name: 'bfm-press-run', widths: [480, 900], w: 1784, h: 4132 },
+      { name: 'bfm-press-run', widths: [480, 900], w: 1784, h: 3990 },
     ],
   },
   {

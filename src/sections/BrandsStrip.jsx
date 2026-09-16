@@ -17,7 +17,7 @@ export default function BrandsStrip() {
       <div className="sec__inner">
         <div className="sec__head bstrip__head">
           <h2 ref={heading} className="sec__title">{group.headline}</h2>
-          <p ref={lede} className="bstrip__lede">{group.body}</p>
+          {group.body && <p ref={lede} className="bstrip__lede">{group.body}</p>}
         </div>
         <ul className="bstrip__grid">
           {brands.map((b, i) => <BrandItem key={b.slug} brand={b} index={i} />)}

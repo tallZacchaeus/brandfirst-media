@@ -1,7 +1,9 @@
 /* Light tinted ground so the group reads as its own chapter between the white
    intro and the dark services section. */
 .bstrip { background: var(--sec-tint); }
-.bstrip__head { align-items: flex-end; gap: 60px; }
+/* The lede is optional; without it the heading should sit left rather than
+   centre itself across the row. */
+.bstrip__head { align-items: flex-end; justify-content: flex-start; gap: 60px; }
 .bstrip__lede { font-size: 19px; line-height: 1.6em; color: var(--muted); max-width: 520px; }
 
 .bstrip__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }

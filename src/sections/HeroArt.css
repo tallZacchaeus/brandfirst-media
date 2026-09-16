@@ -11,12 +11,13 @@
   z-index: 0;
 }
 
-/* The headline pill, reused as a photo frame. */
+/* A softened rectangle rather than the headline's full pill: at pill radius the
+   ends ate the edges of every photograph. */
 .hero-art__cap {
   position: absolute;
   margin: 0;
   overflow: hidden;
-  border-radius: 999px;
+  border-radius: 26px;
   border: 1px solid rgba(255, 255, 255, .35);
   box-shadow: 0 30px 70px rgba(4, 20, 64, .38);
   animation: ha-float 11s ease-in-out infinite;

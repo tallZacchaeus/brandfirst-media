@@ -6,6 +6,21 @@
  * marked TODO rather than invented.
  */
 
+/** Builds an image entry from the optimised set in public/media. Every photo
+ *  is exported at the widths listed here, so a srcSet is just the name plus the
+ *  widths that exist for it — no point repeating the paths per entry. */
+const media = (name, widths, w, h, alt) => ({
+  src: `/media/${name}-${widths[0]}.webp`,
+  srcSet: widths.map((x) => `/media/${name}-${x}.webp ${x}w`).join(', '),
+  w, h, alt,
+});
+// Photographs: 480/900/1400. Frames pulled from the stage videos: 480/832,
+// which is all the source footage holds.
+const PHOTO = [480, 900, 1400];
+const FRAME = [480, 832];
+// Live stage stills, shot on a phone: 1080px is the source width.
+const LIVE = [480, 900];
+
 export const site = {
   name: 'Brandfirst Media',
   tagline: 'Print, Publicity and Event Production',
@@ -66,14 +81,13 @@ export const home = {
     headline: 'One Team From Artwork to Event Night',
     body: [
       'Most campaigns come apart at the seams. The banner came from one supplier, the shirts from another, the stage from a third, and none of the colours agree. We produce all three under one roof, so the blues match and the deadlines line up.',
-      'Brandfirst Media handles print and publicity. ROOM16 rigs the lighting and stage. Aṣọ Ìgbàlódé makes the apparel. One brief, one production team, one result.',
     ],
   },
   // The hero claims print, apparel and events; this section names the three
   // brands that deliver them so the claim is backed before the services list.
+  // The cards carry the detail, so the heading stands alone.
   group: {
     headline: 'One group, three brands',
-    body: 'Brandfirst Media prints and publicises. ROOM16 lights and builds the stage. Aṣọ Ìgbàlódé dresses the team. One brief can book all three.',
   },
   why: {
     headline: 'Built for Deadlines and Colour That Matches',
@@ -109,6 +123,7 @@ export const home = {
 export const services = [
   {
     n: '01', slug: 'print-production', brand: 'brandfirst',
+    image: media('bfm-press-run', PHOTO, 1784, 3990, 'A campaign print run on the press bed'),
     title: 'Print Production',
     card: 'Print of all kinds — from business stationery and brochures to full campaign collateral, produced to a consistent standard.',
     body: 'Print is the core of what we do. We handle artwork preparation, proofing, production and delivery, so what arrives matches what was approved. Short runs and long runs, on stock that suits the job rather than whatever is cheapest.',
@@ -116,6 +131,7 @@ export const services = [
   },
   {
     n: '02', slug: 'large-format-and-signage', brand: 'brandfirst',
+    image: media('bfm-billboard', PHOTO, 4024, 1713, 'An installed roadside billboard'),
     title: 'Large Format and Signage',
     card: 'Banners, roll-ups, backdrops and outdoor signage sized and finished for the space they have to hold.',
     body: 'Large format is judged from a distance and up close at the same time. We produce banners, backdrops, pull-up stands and signage with the resolution and finishing to survive both, and we size artwork to the actual site rather than a template.',
@@ -123,6 +139,7 @@ export const services = [
   },
   {
     n: '03', slug: 'branded-apparel', brand: 'aso-igbalode',
+    image: media('aso-jersey-white', PHOTO, 4516, 5644, 'A branded jersey from the Aṣọ Ìgbàlódé range'),
     title: 'Branded Apparel and Merchandise',
     card: 'Shirts, vests, caps and merchandise branded for teams, campaigns and events — delivered through Aṣọ Ìgbàlódé.',
     body: 'Aṣọ Ìgbàlódé is our apparel arm. We produce branded shirts, vests, caps and merchandise for corporate teams, campaigns, conferences and events, matching brand colours properly rather than approximately.',
@@ -130,6 +147,7 @@ export const services = [
   },
   {
     n: '04', slug: 'event-lighting', brand: 'room16',
+    image: media('room16-live-beams', LIVE, 1080, 718, 'A lighting rig in use during a live event'),
     title: 'Event Lighting',
     card: 'Lighting rental, rigging and operation for events of any size — delivered through ROOM16.',
     body: 'ROOM16 supplies and sets up lighting for events. We plan the rig around the venue and the programme, install it, and operate it on the night, so the room looks the way it was designed to look rather than the way the house lights leave it.',
@@ -137,6 +155,7 @@ export const services = [
   },
   {
     n: '05', slug: 'stage-and-event-equipment', brand: 'room16',
+    image: media('room16-truss', FRAME, 832, 464, 'Truss and moving heads rigged over an outdoor stage'),
     title: 'Stage and Event Equipment',
     card: 'Staging, trussing and event equipment, set up and struck on schedule — delivered through ROOM16.',
     body: 'We supply and build the physical structure of an event: staging, trussing and the equipment around it. Setup and strike run to the programme, not the other way round, so rehearsal and handover happen when they were meant to.',
@@ -144,6 +163,7 @@ export const services = [
   },
   {
     n: '06', slug: 'publicity-and-brand-visibility', brand: 'brandfirst',
+    image: media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'),
     title: 'Publicity and Brand Visibility',
     card: 'Getting a brand seen — coordinating the print, the apparel and the event presence so they read as one campaign.',
     body: 'Most visibility problems are coordination problems: the banner, the shirts and the stage all exist but were ordered separately and do not match. We plan and produce them together so a campaign reads as one thing across every surface.',
@@ -153,20 +173,6 @@ export const services = [
 
 /** The group. Brandfirst Media is the parent; ROOM16 and Aṣọ Ìgbàlódé are
  *  in-house brands, not client work — labelled as such throughout. */
-/** Builds an image entry from the optimised set in public/media. Every photo
- *  is exported at the widths listed here, so a srcSet is just the name plus the
- *  widths that exist for it — no point repeating the paths per entry. */
-const media = (name, widths, w, h, alt) => ({
-  src: `/media/${name}-${widths[0]}.webp`,
-  srcSet: widths.map((x) => `/media/${name}-${x}.webp ${x}w`).join(', '),
-  w, h, alt,
-});
-// Photographs: 480/900/1400. Frames pulled from the stage videos: 480/832,
-// which is all the source footage holds.
-const PHOTO = [480, 900, 1400];
-const FRAME = [480, 832];
-// Live stage stills, shot on a phone: 1080px is the source width.
-const LIVE = [480, 900];
 
 export const brands = [
   {
@@ -182,15 +188,7 @@ export const brands = [
     // photograph of an installed board, so the alt says "design" — the
     // installed board on the detail page is the real thing.
     image: media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'),
-    heroImage: media('bfm-billboard', PHOTO, 4024, 1993, 'An installed roadside billboard printed by Brandfirst Media'),
-    gallery: [
-      media('bfm-press-operator', PHOTO, 1440, 2560, 'An operator guiding a sheet off the press'),
-      media('bfm-rollups', PHOTO, 1784, 4131, 'Roll-up banners coming off the press'),
-      media('bfm-banner-red', PHOTO, 1784, 4131, 'A large-format campaign banner'),
-      media('bfm-finishing', PHOTO, 1784, 4131, 'The team laying out a printed banner for finishing'),
-      media('bfm-press-run', PHOTO, 1784, 4132, 'A campaign print run on the press bed'),
-      media('bfm-banners-green', PHOTO, 1784, 4132, 'Event banners printed and checked'),
-    ],
+    heroImage: media('bfm-billboard', PHOTO, 4024, 1713, 'An installed roadside billboard printed by Brandfirst Media'),
     // Page content. Written from what the group has described about itself;
     // specific formats, turnaround and minimums should be confirmed by the client.
     offer: [
@@ -229,14 +227,6 @@ export const brands = [
     logo: { src: '/assets/room16-logo.png', w: 380, h: 144, ratio: 'wide' },
     image: media('room16-live-beams', LIVE, 1080, 718, 'A ROOM16 lighting rig in use during a live event'),
     heroImage: media('room16-screens', FRAME, 832, 464, 'Stage, truss and LED screens built for a 74th anniversary event'),
-    gallery: [
-      media('room16-truss', FRAME, 832, 464, 'Truss and moving heads rigged over an outdoor stage'),
-      media('room16-fixtures', FRAME, 832, 464, 'Moving-head fixtures staged before rigging'),
-      media('room16-stage-lit', FRAME, 832, 464, 'The finished stage under a full lighting rig'),
-      media('room16-live-red', LIVE, 1080, 692, 'Stage lighting during a live performance'),
-      media('room16-live-wide', LIVE, 1080, 694, 'Beam and wash fixtures over a full stage'),
-      media('room16-stage-night', FRAME, 832, 464, 'A ROOM16 stage lit green at night'),
-    ],
     offer: [
       ['Stage lighting', 'Moving heads, LED pars, profiles and washes for stage and performance.'],
       ['Ambient and decor lighting', 'Uplighting, string and festoon, colour washes and gobo projection for venues.'],
@@ -289,15 +279,6 @@ export const brands = [
     ],
     image: media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'),
     heroImage: media('aso-group-wide', PHOTO, 5600, 4000, 'The Aṣọ Ìgbàlódé range worn by four models'),
-    gallery: [
-      media('aso-jersey-white', PHOTO, 4516, 5644, 'White Aṣọ Ìgbàlódé jersey with an orange 83'),
-      media('aso-jersey-hold', PHOTO, 4708, 5884, 'A jersey held up to show the front print'),
-      media('aso-back-print', PHOTO, 4844, 6055, 'Back of a jersey reading HALLELUYAH 83'),
-      media('aso-pair-white', PHOTO, 4000, 5600, 'Two models in the white colourway'),
-      media('aso-family', PHOTO, 4612, 5764, 'A customer and child in Aṣọ Ìgbàlódé apparel'),
-      media('aso-solo-white', PHOTO, 4708, 5884, 'Full-length shot of the white jersey'),
-      media('aso-corporate-wear', PHOTO, 4024, 1996, 'Branded corporate shirts bagged and ready to deliver'),
-    ],
     social: [{ label: 'Instagram', href: 'https://www.instagram.com/asoigbalode/' }],
   },
 ];
@@ -329,10 +310,49 @@ export const about = {
   ],
 };
 
+/** Everything in public/media, tagged by discipline, for the Work page. One
+ *  list: the page filters it rather than keeping three that can drift apart.
+ *  `tag` drives the filter chips; `brand` drives the accent. */
+export const showcase = [
+  // --- Print and large format ---
+  { ...media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-billboard', PHOTO, 4024, 1713, 'Installed roadside billboard'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-wide-format', PHOTO, 4000, 1800, 'A wide-format press running a printed panel'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-press-operator', PHOTO, 1440, 2560, 'An operator guiding a sheet off the press'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-press-run', PHOTO, 1784, 3990, 'A campaign print run on the press bed'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-rollups', PHOTO, 1784, 3991, 'Roll-up banners coming off the press'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-banner-red', PHOTO, 1784, 3991, 'A large-format campaign banner'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-banners-green', PHOTO, 1784, 3990, 'Event banners printed and checked'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-finishing', PHOTO, 1784, 3991, 'The team laying out a printed banner for finishing'), tag: 'Print', brand: 'brand' },
+
+  // --- Lighting, stage and events ---
+  { ...media('room16-live-beams', LIVE, 1080, 718, 'A lighting rig in use during a live event'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-live-red', LIVE, 1080, 692, 'Stage lighting during a live performance'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-live-wide', LIVE, 1080, 694, 'Beam and wash fixtures over a full stage'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-stage-night', FRAME, 832, 464, 'A stage lit green at night'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-stage-lit', FRAME, 832, 464, 'The finished stage under a full lighting rig'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-screens', FRAME, 832, 464, 'Stage, truss and LED screens built for an anniversary event'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-truss', FRAME, 832, 464, 'Truss and moving heads rigged over an outdoor stage'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-fixtures', FRAME, 832, 464, 'Moving-head fixtures staged before rigging'), tag: 'Events', brand: 'room16' },
+
+  // --- Branded apparel ---
+  { ...media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-group-wide', PHOTO, 5600, 4000, 'The Aṣọ Ìgbàlódé range worn by four models'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-jersey-white', PHOTO, 4516, 5644, 'White jersey with an orange 83'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-jersey-hold', PHOTO, 4708, 5884, 'A jersey held up to show the front print'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-back-print', PHOTO, 4844, 6055, 'Back of a jersey reading HALLELUYAH 83'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-pair-orange', PHOTO, 4000, 5600, 'Two models in the orange colourway'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-pair-white', PHOTO, 4000, 5600, 'Two models in the white colourway'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-duo-studio', PHOTO, 4916, 6144, 'Two models photographed on white'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-solo-white', PHOTO, 4708, 5884, 'Full-length shot of the white jersey'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-family', PHOTO, 4612, 5764, 'A customer and child in Aṣọ Ìgbàlódé apparel'), tag: 'Apparel', brand: 'aso' },
+  { ...media('aso-corporate-wear', PHOTO, 4024, 1713, 'Branded corporate shirts bagged and ready to deliver'), tag: 'Apparel', brand: 'aso' },
+];
+
 export const work = {
   hero: {
     headline: 'Our Work',
-    sub: 'Print, apparel, lighting and stage — the jobs we have produced and the events we have built.',
+    sub: 'Print, apparel, lighting and stage — jobs we have produced and events we have built.',
   },
   cta: {
     headline: 'Have an Event Coming Up?',
@@ -386,6 +406,7 @@ export const nav = [
   { label: 'Home',     href: '/' },
   { label: 'About',    href: '/about' },
   { label: 'Services', href: '/services' },
+  { label: 'Work',     href: '/work' },
   { label: 'Brands',   href: '/brands' },
   { label: 'Contact',  href: '/contact' },
 ];

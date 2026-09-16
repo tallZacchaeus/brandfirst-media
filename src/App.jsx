@@ -6,6 +6,7 @@ import SiteLayout from './layout/SiteLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import Work from './pages/Work';
 import Brands from './pages/Brands';
 import BrandDetail from './pages/BrandDetail';
 import Contact from './pages/Contact';
@@ -23,6 +24,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="services" element={<Services />} />
+          <Route path="work" element={<Work />} />
           <Route path="brands" element={<Brands />} />
           <Route path="brands/:slug" element={<BrandDetail />} />
           <Route path="contact" element={<Contact />} />
