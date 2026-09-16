@@ -43,8 +43,10 @@ export const site = {
 
 export const home = {
   hero: {
-    // What the group does, at full display size.
-    headlineLines: ['Print. Apparel. Events.'],
+    // What the group does, at full display size. Set uppercase and tracked, so
+    // it is ~30% wider than the same words in mixed case: split across two
+    // lines rather than dropped a size to fit one.
+    headlineLines: ['Print. Apparel.', 'Events.'],
     // The company's own phrase, set small beneath the statement as a tagline
     // rather than a second display line. Still inside the h1, so the heading
     // reads whole to search engines and screen readers.
