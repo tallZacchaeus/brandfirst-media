@@ -55,7 +55,11 @@
      them unlicensed for production. Both of these are SIL OFL. */
   --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'Instrument Sans', system-ui, sans-serif;
-  --font-hero: 'Instrument Serif', Georgia, serif;
+  /* The brand voice: hero headline, both wordmarks and the closing CTA. A heavy
+     geometric with single-storey 'a' and hooked 'y' descenders — the client's
+     reference (adikastakes.store) runs the same face at 900. OFL. Everything
+     else stays Instrument Serif/Sans. */
+  --font-hero: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
   --font-inner: 'Instrument Serif', Georgia, serif;
 
   /* Scale observed in the demo (px) */

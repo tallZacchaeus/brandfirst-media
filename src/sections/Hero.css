@@ -46,15 +46,18 @@
    its own line; the em-relative size keeps the ratio as the headline clamps. */
 .hero__tagline {
   display: block;
-  font-size: .3em; line-height: 1.2em;
-  letter-spacing: .01em;
+  font-size: .34em; line-height: 1.2em;
+  font-weight: 800; letter-spacing: -.01em;
   opacity: .82;
   margin-top: .5em;
 }
 
 .hero__headline {
   font-family: var(--font-hero);
-  font-weight: 400;
+  /* Black. At display size this face needs negative tracking or the counters
+     read as gaps. */
+  font-weight: 900;
+  letter-spacing: -.02em;
   /* Fluid so the longer line ("Putting Your Brand First", 985px per 100px in
      Getaway) always fits the 75% headline column without reflowing to three
      lines. Capped at 108px. */

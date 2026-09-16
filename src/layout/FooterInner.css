@@ -14,7 +14,7 @@
 
 .footer-inner__cta { max-width: 1216px; }
 .footer-inner__title {
-  font-family: var(--font-hero); font-weight: 400;
+  font-family: var(--font-hero); font-weight: 800;
   font-size: 68px; line-height: 1.05em; color: var(--paper);
   max-width: 780px;
 }

@@ -65,7 +65,8 @@
 .header__mark { height: 44px; width: auto; display: block; }
 .header__wordmark {
   font-family: var(--font-hero);
-  font-size: 24px; line-height: 1; color: var(--ink);
+  font-weight: 800;
+  font-size: 20px; line-height: 1; color: var(--ink);
   letter-spacing: -.01em; white-space: nowrap;
 }
 .header--dark .header__wordmark { color: var(--paper); }

@@ -14,11 +14,11 @@
 .cta .btn--primary:hover { background: var(--brand-bright); color: var(--paper); }
 .cta__col { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; }
 .cta__eyebrow {
-  font-family: var(--font-hero); font-weight: 400;
+  font-family: var(--font-hero); font-weight: 900; letter-spacing: -.02em;
   font-size: 30px; line-height: 1em; color: var(--ink);
 }
 .cta__line {
-  font-family: var(--font-hero); font-weight: 400;
+  font-family: var(--font-hero); font-weight: 900; letter-spacing: -.02em;
   font-size: 88px; line-height: 1.05em; color: var(--ink);
   max-width: 900px;
 }
