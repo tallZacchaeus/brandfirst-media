@@ -15,8 +15,7 @@
 }
 .services__card:hover { background: #232327; transform: translateY(-6px); }
 .services__num { font-size: 18px; color: var(--paper); opacity: .6; }
-.services__name {
-  font-family: var(--font-display); font-weight: 400;
+.services__name { font-family: var(--font-display); font-weight: 700;
   font-size: 26px; line-height: 1.25em; color: var(--paper);
 }
 .services__text { font-size: 16px; line-height: 1.6em; color: var(--muted-2); flex: 1; }

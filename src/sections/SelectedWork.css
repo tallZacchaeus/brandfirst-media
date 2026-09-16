@@ -15,8 +15,7 @@
 /* --- header: title 22% + follow links 78% --- */
 .work__head { display: flex; align-items: center; }
 .work__title-col { width: 22%; }
-.work__title {
-  font-family: var(--font-display); font-weight: 400;
+.work__title { font-family: var(--font-display); font-weight: 700;
   font-size: 70px; line-height: 1em; color: var(--ink);
 }
 .work__follow {
@@ -50,8 +49,7 @@
 .card:hover .card__media img { transform: scale(1.04); }
 
 .card__body { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
-.card__title {
-  font-family: var(--font-display); font-weight: 400;
+.card__title { font-family: var(--font-display); font-weight: 700;
   font-size: 30px; line-height: 1.2em; color: var(--ink);
 }
 .card__tags { display: flex; flex-direction: row; align-items: center; gap: 5px; }
@@ -105,6 +103,6 @@
 }
 .case:hover { background: var(--tint-grey); border-color: transparent; }
 .case__sector { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
-.case__title { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1.25em; color: var(--ink); }
+.case__title { font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.25em; color: var(--ink); }
 .case__soon { font-size: 14px; color: var(--muted-2); }
 @media (max-width: 767px) { .work__grid--cases { grid-template-columns: 1fr; } .case { padding: 30px 26px; } .case__title { font-size: 22px; } }

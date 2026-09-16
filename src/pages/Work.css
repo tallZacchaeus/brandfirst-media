@@ -1,5 +1,5 @@
 .wk__format { padding: 90px 0; border-top: 1px solid rgba(18,18,18,.14); margin-top: 90px; }
-.wk__format-title { font-family: var(--font-display); font-weight: 400; font-size: 28px; color: var(--ink); }
+.wk__format-title { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--ink); }
 .wk__format-note { margin-top: 10px; font-size: 17px; color: var(--muted); max-width: 520px; }
 .wk__format-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .wk__format-list li { font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); padding: 10px 18px; border: 1px solid rgba(18,18,18,.18); border-radius: 999px; }

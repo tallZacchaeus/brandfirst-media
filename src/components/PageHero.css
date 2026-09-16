@@ -2,7 +2,7 @@
    Sizes follow the archive/single templates (100px display, 18-24px lede). */
 .phero { padding: 90px 0 70px; }
 .phero__eyebrow { font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 22px; }
-.phero__title { font-family: var(--font-inner); font-weight: 400; font-size: 100px; line-height: 1.02em; color: var(--ink); }
+.phero__title { font-family: var(--font-inner); font-weight: 800; font-size: 76px; line-height: 1.06em; letter-spacing: -.02em; color: var(--ink); }
 .phero__lede { margin-top: 28px; max-width: 640px; font-size: 20px; line-height: 1.55em; color: var(--muted); }
 .phero--dark { background: var(--sec-dark); border-radius: 0 0 var(--sec-radius) var(--sec-radius); padding: 110px 20px 90px; margin-top: -1px; }
 .phero--dark .phero__title { color: var(--paper); }

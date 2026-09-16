@@ -11,22 +11,25 @@
   max-width: 1720px; margin: 0 auto;
   display: flex; flex-direction: column; row-gap: 90px;
 }
-/* Section headings are uniformly 70px across sections 2-9. */
+/* The demo set these at 70px in a narrow face. Montserrat Alternates at 800 is
+   far wider, and 70px pushed "Built for Deadlines and Colour That Matches" to
+   four lines, so the scale steps down to keep headings to two or three. */
 .sec__title {
-  font-family: var(--font-display); font-weight: 400;
-  font-size: 70px; line-height: 1em; color: var(--ink);
+  font-family: var(--font-display); font-weight: 800;
+  letter-spacing: -.02em;
+  font-size: 56px; line-height: 1.06em; color: var(--ink);
 }
 .sec__head { display: flex; justify-content: space-between; align-items: center; }
 
 @media (max-width: 1366px) {
   .sec { padding: 100px 20px; border-radius: 60px 60px 0 0; }
   .sec__inner { row-gap: 64px; }
-  .sec__title { font-size: 56px; }
+  .sec__title { font-size: 46px; }
 }
-@media (max-width: 1024px) { .sec__title { font-size: 44px; } }
+@media (max-width: 1024px) { .sec__title { font-size: 38px; } }
 @media (max-width: 767px) {
   .sec { padding: 72px 20px; margin-top: -60px; border-radius: 32px 32px 0 0; }
   .sec__inner { row-gap: 44px; }
-  .sec__title { font-size: 34px; }
+  .sec__title { font-size: 28px; }
   .sec__head { flex-direction: column; align-items: flex-start; gap: 24px; }
 }

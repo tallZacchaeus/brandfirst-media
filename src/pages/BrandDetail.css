@@ -21,14 +21,14 @@
 .bd__service-list { display: flex; flex-direction: column; gap: 32px; }
 .bd__service { display: grid; grid-template-columns: 60px 1fr; gap: 20px; align-items: baseline; }
 .bd__n { font-size: 14px; letter-spacing: .08em; color: var(--card-accent); }
-.bd__service h3 { font-family: var(--font-inner); font-weight: 400; font-size: 28px; line-height: 1.2em; color: var(--ink); margin-bottom: 8px; }
+.bd__service h3 { font-family: var(--font-inner); font-weight: 700; font-size: 28px; line-height: 1.2em; color: var(--ink); margin-bottom: 8px; }
 .bd__service p { font-size: 17px; line-height: 1.6em; color: var(--muted); max-width: 640px; }
 .bd__work { padding: 0 0 80px; }
 .bd__pending { font-size: 17px; color: var(--muted-2); font-style: italic; }
 .bd__block { padding: 80px 0; border-top: 1px solid rgba(18,18,18,.12); }
 .bd__block--tight { padding: 56px 0; }
 .bd__offer { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 40px; }
-.bd__offer h3, .bd__process h3 { font-family: var(--font-inner); font-weight: 400; font-size: 24px; line-height: 1.2em; color: var(--ink); margin-bottom: 8px; }
+.bd__offer h3, .bd__process h3 { font-family: var(--font-inner); font-weight: 700; font-size: 24px; line-height: 1.2em; color: var(--ink); margin-bottom: 8px; }
 .bd__offer p, .bd__process p { font-size: 16px; line-height: 1.6em; color: var(--muted); }
 .bd__process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; counter-reset: none; }
 .bd__process li { padding-top: 18px; border-top: 2px solid var(--card-accent); }
@@ -46,7 +46,7 @@
 .bd__sibling--brand  { --sib-accent: var(--brand); }
 .bd__sibling--room16 { --sib-accent: var(--room16); }
 .bd__sibling--aso    { --sib-accent: var(--aso); }
-.bd__sibling h3 { font-family: var(--font-inner); font-weight: 400; font-size: 26px; color: var(--ink); margin-top: 6px; }
+.bd__sibling h3 { font-family: var(--font-inner); font-weight: 700; font-size: 26px; color: var(--ink); margin-top: 6px; }
 .bd__sibling p { font-size: 15px; color: var(--muted); margin: 4px 0 18px; }
 .bd__sibling a { font-size: 15px; color: var(--sib-accent); border-bottom: 1px solid currentColor; }
 .bd__foot { display: flex; align-items: center; justify-content: space-between; gap: 30px; padding: 60px 0 150px; border-top: 1px solid rgba(18,18,18,.12); }

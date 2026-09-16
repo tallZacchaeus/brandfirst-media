@@ -19,7 +19,7 @@
 .bstrip__media { flex-shrink: 0; }
 .bstrip__body { padding: 30px 32px 34px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
 .bstrip__kind { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--card-accent); }
-.bstrip__name { font-family: var(--font-display); font-weight: 400; font-size: 30px; line-height: 1.15em; color: var(--ink); margin-top: 6px; }
+.bstrip__name { font-family: var(--font-display); font-weight: 700; font-size: 30px; line-height: 1.15em; color: var(--ink); margin-top: 6px; }
 .bstrip__line { font-size: 16px; line-height: 1.5em; color: var(--muted); }
 /* Pushed to the foot so the count lines up across cards of unequal copy. */
 .bstrip__count { margin-top: auto; padding-top: 20px; font-size: 14px; color: var(--muted-2); }

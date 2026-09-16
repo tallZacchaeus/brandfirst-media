@@ -4,15 +4,15 @@
 .ab__philosophy-body { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 32px; }
 .ab__philosophy-body p { font-size: 18px; line-height: 1.66em; color: var(--muted); }
 .ab__mv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 60px; padding-bottom: 110px; }
-.ab__mv-item h3 { font-family: var(--font-display); font-weight: 400; font-size: 26px; color: var(--ink); margin-bottom: 14px; }
+.ab__mv-item h3 { font-family: var(--font-display); font-weight: 700; font-size: 26px; color: var(--ink); margin-bottom: 14px; }
 .ab__mv-item p { font-size: 19px; line-height: 1.6em; color: var(--muted); }
 .ab__values { background: var(--sec-dark); color: var(--paper); border-radius: var(--sec-radius); padding: 110px 0; }
 .ab__values-title { color: var(--paper); }
 .ab__values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 44px 40px; margin-top: 60px; }
-.ab__value h3 { font-family: var(--font-display); font-weight: 400; font-size: 24px; color: var(--paper); margin-bottom: 10px; }
+.ab__value h3 { font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--paper); margin-bottom: 10px; }
 .ab__value p { font-size: 17px; line-height: 1.6em; color: var(--muted-2); }
 .ab__cta { padding: 120px 0 150px; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
-.ab__cta-eyebrow { font-family: var(--font-display); font-weight: 400; font-size: 42px; line-height: 1.2em; color: var(--ink); }
+.ab__cta-eyebrow { font-family: var(--font-display); font-weight: 700; font-size: 42px; line-height: 1.2em; color: var(--ink); }
 @media (max-width: 1024px) {
   .ab__overview, .ab__philosophy-body, .ab__mv { grid-template-columns: 1fr; gap: 24px; }
   .ab__values-grid { grid-template-columns: repeat(2, 1fr); }

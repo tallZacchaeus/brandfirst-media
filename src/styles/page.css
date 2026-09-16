@@ -4,7 +4,8 @@
 .page__inner { max-width: 1290px; margin: 0 auto; padding: 0 20px; }
 /* Inner-page display type. */
 .page__title {
-  font-family: var(--font-inner); font-weight: 400;
+  font-family: var(--font-inner); font-weight: 800;
+  letter-spacing: -.02em;
   color: var(--ink); line-height: 1em;
 }
 .page__lede { font-size: 18px; line-height: 1.55em; color: var(--muted); }

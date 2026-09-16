@@ -15,8 +15,7 @@
 .post:hover .post__media img { transform: scale(1.05); }
 
 .post__meta { display: flex; align-items: center; gap: 10px; }
-.post__cat {
-  font-family: var(--font-display); font-weight: 400;
+.post__cat { font-family: var(--font-display); font-weight: 700;
   font-size: 14px; text-transform: uppercase; letter-spacing: .04em;
   color: var(--muted); background: transparent;
   transition: color .25s ease;
@@ -51,7 +50,7 @@
 }
 .topic:hover { background: var(--tint-grey); border-color: transparent; }
 .topic__n { font-size: 13px; letter-spacing: .08em; color: var(--muted); }
-.topic__title { font-family: var(--font-display); font-weight: 400; font-size: 24px; line-height: 1.3em; color: var(--ink); }
+.topic__title { font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.3em; color: var(--ink); }
 .topic__soon { font-size: 14px; color: var(--muted-2); margin-top: auto; }
 @media (max-width: 1024px) { .topic-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 767px) { .topic-grid { grid-template-columns: 1fr; } .topic__title { font-size: 20px; } }

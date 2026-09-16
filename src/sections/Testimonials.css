@@ -4,8 +4,7 @@
 .industries__title { max-width: 560px; }
 .industries__body { max-width: 460px; font-size: 18px; line-height: 1.66em; color: var(--muted); }
 .industries__list { display: flex; flex-wrap: wrap; gap: 14px; }
-.industries__item {
-  font-family: var(--font-display); font-weight: 400;
+.industries__item { font-family: var(--font-display); font-weight: 700;
   font-size: 22px; line-height: 1; color: var(--ink);
   padding: 18px 28px; border: 1px solid rgba(18,18,18,.2); border-radius: 999px;
   transition: background .3s ease, color .3s ease;

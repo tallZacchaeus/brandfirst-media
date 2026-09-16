@@ -34,8 +34,7 @@
   width: 62.3%; padding: 130px 0 90px;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
 }
-.footer__col-title {
-  font-family: var(--font-display); font-weight: 400;
+.footer__col-title { font-family: var(--font-display); font-weight: 700;
   font-size: 20px; line-height: 1.2em; color: var(--paper);
   margin-bottom: 22px;
 }

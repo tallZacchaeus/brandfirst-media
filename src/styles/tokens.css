@@ -46,21 +46,19 @@
   --sec-radius: 80px;
   --sec-overlap: -100px;
 
-  /* Type. The Arolax demo used four faces — Getaway, Beatrice Trial, Kanit and
-     Instrument Sans — and two of them could not ship: Beatrice is an
-     evaluation-only cut and Getaway carries no licence metadata at all.
-     Two faces from one superfamily, drawn to sit together: Instrument Serif
-     for anything display-sized, Instrument Sans for everything read at length.
-     Replaces Getaway/Beatrice/Kanit — four voices, two of them loud and two of
-     them unlicensed for production. Both of these are SIL OFL. */
-  --font-display: 'Instrument Serif', Georgia, serif;
-  --font-body: 'Instrument Sans', system-ui, sans-serif;
-  /* The brand voice: hero headline, both wordmarks and the closing CTA. A heavy
-     geometric with single-storey 'a' and hooked 'y' descenders — the client's
-     reference (adikastakes.store) runs the same face at 900. OFL. Everything
-     else stays Instrument Serif/Sans. */
+  /* Type. One family across the whole site — Montserrat Alternates, the face
+     from the client's reference (adikastakes.store), which runs it the same
+     way: Black for display, Regular for body. A geometric sans with
+     single-storey 'a' and hooked 'y' descenders. OFL.
+
+     The Arolax demo used four faces, two of which could not ship: Beatrice
+     Trial is an evaluation-only cut and Getaway carries no licence metadata at
+     all. Both are gone. The Instrument pair that replaced them is gone too —
+     the client asked for one voice, not a serif/sans split. */
+  --font-display: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
+  --font-body: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
   --font-hero: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
-  --font-inner: 'Instrument Serif', Georgia, serif;
+  --font-inner: 'Montserrat Alternates', 'Montserrat', system-ui, sans-serif;
 
   /* Scale observed in the demo (px) */
   --fs-xs: 16px;  --fs-sm: 18px;  --fs-md: 24px;  --fs-lg: 30px;

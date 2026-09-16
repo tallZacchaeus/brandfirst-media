@@ -1,8 +1,7 @@
 /* Section 3 — bg #D9DCED, 865px lead paragraph, "150" at 450px. */
 .stats { background: var(--sec-stats); }
 .stats__lead { width: 865px; max-width: 100%; }
-.stats__copy {
-  font-family: var(--font-display); font-weight: 400;
+.stats__copy { font-family: var(--font-display); font-weight: 700;
   font-size: 64px; line-height: 1.1em; color: var(--ink);
 }
 .stats__body { display: grid; grid-template-columns: repeat(2, 1fr); gap: 34px; max-width: 1100px; }
@@ -14,8 +13,7 @@
 }
 .stats__line { max-width: 30%; }
 .stats__figure-col { width: 62.8%; display: flex; justify-content: flex-end; }
-.stats__figure {
-  font-family: var(--font-display); font-weight: 400;
+.stats__figure { font-family: var(--font-display); font-weight: 700;
   font-size: 450px; line-height: 1em; color: var(--ink);
 }
 @media (max-width: 1366px) {

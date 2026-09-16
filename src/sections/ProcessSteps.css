@@ -12,7 +12,7 @@
 .process__highlights { display: grid; grid-template-columns: repeat(5, 1fr); gap: 24px; }
 .process__highlight { display: flex; flex-direction: column; gap: 14px; padding-top: 22px; border-top: 1px solid rgba(18,18,18,.18); }
 .process__hn { font-size: 13px; letter-spacing: .08em; color: var(--muted); }
-.process__ht { font-family: var(--font-display); font-weight: 400; font-size: 21px; line-height: 1.3em; color: var(--ink); }
+.process__ht { font-family: var(--font-display); font-weight: 700; font-size: 21px; line-height: 1.3em; color: var(--ink); }
 @media (max-width: 1200px) { .process__highlights { grid-template-columns: repeat(3, 1fr); gap: 28px; } }
 @media (max-width: 767px) {
   .process__head { flex-direction: column; gap: 24px; }

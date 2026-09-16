@@ -26,7 +26,7 @@
   font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
   color: var(--card-accent);
 }
-.brand-card__name { font-family: var(--font-inner); font-weight: 400; font-size: 32px; line-height: 1.15em; color: var(--ink); margin-top: 8px; }
+.brand-card__name { font-family: var(--font-inner); font-weight: 700; font-size: 32px; line-height: 1.15em; color: var(--ink); margin-top: 8px; }
 .brand-card__line { font-size: 15px; color: var(--muted); margin-top: 4px; }
 .brand-card__blurb { font-size: 17px; line-height: 1.6em; color: var(--muted); flex: 1; }
 .brand-card__services { display: flex; flex-direction: column; gap: 8px; }
