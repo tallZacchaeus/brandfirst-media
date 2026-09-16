@@ -43,8 +43,9 @@ export const site = {
 
 export const home = {
   hero: {
-    // What the group does, at full display size.
-    headlineLines: ['Print. Apparel. Events.'],
+    // What the group does. Each item is set in its own pill in the hero, so they
+    // are three entries rather than one string.
+    headlineLines: ['Print.', 'Apparel.', 'Events.'],
     headline: 'Print. Apparel. Events.',
     // Support, not a second headline. An earlier version restated the three
     // words in the headline at 70px, which gave the first screen two competing

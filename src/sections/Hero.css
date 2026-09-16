@@ -31,14 +31,22 @@
 /* Full width now the video slot is gone. Restore `width: 75%` and the
    .hero__video-col block below if a still image goes back beside the headline. */
 .hero__headline-col { width: 100%; }
-/* Was flex to seat the demo's "Pro" badge beside the headline; that badge is
-   Arolax copy and is gone. Block avoids the h1 collapsing to min-content as a
-   flex item once SplitText replaces its text with line divs. */
-.hero__headline-wrap { width: 1420px; max-width: 100%; }
-/* Block on desktop to hold the balanced two-line split; inline below the
-   mobile breakpoint so the headline reflows evenly instead of leaving an
-   orphan word from the forced break. */
-.hero__line { display: block; }
+/* Shrink-wraps the headline so the pill below hugs the text instead of running
+   the full width of the column. */
+.hero__headline-wrap { display: inline-block; max-width: 100%; }
+/* Each item sits in its own pill, and the pills alternate between the two
+   button styles below them: solid white with blue type, then outlined with
+   white type. The border stays on both so the fill does not change a pill's
+   size. Padding and gap are in em so the pills keep their proportions as the
+   type clamps. */
+.hero__line {
+  display: inline-block;
+  border: 1px solid var(--paper);
+  border-radius: 999px;
+  padding: .2em .46em .26em;
+}
+.hero__line:nth-child(odd) { background: var(--paper); color: var(--brand-deep); }
+.hero__line:nth-child(even) { background: transparent; color: var(--paper); border-color: rgba(255,255,255,.55); }
 
 .hero__headline {
   font-family: var(--font-hero);
@@ -46,10 +54,13 @@
      read as gaps. */
   font-weight: 900;
   letter-spacing: -.02em;
+  /* Flex so the three pills sit in a row with a real gap and wrap as one unit
+     when the column runs out. */
+  display: flex; flex-wrap: wrap; gap: .16em .2em;
   /* Fluid so the longer line ("Putting Your Brand First", 985px per 100px in
      Getaway) always fits the 75% headline column without reflowing to three
      lines. Capped at 108px. */
-  font-size: clamp(34px, 7vw, 108px);
+  font-size: clamp(30px, 6.4vw, 100px);
   line-height: 1.02em;
   color: var(--paper);
   max-width: 100%;
@@ -84,7 +95,7 @@
   .hero__lede { font-size: 21px; }
 }
 @media (max-width: 767px) {
-  .hero__line { display: inline; }
+  .hero__line { padding: .18em .4em .24em; }
   .hero { padding: 110px 20px 120px; }
   .hero__inner { row-gap: 56px; }
   .hero__row, .hero__row--foot { flex-direction: column; row-gap: 18px; }

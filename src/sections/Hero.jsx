@@ -31,7 +31,7 @@ export default function Hero() {
             <div className="hero__headline-wrap">
               <h1 className="hero__headline">
                 {hero.headlineLines.map((line) => (
-                  <span key={line} className="hero__line">{line}{' '}</span>
+                  <span key={line} className="hero__line">{line}</span>
                 ))}
               </h1>
             </div>
