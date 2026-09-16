@@ -14,7 +14,13 @@
 .footer__top { display: flex; padding: 0 20px; }
 .footer__brand { width: 37.7%; padding: 130px 0 90px; }
 .footer__logo { display: inline-flex; align-items: center; gap: 14px; }
-.footer__mark { height: 56px; width: auto; display: block; }
+/* Same reason as the overlay header: the mark's blues disappear into a dark
+   ground, so it sits on a white disc. */
+.footer__mark {
+  height: 56px; width: auto; display: block;
+  background: var(--paper); border-radius: 50%;
+  box-sizing: content-box; padding: 9px 14px;
+}
 .footer__wordmark { font-family: var(--font-hero); font-size: 30px; line-height: 1; color: var(--paper); }
 .footer__blurb {
   margin-top: 28px; max-width: 320px;

@@ -10,6 +10,16 @@
 }
 .header--overlay .header__wordmark,
 .header--overlay .nav__link { color: var(--paper); }
+/* The "B" is a blue gradient mark: on the deep blue hero its blues sink into
+   the ground and only the silver swoosh survives. A white disc gives it an
+   edge to sit against. Dark-header routes get the same treatment. */
+.header--overlay .header__mark,
+.header--dark .header__mark {
+  background: var(--paper);
+  border-radius: 50%;
+  box-sizing: content-box;
+  padding: 7px 11px;
+}
 .header--overlay .header__burger span,
 .header--overlay .header__burger span::before,
 .header--overlay .header__burger span::after { background: var(--paper); }

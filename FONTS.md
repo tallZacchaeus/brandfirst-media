@@ -1,4 +1,4 @@
-# Fonts — what the demo uses, what this build uses, and why they differ
+# Fonts — what the demo used, what this build uses, and why they differ
 
 ## What the Arolax demo actually uses
 
@@ -37,53 +37,40 @@ fashion face, *not* a geometric sans. Its OS/2 metrics (x-height 0.483em, cap
 0.734em, `H` advance 0.64em, weight 400, width class 5) do not reveal that;
 only rendering it does.
 
-## What this build uses  *(updated — the demo's own fonts are now in use)*
+## What this build uses  *(current — the demo's fonts have been retired)*
+
+The client asked for something more demure than the demo's display faces. That
+request and the licence problem above have the same answer, so both are settled
+here: the four-face system is now two, from one superfamily, both SIL OFL.
 
 | token | face | where | licence |
 |---|---|---|---|
-| `--font-hero` | **Getaway** | hero headline, both CTA lines, wordmarks | unknown — see below |
-| `--font-inner` | **Beatrice Trial** | inner-page display type | Sharp Type TRIAL |
-| `--font-display` | **Kanit** | homepage section titles | OFL |
+| `--font-hero` | **Instrument Serif** | hero headline and tagline | OFL |
+| `--font-display` | **Instrument Serif** | section titles | OFL |
+| `--font-inner` | **Instrument Serif** | inner-page display type | OFL |
 | `--font-body` | **Instrument Sans** | body copy | OFL |
 
-Getaway and Beatrice are **self-hosted** from `public/assets/fonts/`, declared
-in `src/styles/fonts.css`. Weights match the demo: Getaway 400, Beatrice 400
-and 500.
+Instrument Serif and Instrument Sans are drawn as a pair, which is why the
+display and body voices sit together without tuning. Both load from Google
+Fonts in `index.html`; nothing is self-hosted, so `public/assets/fonts/` and
+its gitignore entry are no longer needed, and `src/styles/fonts.css` holds no
+`@font-face` rules.
 
-### These font files are gitignored
+### The licence problem is now moot
 
-`public/assets/fonts/` is excluded from git. Using a trial font locally is one
-thing; committing it to a public repository is redistribution, which is the
-part a foundry actually pursues. The files stay on disk and in any build you
-deploy, but never enter version control.
+Neither Getaway nor Beatrice Trial is referenced anywhere in the build. The risk
+described above — an evaluation-only cut and a face of unknown provenance, both
+set at the largest sizes on the site — no longer applies to anything deployed.
 
-Copy them in from the WordPress install:
+## If you ever want the demo's exact type back
 
-```bash
-mkdir -p public/assets/fonts
-cd ../wp-local/site/wp-content/uploads/2024/06
-cp getaway.otf               ../../../../../brandfirst-media/public/assets/fonts/Getaway-Regular.otf
-cp BeatriceTRIAL-Regular.ttf ../../../../../brandfirst-media/public/assets/fonts/BeatriceTrial-Regular.ttf
-cp BeatriceTRIAL-Medium.ttf  ../../../../../brandfirst-media/public/assets/fonts/BeatriceTrial-Medium.ttf
-```
-
-Each `font-family` stack falls back to Kanit or DM Serif Display, so a checkout
-without the files renders readable rather than broken.
-
-### The licence position has not changed
-
-Using these faces on a public Brandfirst Media site still carries the risk
-described above: Beatrice Trial is an evaluation cut, and Getaway's provenance
-is unknown. Buying a Beatrice web licence from Sharp Type clears half of it;
-identifying Getaway's foundry clears the other half. That is a decision for the
-client, made knowingly.
-
-## If you want the demo's exact type
+Both faces would have to be licensed first:
 
 1. **Beatrice** — buy a web licence from [Sharp Type](https://sharptype.co/licensing/),
-   then self-host the licensed webfonts and point `--font-display` at it.
-2. **Getaway** — identify it first. Given the missing metadata, treat the bundled
-   file as unusable until you can name the foundry and buy a licence. A wide
-   geometric display face is the closest category.
-3. Self-hosting either way: drop `.woff2` files in `public/assets/fonts/`, add
-   `@font-face` rules, and update the tokens in `src/styles/tokens.css`.
+   then self-host the licensed webfonts.
+2. **Getaway** — identify the foundry before anything else. Given the missing
+   metadata, treat the bundled file as unusable until you can name it and buy a
+   licence. A heavy condensed Didone-ish display serif is the closest category.
+3. Either way: drop `.woff2` files in `public/assets/fonts/`, add `@font-face`
+   rules to `src/styles/fonts.css`, and repoint the tokens in
+   `src/styles/tokens.css`.

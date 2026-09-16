@@ -43,10 +43,12 @@ export const site = {
 
 export const home = {
   hero: {
-    // Two explicit lines; the longer one is 23 chars in Getaway and fits the
-    // headline row at the clamp cap. "Brand first" is the company's own
-    // phrase, kept as the promise the name makes.
-    headlineLines: ['Print. Apparel. Events.', 'Your Brand First.'],
+    // What the group does, at full display size.
+    headlineLines: ['Print. Apparel. Events.'],
+    // The company's own phrase, set small beneath the statement as a tagline
+    // rather than a second display line. Still inside the h1, so the heading
+    // reads whole to search engines and screen readers.
+    headlineTag: 'Your Brand First.',
     headline: 'Print. Apparel. Events. Your Brand First.',
     // Support, not a second headline. An earlier version restated the three
     // words in the headline at 70px, which gave the first screen two competing
@@ -321,7 +323,7 @@ export const insights = {
 
 export const contact = {
   hero: {
-    headline: 'Let Us Talk About Your Brand',
+    headline: 'Let\u2019s Talk About Your Brand',
     sub: 'A print run, a batch of branded apparel, or lighting and stage for an event — send the details and we will come back with a plan and a price.',
   },
   body: 'The more you send — artwork, quantities, the event date, the venue — the faster and more accurately we can quote.',

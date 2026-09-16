@@ -21,7 +21,10 @@
   position: relative;
   max-width: 1720px; margin: 0 auto;
   display: flex; flex-direction: column;
-  row-gap: 120px;
+  /* Was 120px against a two-line display headline. The headline is now one
+     line plus a small tagline, so that gap left the two halves looking
+     unrelated. */
+  row-gap: 84px;
 }
 
 /* --- row 1: headline (75%) + video (25%) --- */
@@ -37,6 +40,17 @@
    mobile breakpoint so the headline reflows evenly instead of leaving an
    orphan word from the forced break. */
 .hero__line { display: block; }
+
+/* The tagline is the company's own phrase, set at a fraction of the statement
+   above it so the first screen has one display line, not two. Block so it takes
+   its own line; the em-relative size keeps the ratio as the headline clamps. */
+.hero__tagline {
+  display: block;
+  font-size: .3em; line-height: 1.2em;
+  letter-spacing: .01em;
+  opacity: .82;
+  margin-top: .5em;
+}
 
 .hero__headline {
   font-family: var(--font-hero);
@@ -70,7 +84,7 @@
 /* --- responsive ladder (widths taken from the demo's per-device values) --- */
 @media (max-width: 1366px) {
   .hero { padding: 150px 20px 180px; }
-  .hero__inner { row-gap: 95px; }
+  .hero__inner { row-gap: 70px; }
   .hero__headline-wrap { width: 100%; }
   .hero__lede { font-size: 22px; }
 }
@@ -80,6 +94,7 @@
 }
 @media (max-width: 767px) {
   .hero__line { display: inline; }
+  .hero__tagline { font-size: .46em; margin-top: .6em; }
   .hero { padding: 110px 20px 120px; }
   .hero__inner { row-gap: 56px; }
   .hero__row, .hero__row--foot { flex-direction: column; row-gap: 18px; }

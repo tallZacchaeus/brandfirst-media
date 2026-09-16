@@ -2,7 +2,7 @@
    top padding clears the absolute header. */
 .page { background: var(--paper); }
 .page__inner { max-width: 1290px; margin: 0 auto; padding: 0 20px; }
-/* Inner pages use Beatrice Trial for display type, as the demo does. */
+/* Inner-page display type. */
 .page__title {
   font-family: var(--font-inner); font-weight: 400;
   color: var(--ink); line-height: 1em;
@@ -11,10 +11,10 @@
 
 @media (max-width: 1024px) { .page__inner { padding: 0 20px; } }
 
-/* The demo uses Beatrice Trial as the display face across inner pages
-   (47 uses on wcf--title, plus counters, icon-box and post titles), while the
-   homepage keeps Kanit. `.page` wraps every inner route, so scope it here
-   rather than repeating the token in each page's stylesheet. */
+/* `.page` wraps every inner route, so the display face is scoped here rather
+   than repeated in each page's stylesheet. The demo ran a different face on
+   inner pages than on the homepage; both now resolve to Instrument Serif, but
+   the hook is kept so they can diverge again without touching every page. */
 .page .sec__title,
 .page .sv__block-title,
 .page .case__title,

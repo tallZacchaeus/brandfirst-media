@@ -11,7 +11,7 @@
   max-width: 1720px; margin: 0 auto;
   display: flex; flex-direction: column; row-gap: 90px;
 }
-/* Section headings are uniformly 70px / Kanit across sections 2-9. */
+/* Section headings are uniformly 70px across sections 2-9. */
 .sec__title {
   font-family: var(--font-display); font-weight: 400;
   font-size: 70px; line-height: 1em; color: var(--ink);

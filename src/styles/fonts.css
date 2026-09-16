@@ -1,29 +1,4 @@
-/* Self-hosted demo fonts.
-   Files live in public/assets/fonts/ and are gitignored — see FONTS.md.
-   If they are absent the stacks below fall back to Kanit / Instrument Sans,
-   so the site degrades to readable rather than broken. */
-
-@font-face {
-  font-family: 'Getaway';
-  src: url('/assets/fonts/Getaway-Regular.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* The demo uses Beatrice at 400 (74 uses) and 500 (12). Bold is available
-   but unused; add a face for it here if you start calling for 700. */
-@font-face {
-  font-family: 'Beatrice Trial';
-  src: url('/assets/fonts/BeatriceTrial-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Beatrice Trial';
-  src: url('/assets/fonts/BeatriceTrial-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+/* Nothing is self-hosted any more. The type system is Instrument Serif and
+   Instrument Sans, both loaded from Google Fonts in index.html and both under
+   the SIL Open Font License — so, unlike the Getaway and Beatrice Trial faces
+   they replaced, they are licensed for this use. See FONTS.md. */

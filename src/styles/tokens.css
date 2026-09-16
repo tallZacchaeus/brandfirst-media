@@ -46,19 +46,17 @@
   --sec-radius: 80px;
   --sec-overlap: -100px;
 
-  /* Type — the demo's own faces, self-hosted (see fonts.css and FONTS.md).
-       Getaway         hero headline, "Pro", both closing-CTA lines (4 uses)
-       Beatrice Trial  inner-page display type (107 uses: titles, counters,
-                       icon-box and post titles)
-       Kanit           shared display face (212 uses)
-       Instrument Sans body copy
-     Getaway and Beatrice are gitignored: Beatrice is an evaluation-only cut
-     and Getaway carries no licence metadata, so neither is redistributed.
-     Each stack falls back to a Google face if the file is missing. */
-  --font-display: 'Kanit', system-ui, sans-serif;
+  /* Type. The Arolax demo used four faces — Getaway, Beatrice Trial, Kanit and
+     Instrument Sans — and two of them could not ship: Beatrice is an
+     evaluation-only cut and Getaway carries no licence metadata at all.
+     Two faces from one superfamily, drawn to sit together: Instrument Serif
+     for anything display-sized, Instrument Sans for everything read at length.
+     Replaces Getaway/Beatrice/Kanit — four voices, two of them loud and two of
+     them unlicensed for production. Both of these are SIL OFL. */
+  --font-display: 'Instrument Serif', Georgia, serif;
   --font-body: 'Instrument Sans', system-ui, sans-serif;
-  --font-hero: 'Getaway', 'DM Serif Display', Georgia, serif;
-  --font-inner: 'Beatrice Trial', 'Kanit', system-ui, sans-serif;
+  --font-hero: 'Instrument Serif', Georgia, serif;
+  --font-inner: 'Instrument Serif', Georgia, serif;
 
   /* Scale observed in the demo (px) */
   --fs-xs: 16px;  --fs-sm: 18px;  --fs-md: 24px;  --fs-lg: 30px;

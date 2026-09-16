@@ -5,7 +5,7 @@ import './Hero.css';
 /**
  * Home hero. Layout follows Elementor section 1 of page #9322:
  *
- *   row 1   headline, full width
+ *   row 1   headline + tagline, full width
  *   row 2   supporting statement + actions
  *   gap     165px between rows, 195/250 padding on the section
  *
@@ -33,6 +33,7 @@ export default function Hero() {
                 {hero.headlineLines.map((line) => (
                   <span key={line} className="hero__line">{line}{' '}</span>
                 ))}
+                {hero.headlineTag && <span className="hero__tagline">{hero.headlineTag}</span>}
               </h1>
             </div>
           </div>
