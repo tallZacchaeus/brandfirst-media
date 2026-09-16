@@ -31,9 +31,10 @@
 /* Full width now the video slot is gone. Restore `width: 75%` and the
    .hero__video-col block below if a still image goes back beside the headline. */
 .hero__headline-col { width: 100%; }
-/* Shrink-wraps the headline so the pill below hugs the text instead of running
-   the full width of the column. */
-.hero__headline-wrap { display: inline-block; max-width: 100%; }
+/* Shrink-wraps the headline so the pills hug their text instead of running the
+   full width of the column. fit-content rather than inline-block alone: as a
+   block-level flex container the h1 was still filling the line box. */
+.hero__headline-wrap { display: block; width: fit-content; max-width: 100%; }
 /* Each item sits in its own pill, and the pills alternate between the two
    button styles below them: solid white with blue type, then outlined with
    white type. The border stays on both so the fill does not change a pill's
@@ -81,6 +82,21 @@
   font-size: 24px; line-height: 1.55em;
   color: var(--paper); opacity: .88;
   max-width: 720px;
+}
+
+/* The art is absolutely positioned over the hero's right half from 1101px up,
+   so the copy has to be told to stay out of it — otherwise the headline and
+   lede run underneath the photographs. The art is min(46vw, 640px) inset 3%
+   from the right, which leaves a little over half the width for the copy at
+   every size in that range. */
+@media (min-width: 1101px) {
+  /* Derived from where the art actually sits rather than a guessed percentage:
+     the art's left edge is 97vw - min(46vw, 640px), and the copy starts at the
+     section's 20px padding, so this is that gap less the padding and a 24px
+     gutter. Exact at every width in the range instead of only at 1440. */
+  .hero__row { width: calc(97vw - min(46vw, 640px) - 44px); }
+  .hero__lede-col { width: 100%; }
+  .hero__lede { max-width: 100%; }
 }
 
 /* --- responsive ladder (widths taken from the demo's per-device values) --- */

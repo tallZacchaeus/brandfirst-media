@@ -407,6 +407,15 @@ export const nav = [
   { label: 'About',    href: '/about' },
   { label: 'Services', href: '/services' },
   { label: 'Work',     href: '/work' },
-  { label: 'Brands',   href: '/brands' },
+  {
+    label: 'Brands',
+    href: '/brands',
+    // The header already supports a submenu; these give it one.
+    children: [
+      { label: 'Brandfirst Media', href: '/brands/brandfirst-media' },
+      { label: 'ROOM16',           href: '/brands/room16' },
+      { label: 'Aṣọ Ìgbàlódé',     href: '/brands/aso-igbalode' },
+    ],
+  },
   { label: 'Contact',  href: '/contact' },
 ];

@@ -34,11 +34,13 @@ export default function Header({ variant = 'overlay' }) {
             <ul className="nav">
               {NAV.map((item) => (
                 <li key={item.label} className={`nav__item${item.children ? ' nav__item--has-children' : ''}`}>
-                  <Link className="nav__link" to={item.href}>{item.label}</Link>
+                  <Link className="nav__link" to={item.href} onClick={() => setOpen(false)}>{item.label}</Link>
                   {item.children && (
                     <ul className="nav__sub">
                       {item.children.map((c) => (
-                        <li key={c.label}><a href={c.href}>{c.label}</a></li>
+                        <li key={c.label}>
+                          <Link to={c.href} onClick={() => setOpen(false)}>{c.label}</Link>
+                        </li>
                       ))}
                     </ul>
                   )}
