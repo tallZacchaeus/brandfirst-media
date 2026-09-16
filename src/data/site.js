@@ -178,7 +178,10 @@ export const brands = [
     services: ['print-production', 'large-format-and-signage', 'publicity-and-brand-visibility'],
     accent: 'brand',
     logo: { src: '/assets/brandfirst-logo-sm.png', w: 300, h: 400, ratio: 'tall' },
-    image: media('bfm-wide-format', PHOTO, 4000, 1800, 'A wide-format press running a printed panel'),
+    // The client's billboard design for PremiumTrust. It is a mockup, not a
+    // photograph of an installed board, so the alt says "design" — the
+    // installed board on the detail page is the real thing.
+    image: media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'),
     heroImage: media('bfm-billboard', PHOTO, 4024, 1993, 'An installed roadside billboard printed by Brandfirst Media'),
     gallery: [
       media('bfm-press-operator', PHOTO, 1440, 2560, 'An operator guiding a sheet off the press'),
