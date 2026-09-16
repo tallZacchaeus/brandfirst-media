@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import HeroArt from './HeroArt';
 import { home } from '../data/site';
 import './Hero.css';
 
@@ -24,6 +25,7 @@ export default function Hero() {
   return (
     <section className="hero">
       <div className="hero__noise" aria-hidden />
+      <HeroArt />
 
       <div className="hero__inner">
         <div className="hero__row">

@@ -18,7 +18,7 @@
   opacity: .18; pointer-events: none; mix-blend-mode: overlay;
 }
 .hero__inner {
-  position: relative;
+  position: relative; z-index: 1;
   max-width: 1720px; margin: 0 auto;
   display: flex; flex-direction: column;
   /* The three stacked pills are tall; at the old 84px the buttons fell below

@@ -1,0 +1,26 @@
+/* Sits in the hero's empty right half, behind the content. Absolute rather
+   than a layout column so it cannot affect where the headline or the buttons
+   land — the CTA's position above the fold is hard-won. */
+.hero-art {
+  position: absolute;
+  top: 50%; right: 4%;
+  width: min(46vw, 620px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-art svg { width: 100%; height: 100%; display: block; }
+
+.hero-art__ring { transform-origin: 200px 200px; animation: ha-spin 64s linear infinite; }
+.hero-art__core { transform-origin: 200px 200px; animation: ha-spin 44s linear infinite reverse; }
+
+@keyframes ha-spin { to { transform: rotate(360deg); } }
+
+/* Below this the hero content spans the full width and there is no empty half
+   left to fill, so the mark would sit under the type rather than beside it. */
+@media (max-width: 1100px) { .hero-art { display: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art__ring, .hero-art__core { animation: none; }
+}
