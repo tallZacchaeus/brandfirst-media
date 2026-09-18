@@ -15,7 +15,7 @@ export default function Brands() {
       <div className="page__inner">
         <PageHero
           title="One group, three brands"
-          lede="Brandfirst Media covers print and publicity. ROOM16 handles lighting and stage. Aṣọ Ìgbàlódé produces branded apparel. Together they cover an event end to end."
+          lede="Three brands, one production floor. Each has its own trade; between them they carry a campaign from the first proof to the last light going out."
         />
         <ul className="brands__grid">
           {brands.map((b, i) => <BrandCard key={b.slug} {...b} index={i} />)}

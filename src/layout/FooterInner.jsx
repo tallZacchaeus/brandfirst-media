@@ -38,11 +38,11 @@ export default function FooterInner() {
           </div>
 
           <div className="footer-inner__signup">
-            <span className="footer-inner__label">Newsletter</span>
-            <form className="footer-inner__form" onSubmit={(e) => e.preventDefault()}>
-              <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required />
-              <button type="submit">Subscribe</button>
-            </form>
+            <span className="footer-inner__label">Talk to us</span>
+            <p className="footer-inner__lines">
+              <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+            </p>
           </div>
         </div>
 

@@ -14,7 +14,7 @@ export default function Services() {
       <div className="page__inner">
         <PageHero
           title="Everything We Produce"
-          lede="Six things we do, delivered by the three brands in the group. Brief one of us and you get all three."
+          lede="Six things we produce, across the three brands in the group. Brief any one of us and you have all three."
         />
         <div className="sv__stack">
           {services.map((s, i) => <ServiceBlock key={s.slug} {...s} index={i} />)}

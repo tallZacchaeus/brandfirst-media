@@ -17,8 +17,9 @@ export default function Footer() {
               <span className="footer__wordmark">{site.name}</span>
             </Link>
             <p className="footer__blurb">
-              {site.name} helps brands communicate with clarity, reach the right
-              audience, and turn media investment into measurable impact.
+              {site.name} is a production group in Lagos. We print it, dress your
+              team in it, and light the stage it happens on — one brief, one crew,
+              one standard.
             </p>
             <div className="footer__contact">
               {site.phone && <a href={`tel:${site.phone}`}>{site.phone}</a>}

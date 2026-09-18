@@ -1,7 +1,6 @@
-import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import { useFadeIn, useTextReveal } from '../hooks/useGsap';
-import { about, home } from '../data/site';
+import { about } from '../data/site';
 import '../styles/page.css';
 import '../styles/section.css';
 import './About.css';
@@ -54,13 +53,6 @@ export default function About() {
           </ul>
         </div>
       </section>
-
-      <div className="page__inner">
-        <section className="ab__cta">
-          <p className="ab__cta-eyebrow">{home.cta.headline}</p>
-          <Link className="btn btn--primary" to="/contact">{home.cta.button.label}</Link>
-        </section>
-      </div>
     </main>
   );
 }

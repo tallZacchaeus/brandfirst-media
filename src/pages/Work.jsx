@@ -65,8 +65,8 @@ export default function Work() {
           <section className="wk__film">
             <h2 className="sec__title">On the floor</h2>
             <p className="wk__film-note">
-              Clips from our own jobs — presses running, rigs going up. Hover or
-              tap to play.
+              Presses running, rigs going up, rooms coming to life. Hover or tap
+              any clip to play it.
             </p>
             <ul className="vgrid" key={`v-${filter}`}>
               {clips.map((c) => <li key={c.name}><VideoCard clip={c} /></li>)}
