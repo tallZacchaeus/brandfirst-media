@@ -198,6 +198,7 @@ export const brands = [
       ['Signage', 'Shop fronts, directional and event signage, cut vinyl and mounted boards.'],
       ['Publicity', 'Coordinating print, outdoor, apparel and event so they all say the same thing.'],
       ['Event collateral', 'Programmes, badges, table cards, wristbands: the small print a day runs on.'],
+      ['Branded merchandise', 'Presentation boxes, folders, pens and corporate gifts, branded to match.'],
     ],
     process: [
       ['Brief', 'What the job is for, where it will be seen, and the date it has to be ready.'],
@@ -334,6 +335,16 @@ export const videos = [
     alt: 'Stage and lighting built for a white-themed event' },
   { name: 'vid-event-decor', w: 540, h: 960, tag: 'Events', brand: 'room16',
     alt: 'Decor lighting across a finished event set' },
+  // One venue, one rig, four looks. Shot at the same event on purpose: showing
+  // the room change colour is what a lighting company is actually selling.
+  { name: 'vid-stage-yellow', w: 960, h: 540, tag: 'Events', brand: 'room16',
+    alt: 'Yellow beams sweeping a full auditorium' },
+  { name: 'vid-stage-blue', w: 960, h: 540, tag: 'Events', brand: 'room16',
+    alt: 'A blue and white wash across the hall before doors open' },
+  { name: 'vid-stage-magenta', w: 960, h: 540, tag: 'Events', brand: 'room16',
+    alt: 'The rig running magenta across a seated room' },
+  { name: 'vid-event-presence', w: 960, h: 540, tag: 'Events', brand: 'room16',
+    alt: 'The room mid-programme, stage and screen lit' },
 ];
 
 export const showcase = [
@@ -347,6 +358,11 @@ export const showcase = [
   { ...media('bfm-banner-red', PHOTO, 1784, 3991, 'A large-format campaign banner'), tag: 'Print', brand: 'brand' },
   { ...media('bfm-banners-green', PHOTO, 1784, 3990, 'Event banners printed and checked'), tag: 'Print', brand: 'brand' },
   { ...media('bfm-finishing', PHOTO, 1784, 3991, 'The team laying out a printed banner for finishing'), tag: 'Print', brand: 'brand' },
+  // Branded merchandise for PremiumTrust: named client work, same permission
+  // question as the billboard.
+  { ...media('bfm-merch-box', PHOTO, 4000, 3000, 'A branded presentation box produced for PremiumTrust Bank'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-merch-folder', PHOTO, 1920, 2560, 'A branded folder and pen produced for PremiumTrust Bank'), tag: 'Print', brand: 'brand' },
+  { ...media('bfm-merch-powerbank', PHOTO, 4000, 3000, 'A branded power bank produced for PremiumTrust Bank'), tag: 'Print', brand: 'brand' },
 
   // --- Lighting, stage and events ---
   { ...media('room16-live-beams', LIVE, 1080, 718, 'A lighting rig in use during a live event'), tag: 'Events', brand: 'room16' },
@@ -357,6 +373,8 @@ export const showcase = [
   { ...media('room16-screens', FRAME, 832, 464, 'Stage, truss and LED screens built for an anniversary event'), tag: 'Events', brand: 'room16' },
   { ...media('room16-truss', FRAME, 832, 464, 'Truss and moving heads rigged over an outdoor stage'), tag: 'Events', brand: 'room16' },
   { ...media('room16-fixtures', FRAME, 832, 464, 'Moving-head fixtures staged before rigging'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-hall-yellow', PHOTO, 4000, 2252, 'Yellow beams over a full auditorium'), tag: 'Events', brand: 'room16' },
+  { ...media('room16-presence', PHOTO, 4000, 3000, 'Stage, screen and lighting built for a conference'), tag: 'Events', brand: 'room16' },
 
   // --- Branded apparel ---
   { ...media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'), tag: 'Apparel', brand: 'aso' },
