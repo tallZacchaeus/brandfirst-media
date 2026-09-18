@@ -179,7 +179,7 @@ export const brands = [
     slug: 'brandfirst-media',
     name: 'Brandfirst Media',
     kind: 'Parent brand',
-    line: 'Print, publicity and event production',
+    line: 'Print and publicity',
     blurb: 'The parent brand: print of every kind, publicity, and the coordination that keeps a campaign consistent wherever it appears.',
     services: ['print-production', 'large-format-and-signage', 'publicity-and-brand-visibility'],
     accent: 'brand',
@@ -205,7 +205,7 @@ export const brands = [
       ['Produce', 'Printed, finished and checked, either in-house or with partners we already trust.'],
       ['Deliver', 'Collected, delivered or installed on site, event-day set-up included.'],
     ],
-    useCases: ['Product launches', 'Conferences and AGMs', 'Retail and shop branding', 'Political and public campaigns', 'Church and school programmes', 'Weddings and private events'],
+    useCases: ['Campaign and launch collateral', 'Conference and AGM print', 'Retail and shop branding', 'Political and public campaigns', 'Church and school programmes', 'Wedding and private event stationery'],
     faq: [
       ['Can you handle the design as well as the printing?', 'Yes. Send finished artwork if you have it, or brief us and we will design to your brand.'],
       ['What is the minimum order?', 'There is no fixed minimum on most business print. Large format and signage are quoted per job.'],
@@ -253,8 +253,8 @@ export const brands = [
     slug: 'aso-igbalode',
     name: 'Aṣọ Ìgbàlódé',
     kind: 'In-house brand',
-    line: 'Branded apparel',
-    blurb: 'Our apparel brand. Shirts, jerseys, vests, caps and merchandise, branded for teams, campaigns and events. Made to be worn again, not just on the day.',
+    line: 'Branded apparel and clothing prints',
+    blurb: 'Our apparel brand, and where anything printed or stitched onto clothing is made. Shirts, jerseys, vests and caps for teams, campaigns and events, built to be worn again rather than once.',
     services: ['branded-apparel'],
     accent: 'aso',
     offer: [
@@ -262,7 +262,7 @@ export const brands = [
       ['Vests and jerseys', 'Event vests, volunteer bibs and team jerseys, numbered if you need them.'],
       ['Caps and headwear', 'Embroidered caps, bucket hats and face caps in your brand colours.'],
       ['Corporate wear', 'Embroidered shirts and uniforms for front-of-house and field teams.'],
-      ['Merchandise', 'Tote bags, lanyards, wristbands and giveaways to match the apparel.'],
+      ['Merchandise', 'Tote bags, lanyards, drawstring bags and giveaways to match the apparel.'],
       ['Custom pieces', 'Limited runs and statement pieces for campaigns and special occasions.'],
     ],
     process: [
