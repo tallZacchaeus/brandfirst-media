@@ -18,7 +18,7 @@ export default function Footer() {
             </Link>
             <p className="footer__blurb">
               {site.name} is a production group in Lagos. We print it, dress your
-              team in it, and light the stage it happens on — one brief, one crew,
+              team in it, and light the stage it happens on. One brief, one crew,
               one standard.
             </p>
             <div className="footer__contact">

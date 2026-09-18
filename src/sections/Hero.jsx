@@ -15,9 +15,11 @@ import './Hero.css';
  * without it the 36% indent was arbitrary, so the statement and buttons align
  * left under the headline.
  *
- * Deliberately unanimated — everything here is above the fold, and entry
- * animations previously made the lede the Largest Contentful Paint element at
- * 6.0s. The first screen now paints immediately.
+ * The entrance is pure CSS (see Hero.css), running on load rather than on
+ * scroll. An earlier GSAP scroll-triggered version held this content invisible
+ * until a ScrollTrigger resolved, which pushed LCP to 6.0s; keeping it in the
+ * stylesheet means the sequence starts with the first paint and is done in
+ * about a second.
  */
 export default function Hero() {
   const { hero } = home;

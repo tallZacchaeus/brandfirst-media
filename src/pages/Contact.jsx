@@ -141,7 +141,7 @@ export default function Contact() {
               {status === 'sent' && !site.formEndpoint &&
                 'Your email app should have opened with the enquiry ready to send. If it did not, use WhatsApp or email us directly.'}
               {status === 'sent' && site.formEndpoint &&
-                'Thank you — your enquiry has been sent. We will come back to you shortly.'}
+                'Thank you. Your enquiry has been sent, and we will come back to you shortly.'}
               {status === 'error' && `That did not send: ${error} Please use WhatsApp or email us directly.`}
             </p>
           </form>

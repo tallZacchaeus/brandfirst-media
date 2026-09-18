@@ -84,6 +84,42 @@
   max-width: 720px;
 }
 
+/* --- entrance -------------------------------------------------------------
+   The pills rise and settle in sequence, then the supporting line and the
+   buttons follow. CSS rather than GSAP, and running on load rather than on
+   scroll: an earlier scroll-triggered version left this content invisible
+   until a ScrollTrigger resolved and pushed LCP to 6s. Here the whole sequence
+   is over in about a second, and it is transform and opacity only, so it stays
+   on the compositor.
+
+   transform-origin is the left edge so the pills grow out of the margin they
+   are aligned to rather than swelling from their centres. */
+@keyframes hero-pill-in {
+  from { opacity: 0; transform: translateY(22px) scale(.94); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hero__line {
+  transform-origin: left center;
+  animation: hero-pill-in .62s cubic-bezier(.22, 1, .36, 1) both;
+}
+.hero__line:nth-child(1) { animation-delay: .05s; }
+.hero__line:nth-child(2) { animation-delay: .16s; }
+.hero__line:nth-child(3) { animation-delay: .27s; }
+
+.hero__lede    { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .36s both; }
+.hero__actions { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .45s both; }
+
+/* Nothing moves, and nothing is hidden waiting for a movement that will not
+   come. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__line, .hero__lede, .hero__actions { animation: none; }
+}
+
 /* The art is absolutely positioned over the hero's right half from 1101px up,
    so the copy has to be told to stay out of it — otherwise the headline and
    lede run underneath the photographs. The art is min(46vw, 640px) inset 3%

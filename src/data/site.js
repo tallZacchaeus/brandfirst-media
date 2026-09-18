@@ -52,7 +52,7 @@ export const site = {
   meta: {
     title: 'Brandfirst Media | Print, Publicity and Event Production in Lagos',
     description:
-      'Brandfirst Media is a production group in Lagos, Nigeria — print of all kinds, branded apparel, and event staging and lighting through ROOM16 and Aṣọ Ìgbàlódé.',
+      'Brandfirst Media is a production group in Lagos, Nigeria: print of all kinds, branded apparel, and event staging and lighting through ROOM16 and Aṣọ Ìgbàlódé.',
   },
 };
 
@@ -71,7 +71,7 @@ export const home = {
     // the group is structured, and who carries the job.
     sub: 'A production group in Lagos. One brief, three in-house brands, and one team accountable from first proof to final strike.',
     primary: { label: 'Start a Project', href: '/contact' },
-    secondary: { label: 'See What We Produce', href: '/services' },
+    secondary: { label: 'See What We Do', href: '/services' },
   },
   intro: {
     // Split so the lead phrase carries the section at headline size and the
@@ -102,7 +102,7 @@ export const home = {
   },
   industries: {
     headline: 'Who We Produce For',
-    body: 'Anyone whose brand has to show up in print, on people, or on a stage — and has a date it cannot miss.',
+    body: 'Anyone whose brand has to show up in print, on people, or on a stage, and has a date it cannot miss.',
     sectors: [
       'Corporate organisations',
       'Event and conference organisers',
@@ -115,7 +115,7 @@ export const home = {
   },
   cta: {
     headline: 'Ready to Put Your Brand First?',
-    body: 'Tell us the job, the date, and whatever artwork you already have. You will get back a plan and a price — not a holding email.',
+    body: 'Tell us the job, the date, and whatever artwork you already have. You will get back a plan and a price, not a holding email.',
     button: { label: 'Contact Brandfirst Media', href: '/contact' },
   },
 };
@@ -125,7 +125,7 @@ export const services = [
     n: '01', slug: 'print-production', brand: 'brandfirst',
     image: media('bfm-press-run', PHOTO, 1784, 3990, 'A campaign print run on the press bed'),
     title: 'Print Production',
-    card: 'Everything a brand puts on paper, from stationery and brochures to full campaign collateral — held to one standard, run after run.',
+    card: 'Everything a brand puts on paper, from stationery and brochures to full campaign collateral, held to one standard run after run.',
     body: 'Print is where this business started, and it is still the centre of it. We prepare the artwork, proof it, produce it and get it to you, so what arrives is what you signed off. Short runs and long runs, on stock chosen to suit the job rather than to flatter the quote.',
     includes: ['Artwork and pre-press preparation', 'Brochures, flyers and stationery', 'Proofing and colour checks', 'Short and long production runs', 'Finishing and binding', 'Delivery coordination'],
   },
@@ -134,30 +134,30 @@ export const services = [
     image: media('bfm-billboard', PHOTO, 4024, 1713, 'An installed roadside billboard'),
     title: 'Large Format and Signage',
     card: 'Banners, roll-ups, backdrops and outdoor signage, sized and finished for the space they actually have to fill.',
-    body: 'Large format gets read from across a car park and from two feet away, and it has to hold up at both distances. We produce banners, backdrops, pull-up stands and signage at a resolution and finish that survive weather and handling — and we size the artwork to the real site rather than to a template.',
+    body: 'Large format gets read from across a car park and from two feet away, and it has to hold up at both distances. We produce banners, backdrops, pull-up stands and signage at a resolution and finish that survive weather and handling. We size the artwork to the real site rather than to a template.',
     includes: ['Banners and backdrops', 'Roll-up and pull-up stands', 'Outdoor and site signage', 'Event and exhibition graphics', 'Substrate and finish selection', 'On-site fitting coordination'],
   },
   {
     n: '03', slug: 'branded-apparel', brand: 'aso-igbalode',
     image: media('aso-jersey-white', PHOTO, 4516, 5644, 'A branded jersey from the Aṣọ Ìgbàlódé range'),
     title: 'Branded Apparel and Merchandise',
-    card: 'Shirts, vests, caps and merchandise for teams, campaigns and events — produced by Aṣọ Ìgbàlódé.',
-    body: 'Aṣọ Ìgbàlódé is our apparel brand. It dresses corporate teams, campaign volunteers, conference staff and event crews in their own colours — matched properly rather than approximately, so the polo agrees with the banner standing behind it.',
+    card: 'Shirts, vests, caps and merchandise for teams, campaigns and events, produced by Aṣọ Ìgbàlódé.',
+    body: 'Aṣọ Ìgbàlódé is our apparel brand. It dresses corporate teams, campaign volunteers, conference staff and event crews in their own colours, matched properly rather than approximately, so the polo agrees with the banner standing behind it.',
     includes: ['Branded shirts and polos', 'Vests and workwear', 'Caps and headwear', 'Event and campaign merchandise', 'Colour matching to brand standards', 'Bulk production and sizing'],
   },
   {
     n: '04', slug: 'event-lighting', brand: 'room16',
     image: media('room16-live-beams', LIVE, 1080, 718, 'A lighting rig in use during a live event'),
     title: 'Event Lighting',
-    card: 'Lighting hire, rigging and operation for events of any size — delivered by ROOM16.',
-    body: 'ROOM16 supplies and sets up lighting for events. We plan the rig around your venue and your running order, install it, and operate it on the night — so the room looks the way it was designed to look, not the way the house lights leave it.',
+    card: 'Lighting hire, rigging and operation for events of any size, delivered by ROOM16.',
+    body: 'ROOM16 supplies and sets up lighting for events. We plan the rig around your venue and your running order, install it, and operate it on the night, so the room looks the way it was designed to look rather than the way the house lights leave it.',
     includes: ['Lighting design for the venue', 'Rental of fixtures and control', 'Rigging and installation', 'On-site operation', 'Power and cabling planning', 'Strike and removal'],
   },
   {
     n: '05', slug: 'stage-and-event-equipment', brand: 'room16',
     image: media('room16-truss', FRAME, 832, 464, 'Truss and moving heads rigged over an outdoor stage'),
     title: 'Stage and Event Equipment',
-    card: 'Staging, truss and the equipment around them, built and struck to your running order — delivered by ROOM16.',
+    card: 'Staging, truss and the equipment around them, built and struck to your running order, delivered by ROOM16.',
     body: 'We build the physical structure of an event: staging, truss, and everything that hangs off it. Set-up and strike run to your programme rather than the other way round, so rehearsal and handover happen when they were meant to.',
     includes: ['Stage supply and construction', 'Truss and rigging structures', 'Equipment rental', 'Setup and strike scheduling', 'Venue survey and load-in planning', 'On-site crew'],
   },
@@ -166,7 +166,7 @@ export const services = [
     image: media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'),
     title: 'Publicity and Brand Visibility',
     card: 'Print, apparel and event presence planned together, so a campaign reads as one thing wherever it turns up.',
-    body: 'Most visibility problems are really coordination problems. The banner, the shirts and the stage all exist — but they came from three suppliers and none of them quite match. We plan and produce them together, so the campaign looks deliberate on every surface it touches.',
+    body: 'Most visibility problems are really coordination problems. The banner, the shirts and the stage all exist, but they came from three suppliers and none of them quite match. We plan and produce them together, so the campaign looks deliberate on every surface it touches.',
     includes: ['Campaign visibility planning', 'Coordinated collateral across formats', 'Event brand presence', 'Brand consistency across production', 'Launch and activation support', 'Supplier and vendor coordination'],
   },
 ];
@@ -197,19 +197,19 @@ export const brands = [
       ['Large format', 'Banners, roll-ups, backdrops, billboards and vehicle and window graphics.'],
       ['Signage', 'Shop fronts, directional and event signage, cut vinyl and mounted boards.'],
       ['Publicity', 'Coordinating print, outdoor, apparel and event so they all say the same thing.'],
-      ['Event collateral', 'Programmes, badges, table cards, wristbands — the small print a day runs on.'],
+      ['Event collateral', 'Programmes, badges, table cards, wristbands: the small print a day runs on.'],
     ],
     process: [
       ['Brief', 'What the job is for, where it will be seen, and the date it has to be ready.'],
       ['Proof', 'Artwork or a printed proof to sign off. Nothing runs until you approve it.'],
-      ['Produce', 'Printed, finished and checked — in-house or with partners we already trust.'],
+      ['Produce', 'Printed, finished and checked, either in-house or with partners we already trust.'],
       ['Deliver', 'Collected, delivered or installed on site, event-day set-up included.'],
     ],
     useCases: ['Product launches', 'Conferences and AGMs', 'Retail and shop branding', 'Political and public campaigns', 'Church and school programmes', 'Weddings and private events'],
     faq: [
       ['Can you handle the design as well as the printing?', 'Yes. Send finished artwork if you have it, or brief us and we will design to your brand.'],
       ['What is the minimum order?', 'There is no fixed minimum on most business print. Large format and signage are quoted per job.'],
-      ['Do you deliver and install?', 'Yes — across Lagos, and further afield by arrangement. Our team can install signage and event print.'],
+      ['Do you deliver and install?', 'Yes, across Lagos, and further afield by arrangement. Our team can install signage and event print.'],
     ],
     social: [{ label: 'Facebook', href: 'https://web.facebook.com/BrandfirstMedia' }],
   },
@@ -236,7 +236,7 @@ export const brands = [
       ['Design', 'Lighting plans and stage layouts drawn to your venue before the day.'],
     ],
     process: [
-      ['Site visit', 'We walk the venue for power, access and sightlines — or work from your floor plan.'],
+      ['Site visit', 'We walk the venue for power, access and sightlines, or work from your floor plan.'],
       ['Plan and quote', 'A lighting and stage plan, priced for hire, crew and transport.'],
       ['Set up', 'Rigged, focused and tested ahead of the day, with rehearsal time built in.'],
       ['Run and strike', 'Operated through the event, then struck and cleared the same night.'],
@@ -254,7 +254,7 @@ export const brands = [
     name: 'Aṣọ Ìgbàlódé',
     kind: 'In-house brand',
     line: 'Branded apparel',
-    blurb: 'Our apparel brand. Shirts, jerseys, vests, caps and merchandise, branded for teams, campaigns and events — made to be worn again, not just on the day.',
+    blurb: 'Our apparel brand. Shirts, jerseys, vests, caps and merchandise, branded for teams, campaigns and events. Made to be worn again, not just on the day.',
     services: ['branded-apparel'],
     accent: 'aso',
     offer: [
@@ -267,14 +267,14 @@ export const brands = [
     ],
     process: [
       ['Brief', 'Quantities, sizes, colours, and where the logo sits.'],
-      ['Mockup', 'A visual to approve — and on larger runs, a physical sample first.'],
+      ['Mockup', 'A visual to approve, plus a physical sample first on larger runs.'],
       ['Production', 'Printed or embroidered, checked piece by piece, packed by size.'],
       ['Delivery', 'Delivered before the event, or handed over on site with the rest of the set-up.'],
     ],
     useCases: ['Corporate teams', 'Event staff and volunteers', 'Political and public campaigns', 'Schools and alumni groups', 'Church and community groups', 'Brand launches and giveaways'],
     faq: [
-      ['Printing or embroidery — which should I choose?', 'Embroidery suits polos, caps and corporate wear. Printing suits large, colourful designs and bigger runs. We will advise once we see the artwork.'],
-      ['Can I order a small quantity?', 'Yes. Small runs are fine — the unit price simply falls as the quantity rises.'],
+      ['Printing or embroidery: which should I choose?', 'Embroidery suits polos, caps and corporate wear. Printing suits large, colourful designs and bigger runs. We will advise once we see the artwork.'],
+      ['Can I order a small quantity?', 'Yes. Small runs are fine; the unit price simply falls as the quantity rises.'],
       ['Can you match our brand colours?', 'We work from your brand guide and match thread or ink as closely as the stock allows.'],
     ],
     image: media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'),
@@ -290,19 +290,19 @@ export const about = {
   },
   overview: [
     'The whole business started in a single shop. Today Brandfirst Media prints, publicises, dresses and builds: campaign collateral and large format in-house, lighting and staging through ROOM16, branded apparel through Aṣọ Ìgbàlódé.',
-    'The name is the promise. Whatever the job — a run of brochures, a batch of shirts, a stage for a launch — the client’s brand comes first. Their colours, their standard, their date.',
+    'The name is the promise. Whatever the job, whether a run of brochures, a batch of shirts or a stage for a launch, the client’s brand comes first. Their colours, their standard, their date.',
   ],
   philosophy: {
     headline: 'Brand First. Every Surface.',
     body: [
-      'A brand only exists where people can actually see it: on paper, on a shirt, on a lit stage. Our job is to make it look right in each of those places — and to make it look like the same brand in all three.',
+      'A brand only exists where people can actually see it: on paper, on a shirt, on a lit stage. Our job is to make it look right in each of those places, and to make it look like the same brand in all three.',
       'That is why print, apparel and events sit under one roof. When one team handles all three, the blue on the banner is the blue on the polo is the blue washing across the stage. Nobody has to chase three suppliers to find out why it is not.',
     ],
   },
-  mission: 'To produce print, apparel and events that put the client’s brand first — delivered on time, matched to colour, and finished to a standard that holds up close.',
+  mission: 'To produce print, apparel and events that put the client’s brand first: delivered on time, matched to colour, and finished to a standard that holds up close.',
   vision: 'To be the production partner brands in Lagos call first, because a single brief to us covers everything the day needs.',
   values: [
-    { title: 'Craft',         text: 'Proof it, check it, then run it. The standard is the artwork — not “close enough”.' },
+    { title: 'Craft',         text: 'Proof it, check it, then run it. The standard is the artwork, not “close enough”.' },
     { title: 'Reliability',   text: 'Event dates do not move. We plan backwards from them and aim to be finished early.' },
     { title: 'Consistency',   text: 'One brand, one colour, every surface: paper, fabric and light.' },
     { title: 'Straight talk', text: 'Clear quotes, honest timelines, and a phone call the moment something changes.' },
@@ -375,11 +375,11 @@ export const showcase = [
 export const work = {
   hero: {
     headline: 'Our Work',
-    sub: 'Print, apparel, lighting and stage. Jobs we have produced and events we have built — photographed on the floor and on site, not staged for a brochure.',
+    sub: 'Print, apparel, lighting and stage. Jobs we have produced and events we have built, photographed on the floor and on site rather than staged for a brochure.',
   },
   cta: {
     headline: 'Have an Event Coming Up?',
-    body: 'Send us the date, the venue and the artwork. We will plan the print, the apparel and the stage as one job — and quote them that way.',
+    body: 'Send us the date, the venue and the artwork. We will plan the print, the apparel and the stage as one job, and quote it that way.',
     button: { label: 'Start a Project', href: '/contact' },
   },
   /**
@@ -399,9 +399,9 @@ export const work = {
 export const insights = {
   hero: {
     headline: 'Insights',
-    sub: 'Practical notes on print, apparel and event production — the things that save a job when you know them early.',
+    sub: 'Practical notes on print, apparel and event production: the things that save a job when you know them early.',
   },
-  intro: 'Short, useful reading for anyone who orders print, dresses a team, or runs an event. No theory — just what makes the difference between a job that lands and one that limps.',
+  intro: 'Short, useful reading for anyone who orders print, dresses a team, or runs an event. No theory, just what makes the difference between a job that lands and one that limps.',
   /** TODO: planned subjects, not yet written. Hide the route from the nav if
    *  these are still unwritten at launch. */
   topics: [
@@ -417,7 +417,7 @@ export const contact = {
     headline: 'Let\u2019s Talk About Your Brand',
     sub: 'A print run, a batch of branded apparel, or lighting and stage for an event. Tell us what you need and when you need it, and we will come back with a plan and a price.',
   },
-  body: 'The more you can tell us — artwork, quantities, the event date, the venue — the faster the quote comes back, and the closer it will be to the final figure.',
+  body: 'The more you can tell us (artwork, quantities, the event date, the venue), the faster the quote comes back, and the closer it will be to the final figure.',
   fields: ['Name', 'Company or organization', 'Email address', 'Phone number', 'Service interest', 'Project budget range', 'Message'],
 };
 
