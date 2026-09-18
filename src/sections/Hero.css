@@ -94,9 +94,27 @@
 
    transform-origin is the left edge so the pills grow out of the margin they
    are aligned to rather than swelling from their centres. */
+/* Each pill feeds in from the left, the way a sheet comes off a press: it
+   arrives short and slightly low, stretches past its width, then settles.
+
+   Deliberately transform and opacity only. A clip-path wipe was the obvious way
+   to draw this and it looked right, but clip-path animates on the main thread
+   and needs a repaint every frame — on the largest text on the first screen,
+   which is the LCP element. Transform and opacity stay on the compositor, so
+   the sequence costs no layout and no paint. */
 @keyframes hero-pill-in {
-  from { opacity: 0; transform: translateY(22px) scale(.94); }
-  to   { opacity: 1; transform: none; }
+  0% {
+    opacity: 0;
+    transform: translate3d(-34px, 12px, 0) scaleX(.86);
+  }
+  60% { opacity: 1; }
+  72% {
+    transform: translate3d(0, 0, 0) scaleX(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scaleX(1);
+  }
 }
 @keyframes hero-rise {
   from { opacity: 0; transform: translateY(14px); }
@@ -104,15 +122,22 @@
 }
 
 .hero__line {
+  /* Left edge, so the stretch runs out into the empty half of the hero rather
+     than pulling the pills off the margin they are aligned to. */
   transform-origin: left center;
-  animation: hero-pill-in .62s cubic-bezier(.22, 1, .36, 1) both;
+  /* Longer than the old rise so the wipe is legible as a wipe, but the whole
+     stack is still finished inside a second. */
+  animation: hero-pill-in .72s cubic-bezier(.22, 1, .36, 1) both;
 }
-.hero__line:nth-child(1) { animation-delay: .05s; }
-.hero__line:nth-child(2) { animation-delay: .16s; }
-.hero__line:nth-child(3) { animation-delay: .27s; }
+/* Enough of a gap to read as three separate beats. The delays stay small on
+   purpose: the pills are the largest text on the first screen, so LCP is
+   recorded when the first of them starts painting, not when the last lands. */
+.hero__line:nth-child(1) { animation-delay: .06s; }
+.hero__line:nth-child(2) { animation-delay: .20s; }
+.hero__line:nth-child(3) { animation-delay: .34s; }
 
-.hero__lede    { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .36s both; }
-.hero__actions { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .45s both; }
+.hero__lede    { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .52s both; }
+.hero__actions { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .62s both; }
 
 /* Nothing moves, and nothing is hidden waiting for a movement that will not
    come. */
