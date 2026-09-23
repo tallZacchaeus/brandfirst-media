@@ -13,7 +13,7 @@ Routes and nav are defined in `src/App.jsx` and `src/data/site.js` (`nav`).
 graph TD
     HOME["/ — Home"]
     ABOUT["/about — About"]
-    SERVICES["/services — Services (6)"]
+    SERVICES["/services — Services (9, three per brand)"]
     WORK["/work — Work (filterable showcase)"]
     BRANDS["/brands — The Group"]
     BFM["/brands/brandfirst-media"]
@@ -40,13 +40,16 @@ graph TD
 
 **Header (all pages, via `SiteLayout`):** Home · About · Services · Work · **Brands ▾** (Brandfirst Media / ROOM16 / Aṣọ Ìgbàlódé) · Contact — plus a "Get in touch" action button.
 
-**Footer:** brand block + link columns (dark `#121212` footer, per the Arolax template), a contact block (shared `ContactLinks` component) — phone icon + 0708 413 7772, WhatsApp icon + 0806 6442508, envelope icon + info@brandfirstmedia.com, one per line with icons and text each on a shared left edge; the icons replace the old "Call:" / "WhatsApp:" labels and each link carries an aria-label with that meaning — and each brand's Instagram, copyright. A floating WhatsApp button sits bottom-right on every page (layered below the header, so an open mobile menu covers it).
+**Footer:** brand block + link columns (dark `#121212` footer, per the Arolax template), a contact block (shared `ContactLinks` component) — phone icon + 0708 413 7772, WhatsApp icon + 0806 6442508, envelope icon + info@brandfirstmedia.com, one per line with icons and text each on a shared left edge; the icons replace the old "Call:" / "WhatsApp:" labels and each link carries an aria-label with that meaning — and each brand's Instagram, copyright. A floating WhatsApp button sits bottom-right on every page except `/contact`, where call, WhatsApp and email are already the hero's own actions (it is layered below the header, so an open mobile menu covers it).
+
+**Inner pages** open with a breadcrumb (Home — Section — Page); brand pages add Brands to the trail.
 
 Notes:
 
 - Insights is deliberately absent from the nav: *"the page exists but its articles are still unwritten, and an empty journal advertises that nobody is minding it"* (comment in `site.js`). Add it the day the first pieces are published.
 - Unknown URLs render the 404 template, never an empty page.
 - Every service card carries a `brand` tag (`brandfirst` / `room16` / `aso-igbalode`) linking the service to the brand that delivers it.
+- **Deep links into Services:** `/services#<service-slug>` (e.g. `#event-lighting`) and `/services#brand-<brand-slug>` scroll to that service or brand group. The footer, About, Brands and the brand pages link this way, and the index under the Services hero uses the same anchors in-page. `ScrollManager` makes them land; any link without a hash opens the new page at the top.
 
 ## 3. Homepage section order
 
@@ -79,7 +82,7 @@ flowchart LR
     E --> I[Or: tap phone / WhatsApp link]
 ```
 
-WhatsApp is called out in the code as how most Lagos SMB enquiries actually arrive — the contact page exposes phone, WhatsApp and email alongside the 7-field form (Name, Company, Email, Phone, Service interest, Budget range, Message).
+WhatsApp is called out in the code as how most Lagos SMB enquiries actually arrive. The contact page leads with the three channels as its hero actions: call (`tel:`), WhatsApp (opens wa.me with a pre-filled message) and email. The 7-field form follows (Name, Company, Email, Phone, Service interest grouped by brand, Budget range, Message). A "Send on WhatsApp instead" button carries whatever has been typed into the form over to WhatsApp.
 
 ### Journey B — Visitor evaluating a specific brand
 
@@ -93,11 +96,11 @@ flowchart LR
     D & E & F --> G["/contact — Start a Project"]
 ```
 
-Each brand detail page follows the same shape: hero image → offer table → 4-step process (Brief/Proof/Produce/Deliver or brand-specific equivalent) → use cases → FAQ → social links.
+Each brand detail page follows the same shape: hero (photo, "Enquire about {brand}", Instagram) → Services (its three, each linking to `/services#…`) → Capabilities → 4-step process → Use cases → Film and Photographs (only when the brand has them) → Questions → The group (links to the sibling brands) → enquiry band. Sections are numbered as they render, so the numbering never skips.
 
 ### Journey C — Diligence visitor (who are these people?)
 
-Home → `/about` (overview, philosophy, mission/vision, five values) → `/work` (real production photos and video loops) → `/contact`.
+Home → `/about` (the group and its three brands, philosophy with mission/vision, how we work, five values) → `/work` (captioned production photos filterable by discipline, plus film) → `/contact`.
 
 ## 5. WordPress reference sitemap (wp-local, for context only)
 

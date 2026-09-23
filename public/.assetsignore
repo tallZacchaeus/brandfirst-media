@@ -1,0 +1,3 @@
+# Files Cloudflare must never publish (gitignore syntax; read by wrangler deploy).
+# macOS Finder metadata ends up in public/ and would otherwise be served.
+.DS_Store

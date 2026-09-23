@@ -5,6 +5,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+/** The live Lenis instance, or null when smooth scrolling is off (touch,
+ *  reduced motion). Anything that moves the page — route changes, #anchor
+ *  links — must go through it: writing window.scrollY directly under Lenis is
+ *  overwritten on its next frame. */
+export const lenisRef = { current: null };
+
 /**
  * Smooth scrolling — the theme's `wcf_enable_scroll_smoother` extension
  * (GSAP ScrollSmoother in the original; Lenis here, which is lighter and does
@@ -31,6 +37,7 @@ export function useSmoothScroll({ enabled = true } = {}) {
     });
 
     lenis.on('scroll', ScrollTrigger.update);
+    lenisRef.current = lenis;
 
     const tick = (time) => lenis.raf(time * 1000);
     gsap.ticker.add(tick);
@@ -46,6 +53,7 @@ export function useSmoothScroll({ enabled = true } = {}) {
       gsap.ticker.remove(tick);
       gsap.ticker.lagSmoothing(500, 33);
       lenis.off('scroll', ScrollTrigger.update);
+      if (lenisRef.current === lenis) lenisRef.current = null;
       lenis.destroy();
     };
   }, [enabled]);

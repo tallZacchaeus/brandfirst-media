@@ -85,6 +85,14 @@
   font-size: 16px; line-height: 1; color: var(--ink);
   padding: 10px 0;
 }
+/* Current section: a short rule under the label, in whatever colour the
+   header's text is (white over a hero, ink on white). */
+.nav__link { position: relative; transition: opacity .2s ease; }
+.nav__link[aria-current="page"]::before {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 2px;
+  height: 1.5px; border-radius: 2px; background: currentColor;
+}
+.nav__link:hover { opacity: .75; }
 .nav__item--has-children > .nav__link::after {
   content: '⌄'; font-size: 12px; transform: translateY(-2px);
 }
@@ -130,7 +138,12 @@
     box-shadow: 0 18px 48px rgba(18,18,18,.16);
   }
   .header__nav-col.is-open .nav { flex-direction: column; gap: 2px; }
-  .header__nav-col.is-open .nav__link { padding: 12px 18px; width: 100%; }
+  .header__nav-col.is-open .nav__link { padding: 12px 18px; width: 100%; min-height: 44px; }
+  .header__nav-col.is-open .nav__sub a { min-height: 44px; display: flex; align-items: center; }
+  /* In the stacked panel a full-width rule would underline the whole row, so
+     the current page is marked by colour and weight instead. */
+  .header__nav-col.is-open .nav__link[aria-current="page"] { color: var(--brand); font-weight: 600; }
+  .header__nav-col.is-open .nav__link[aria-current="page"]::before { display: none; }
   .header__nav-col.is-open .nav__sub {
     position: static; transform: none; opacity: 1; visibility: visible;
     box-shadow: none; padding: 0 0 8px 12px; min-width: 0; background: none;

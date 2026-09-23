@@ -32,9 +32,10 @@
 .footer-inner__lines { font-size: 16px; line-height: 1.5em; color: var(--muted-2); max-width: 220px; }
 
 .footer-inner__signup { width: 50%; }
-/* One item per line. The shared .footer-inner__lines cap of 220px is for the
-   short office/follow blocks; the email alone is wider than that. */
-.footer-inner__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; max-width: none; margin-top: 14px; }
+/* One item per line, 44px apart so each link's 44px hit area (ContactLinks.css)
+   meets the next without overlapping. The shared .footer-inner__lines cap of
+   220px is for the short office/follow blocks; the email alone is wider. */
+.footer-inner__contact { display: flex; flex-direction: column; align-items: flex-start; gap: 22px; max-width: none; margin-top: 24px; }
 .footer-inner__label { font-size: 14px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-2); }
 .footer-inner__form { display: flex; gap: 0; margin-top: 16px; border-bottom: 1px solid rgba(255,255,255,.28); }
 .footer-inner__form input {
@@ -67,3 +68,7 @@
   .footer-inner__addresses { flex-direction: column; gap: 28px; }
   .footer-inner__addr { width: 100%; }
 }
+
+/* Clear the fixed WhatsApp button (58px, 24px in) on phones so it never covers
+   the last line of the page. */
+@media (max-width: 767px) { .footer-inner__bottom { padding-bottom: 96px; } }

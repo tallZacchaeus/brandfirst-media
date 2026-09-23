@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 
 import { nav as NAV, site } from '../data/site';
@@ -34,7 +34,12 @@ export default function Header({ variant = 'overlay' }) {
             <ul className="nav">
               {NAV.map((item) => (
                 <li key={item.label} className={`nav__item${item.children ? ' nav__item--has-children' : ''}`}>
-                  <Link className="nav__link" to={item.href} onClick={() => setOpen(false)}>{item.label}</Link>
+                  {/* NavLink marks the current section with aria-current="page";
+                      `end` keeps Home from matching every route. Brands stays
+                      marked on its sub-pages. */}
+                  <NavLink className="nav__link" to={item.href} end={item.href === '/'} onClick={() => setOpen(false)}>
+                    {item.label}
+                  </NavLink>
                   {item.children && (
                     <ul className="nav__sub">
                       {item.children.map((c) => (

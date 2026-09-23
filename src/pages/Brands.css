@@ -1,40 +1,97 @@
-.brands__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding-bottom: 150px; }
-.brand-card {
-  position: relative;
-  display: flex; flex-direction: column; gap: 18px;
-  padding: 44px 38px; border-radius: 22px;
-  border: 1px solid rgba(18,18,18,.14);
-  border-top: 4px solid var(--card-accent, var(--brand));
-  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
-}
-/* Optional image band. Bleeds to the card edges (negative padding offset) and
-   sits under the accent top border. */
-/* Position only. The band itself — box, ground and how a photo or a logo sits
-   inside it — belongs to BrandMedia.css; duplicating the fill here forced logos
-   through the photo's object-fit: cover and cropped them. */
-.brand-card__media { margin: -44px -38px 8px; border-radius: 0 0 18px 18px; }
-/* The image already carries the wordmark, so the heading is hidden visually
-   and kept for assistive tech / the document outline. */
-.brand-card--has-image .brand-card__name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-.brand-card--has-image .brand-card__line { margin-top: 0; font-size: 16px; color: var(--ink); }
-.brand-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px rgba(18,18,18,.10); }
-.brand-card--brand  { --card-accent: var(--brand); }
-.brand-card--room16 { --card-accent: var(--room16); }
-.brand-card--aso    { --card-accent: var(--aso); }
+/* Brands. Group structure in the hero, then one editorial row per brand.
+   BrandDetail.jsx also imports this file for .brand-card__kind on its sibling
+   list; that class is kept below. */
 
-.brand-card__kind {
-  font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
-  color: var(--card-accent);
+/* --- structure diagram (hero) ------------------------------------------------ */
+.br-tree { display: flex; flex-direction: column; align-items: stretch; }
+.br-node {
+  --accent: var(--brand-bright);
+  display: flex; align-items: center; gap: 16px;
+  padding: 12px; min-height: 72px;
+  border: 1px solid var(--rule-light); border-radius: var(--radius);
+  background: rgba(255, 255, 255, .04);
+  color: var(--paper);
+  box-shadow: inset 3px 0 0 var(--accent);
+  transition: background .25s ease, border-color .25s ease;
 }
-.brand-card__name { font-family: var(--font-inner); font-weight: 700; font-size: 32px; line-height: 1.15em; color: var(--ink); margin-top: 8px; }
-.brand-card__line { font-size: 15px; color: var(--muted); margin-top: 4px; }
-.brand-card__blurb { font-size: 17px; line-height: 1.6em; color: var(--muted); flex: 1; }
-.brand-card__services { display: flex; flex-direction: column; gap: 8px; }
-.brand-card__services a { font-size: 15px; color: var(--ink); border-bottom: 1px solid rgba(18,18,18,.18); }
-.brand-card__services a:hover { border-color: var(--card-accent); color: var(--card-accent); }
-.brand-card__more {
-  align-self: flex-start; font-size: 13px; letter-spacing: .06em; text-transform: uppercase;
-  color: var(--card-accent); border-bottom: 1px solid currentColor;
+.br-node:hover, .br-node:focus-visible { background: rgba(255, 255, 255, .09); border-color: rgba(255, 255, 255, .34); }
+.br-node--room16 { --accent: var(--room16); }
+.br-node--aso    { --accent: var(--aso); }
+.br-node__img { width: 64px; height: 64px; object-fit: cover; border-radius: var(--radius-sm); flex: 0 0 auto; }
+.br-node--parent .br-node__img { width: 88px; height: 88px; }
+.br-node__text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.br-node__kind { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
+.br-node__name { font-family: var(--font-display); font-weight: 800; font-size: 20px; line-height: 1.15; }
+.br-node--parent .br-node__name { font-size: 24px; }
+.br-node__line { font-size: 14px; line-height: 1.4; color: rgba(255, 255, 255, .72); }
+
+/* Connector: a stem down from the parent, a bar across, a drop to each child.
+   Drawn with borders on one element sized to the two child columns. */
+.br-tree__branches {
+  position: relative; height: 36px; margin: 0 25%;
+  border-bottom: 1px solid rgba(255, 255, 255, .4);
 }
-@media (max-width: 1024px) { .brands__grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 767px)  { .brands__grid { grid-template-columns: 1fr; gap: 20px; } .brand-card { padding: 32px 26px; } .brand-card__media { margin: -32px -26px 4px; } .brand-card__name { font-size: 26px; } }
+.br-tree__branches::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px;
+  background: rgba(255, 255, 255, .4);
+}
+.br-tree__children { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 20px; }
+.br-tree__children::before, .br-tree__children::after {
+  content: ''; position: absolute; top: 0; width: 1px; height: 20px; background: rgba(255, 255, 255, .4);
+}
+.br-tree__children::before { left: 25%; }
+.br-tree__children::after  { left: 75%; }
+
+/* --- brand rows ---------------------------------------------------------------- */
+.br-row { --accent: var(--brand); }
+.br-row--room16 { --accent: var(--room16); }
+.br-row--aso    { --accent: var(--aso); }
+.br-row__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 80px; align-items: center; }
+.br-row--flip .br-row__frame { order: 2; }
+.br-row__frame { margin: 12px; }
+.br-row__photo { aspect-ratio: 5 / 4; }
+.br-row__kind { color: var(--accent); }
+.br-row__name { font-family: var(--font-display); font-weight: 800; font-size: 44px; line-height: 1.1; color: var(--ink); }
+.br-row__line { margin-top: 10px; font-size: 18px; line-height: 1.5; color: var(--ink); }
+.br-row__blurb { margin-top: 18px; max-width: 56ch; font-size: 17px; line-height: 1.7; color: var(--muted); }
+.br-row__label { margin-top: 30px; }
+.br-row__services { margin-top: 10px; border-bottom: 1px solid var(--rule); }
+.br-row__services li { border-top: 1px solid var(--rule); }
+.br-row__services a {
+  display: flex; align-items: baseline; gap: 14px; min-height: 44px; padding: 12px 0;
+  font-size: 16px; color: var(--ink); transition: color .2s ease;
+}
+.br-row__services a:hover, .br-row__services a:focus-visible { color: var(--accent); }
+.br-row__services .ix-index { color: var(--accent); }
+.br-row__actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+.br-row__social::after { content: none; }
+
+/* Used by the sibling list on brand pages. */
+.brand-card__kind { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--card-accent, var(--brand)); }
+
+@media (max-width: 1199px) {
+  .br-row__name { font-size: 38px; }
+  .br-row__grid { column-gap: 56px; }
+}
+@media (max-width: 1023px) {
+  .br-row__grid { grid-template-columns: minmax(0, 1fr); row-gap: 36px; }
+  .br-row--flip .br-row__frame { order: 0; }
+  .br-row__photo { aspect-ratio: 16 / 9; }
+  .br-row__name { font-size: 32px; }
+}
+@media (max-width: 767px) {
+  .br-node { gap: 12px; }
+  .br-node--parent .br-node__img { width: 64px; height: 64px; }
+  .br-node__img { width: 52px; height: 52px; }
+  .br-node__name, .br-node--parent .br-node__name { font-size: 17px; }
+  .br-node__line { font-size: 13px; }
+  .br-tree__children { gap: 10px; }
+  /* Children's nodes stack image over name in their narrow half-width. */
+  .br-tree__children .br-node { flex-direction: column; align-items: flex-start; }
+  .br-row__frame { margin: 8px; }
+  .br-row__photo { aspect-ratio: 4 / 3; }
+  .br-row__name { font-size: 28px; }
+  .br-row__line, .br-row__blurb { font-size: 16px; }
+  .br-row__actions { flex-direction: column; align-items: stretch; }
+  .br-row__actions .btn { justify-content: center; }
+}

@@ -94,4 +94,4 @@ Carried in the content doc's "Notes for Client Confirmation" and in code TODOs:
 - Permission to display named client work (PremiumTrust Bank billboard and merchandise appear in the showcase; permission question is flagged in code comments)
 - Form endpoint (Formspree or similar; currently falls back to a pre-filled mailto)
 - Confirmation of registered company name, awards, team bios
-- Hosting/domain decisions (see TRD — currently TBD)
+- Hosting: live on Cloudflare at https://brandfirstmedia.com (see TRD §4); decide whether to retire the Vercel copy

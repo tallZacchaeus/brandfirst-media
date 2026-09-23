@@ -437,6 +437,18 @@ export const showcase = [
   { ...media('aso-corporate-wear', PHOTO, 4024, 1713, 'Branded corporate shirts bagged and ready to deliver'), tag: 'Clothing', brand: 'aso' },
 ];
 
+/** Photography for the inner-page heroes, one per page, chosen to show that
+ *  part of the business at work rather than decorate it. Brand detail pages use
+ *  each brand's own heroImage instead; the Brands and Work heroes carry their
+ *  own compositions (the group structure, a contact sheet). */
+export const pageHeroImages = {
+  about: media('room16-live-wide', LIVE, 1080, 694, 'Beam and wash fixtures over a full stage during a live event'),
+  // A tall frame cropped to the hero's landscape box; `focus` keeps the press
+  // drum and the print coming off it in view rather than the floor below.
+  services: { ...media('bfm-rollups', PHOTO, 1784, 3991, 'Roll-up banners coming off the press'), focus: '50% 30%' },
+  contact: media('room16-presence', PHOTO, 4000, 3000, 'Stage, screen and lighting set for a conference'),
+};
+
 export const work = {
   hero: {
     headline: 'Our Work',

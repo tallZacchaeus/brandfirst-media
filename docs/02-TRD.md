@@ -61,8 +61,9 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 | Item | Value |
 |---|---|
 | Framework | React 18.3, Vite 6 (`@vitejs/plugin-react` 4.3) |
-| Routing | `react-router-dom` v7 (BrowserRouter; SPA rewrite in `vercel.json`) |
-| Animation | GSAP 3.13 (ScrollTrigger pinning), Lenis 1.1 smooth scroll; IntersectionObserver for reveals |
+| Routing | `react-router-dom` v7 (BrowserRouter; SPA fallback via `not_found_handling` in `wrangler.jsonc`, and via the rewrite in `vercel.json` on the legacy Vercel copy) |
+| Animation | GSAP 3.13 (ScrollTrigger pinning), Lenis 1.1 smooth scroll; IntersectionObserver for reveals (`useReveal` on inner pages) |
+| Scroll | `ScrollManager` (in `SiteLayout`): top of page on each new route, hash targets scrolled through Lenis (`lenisRef` from `useSmoothScroll`); back/forward left to the browser |
 | Icons | `react-icons` 5.7 — phone, WhatsApp, envelope and Instagram marks only (imported per icon, so only those four are bundled) |
 | Content | All copy in `src/data/site.js` — single source of truth; components render from it |
 | Fonts | Montserrat Alternates (Google Fonts, OFL) — one family site-wide; see `FONTS.md` for the licensing history (theme's Beatrice Trial and Getaway faces could not ship) |
@@ -75,8 +76,12 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 
 ## 4. Hosting
 
-- `brandfirst-media/vercel.json` exists (framework `vite`, output `dist/`, SPA rewrite excluding `/assets/`), so **Vercel is the intended host for the React site**. Whether a Vercel project/domain is provisioned: **TBD**.
-- Production domain: **TBD** (no domain configured anywhere in the repo).
+- **Production: Cloudflare**, live at **https://brandfirstmedia.com** (and `www.`), since September 2026. The site is an assets-only **Worker with static assets** named `brandfirst-media` (config: `brandfirst-media/wrangler.jsonc`), in the Cloudflare account that also holds the `brandfirstmedia.com` zone.
+  - `assets.directory: ./dist`, `not_found_handling: single-page-application` — every non-file path serves `index.html`, so React Router handles deep links and refreshes.
+  - Both hostnames are **Workers Custom Domains**, which own their DNS records and TLS certificates. The zone's earlier A records (a Hostinger parked page) had to be deleted by hand first: Cloudflare will not let a custom domain replace a DNS record it did not create.
+  - `public/.assetsignore` keeps macOS `.DS_Store` files out of the upload.
+  - **Deploy:** `npm run deploy` (runs `vite build`, then `wrangler deploy`). Wrangler 4.137 is a devDependency. Deploys are manual from a logged-in machine: pushing to GitHub does **not** deploy to Cloudflare.
+- **Legacy: Vercel.** `vercel.json` (framework `vite`, output `dist/`, SPA rewrite excluding `/assets/`) still exists and the Vercel project still auto-deploys every push to `master` at `brandfirst-media.vercel.app` — a second public copy of the site. To be retired once Cloudflare is confirmed as the only host.
 - WordPress hosting: **TBD / likely none** — wp-local is a local reference environment only.
 
 ## 5. Licensing constraints (must-hold requirements)
@@ -89,4 +94,6 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 - `prefers-reduced-motion` disables smooth scroll, pinning, cursor effects and the autoplaying hero video.
 - Pinning and custom cursor gated to ≥ 768 px / fine pointers.
 - A 2.5 s failsafe reveals all animated content so nothing can remain invisible.
+- Inner-page motion: 0.45–0.65 s durations, 60–90 ms staggers, no parallax or scroll-jacking; opacity-only on phones, coarse pointers and ≤ 4-core devices.
+- Touch targets ≥ 44 px on inner pages, header and footers; no horizontal overflow at 1440 / 1024 / 768 / 390 px (checked with a headless-Chrome audit).
 - Responsive images via `srcSet`; videos muted/looped (silent production clips).

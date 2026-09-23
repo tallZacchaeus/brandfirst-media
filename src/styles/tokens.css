@@ -65,6 +65,16 @@
   --fs-xl: 60px;  --fs-2xl: 70px; --fs-3xl: 120px;
   --fs-display: 150px; --fs-mega: 300px; --fs-ultra: 450px;
 
+  /* Inner-page system (see inner.css). The hero ground is the brand navy pulled
+     toward ink: flatter and more executive than the home hero's gradient, and
+     still unmistakably the same blue family. */
+  --brand-ink: #081A4B;
+  --rule: rgba(18, 18, 18, .12);
+  --rule-strong: rgba(18, 18, 18, .24);
+  --rule-light: rgba(255, 255, 255, .16);
+  --radius-sm: 4px;
+  --radius: 6px;
+
   --container: 1320px;
   --gutter: clamp(16px, 4vw, 64px);
 }

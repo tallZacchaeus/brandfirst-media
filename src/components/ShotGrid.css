@@ -1,0 +1,40 @@
+/* Photo grid with captions beneath each tile. Landscape and portrait sources
+   share it, so tiles are a fixed shape and the image covers; portraits get a
+   taller tile, and dense flow back-fills the gaps they would leave. */
+.shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: dense; gap: 40px 24px; }
+.shot { --accent: var(--brand); }
+.shot--room16 { --accent: var(--room16); }
+.shot--aso    { --accent: var(--aso); }
+.shot figure { margin: 0; }
+.shot__img { aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-sm); background: var(--sec-tint); }
+.shot--tall { grid-row: span 2; }
+.shot--tall .shot__img { aspect-ratio: 4 / 5.6; }
+.shot__img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.22, 1, .36, 1); }
+.shot:hover .shot__img img { transform: scale(1.03); }
+
+.shot__caption { display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 1px solid transparent; }
+.shot__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.shot__tag {
+  font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent);
+  padding-left: 14px; position: relative;
+}
+.shot__tag::before { content: ''; position: absolute; left: 0; top: 50%; width: 8px; height: 8px; border-radius: 1px; background: var(--accent); transform: translateY(-50%); }
+.shot__brand { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.shot__desc { font-size: 15px; line-height: 1.5; color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) { .shot:hover .shot__img img { transform: none; } }
+@media (max-width: 1023px) { .shots { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Phones: two columns as masonry (CSS columns) rather than grid. One column
+   ran the 33-photo Work page past 16,000px; a two-column grid would leave a
+   hole beside every portrait's span. Columns stack each tile at its own
+   height, so nothing is left blank. The brand name is dropped from the
+   caption here: the discipline tag already carries the brand's colour and
+   maps one-to-one to it (Print, Events, Clothing). */
+@media (max-width: 767px) {
+  .shots { display: block; columns: 2; column-gap: 12px; }
+  .shot { break-inside: avoid; margin-bottom: 22px; }
+  .shot__caption { gap: 6px; padding-top: 10px; }
+  .shot__brand { display: none; }
+  .shot__desc { font-size: 13px; line-height: 1.45; }
+}

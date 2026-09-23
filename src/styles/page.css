@@ -14,8 +14,8 @@
 
 /* `.page` wraps every inner route, so the display face is scoped here rather
    than repeated in each page's stylesheet. The demo ran a different face on
-   inner pages than on the homepage; both now resolve to Instrument Serif, but
-   the hook is kept so they can diverge again without touching every page. */
+   inner pages than on the homepage; both now resolve to Montserrat Alternates,
+   but the hook is kept so they can diverge again without touching every page. */
 .page .sec__title,
 .page .sv__block-title,
 .page .case__title,

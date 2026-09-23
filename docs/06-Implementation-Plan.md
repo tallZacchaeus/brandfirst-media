@@ -31,8 +31,20 @@
 - [x] Brand architecture: Brandfirst Media (parent) + ROOM16 + Aṣọ Ìgbàlódé, each with offer/process/use-cases/FAQ pages.
 - [x] Client's own media processed: ~33 photos as responsive webp sets, 12 silent ~10 s video loops; demo photography replaced in the shipped pages.
 - [x] Contact details added from the client's Facebook page (phone, WhatsApp, email, Facebook).
-- [x] WhatsApp float on every page, WhatsApp on its own number (0806 644 2508) with a pre-filled message, calls on 0708 413 7772; per-brand Instagram/Facebook links in the footer; services expanded to nine (three per brand); "Apparel" renamed "Clothing" site-wide. Commit `00c1385`.
+- [x] WhatsApp float on every page (later: every page but `/contact`), WhatsApp on its own number (0806 644 2508) with a pre-filled message, calls on 0708 413 7772; per-brand Instagram/Facebook links in the footer; services expanded to nine (three per brand); "Apparel" renamed "Clothing" site-wide. Commit `00c1385`.
 - [x] Facebook links removed site-wide; each brand links to its Instagram only. Footer contact block standardised on both footers to "Call: 0708 413 7772 / WhatsApp: 0806 6442508 / email", one item per line (the inner-page footer previously wrapped them unevenly in a 220px paragraph).
+- [x] Inner pages given an executive hero: shared `PageHero` with the home gradient, breadcrumb, computed key figures and real photography; transparent header over it; current page marked in the nav. *(Superseded by the redesign below.)*
+- [x] **Inner-page redesign** (About, Services, Brands, brand pages, Work, Contact; homepage body untouched). A shared system in `src/styles/inner.css` — flat navy hero with crop-marked photography or a page-specific aside, numbered section heads, hairline-divided full-width bands, 4–6 px radii, stepped type with no viewport scaling — and every page rebuilt on it from the existing copy and photography (no new claims). The hero's key-figures row was later removed at the client's request. See §4 of `04-UI-UX-Design-Brief.md`. Alongside:
+  - `ScrollManager`: pages now open at the top and `/services#…` deep links land on their service. Neither worked before, since React Router has no scroll handling.
+  - `useReveal` for section entrances (0.55 s, 70 ms stagger capped at 0.6 s; opacity only on phones and low-powered devices).
+  - Touch targets of 44 px or more on inner pages, the header and both footers.
+  - Phones get two-column masonry photo grids and a swipeable film strip; the Work page on a phone went from over 16,000 px to about 7,900 px.
+  - The WhatsApp float is hidden on `/contact`, where call, WhatsApp and email are the hero's actions.
+  - Fixed a React console warning (`fetchPriority` → `fetchpriority` on React 18).
+  - Verified in headless Chrome at 1440, 1024, 768 and 390 px on every route:
+    - no horizontal overflow, no clipped headings, no console errors;
+    - anchors, filters, video playback, the WhatsApp and mailto routes, the mobile menu and reveals with motion on all tested.
+  - Not yet checked on real devices; that folds into the Phase 6 check.
 - [x] Sister deliverable: ROOM16 Instagram launch kit (`room16-instagram/` — posts, reels, drafted captions).
 
 ## Phase 5 — Pre-launch (PENDING)
@@ -45,7 +57,7 @@ Client inputs (blocking):
 - [ ] **Email hosting for `brandfirstmedia.com` (blocking).** The domain had no MX records when the addresses went on the site, so mail to them has nowhere to be delivered. Set up the mailboxes, add the MX (and SPF) records, then send a test message to each address and reply from it.
 - [ ] Written permission to show PremiumTrust Bank work (billboard + merchandise appear in the showcase; flagged in code comments).
 - [ ] Final office address; confirmation of registered company name.
-- [ ] Real case studies to replace the 5 placeholder titles on `/work`.
+- [ ] Real case studies to replace the 5 placeholder titles (`work.placeholders`, shown in the home page's Selected Work section).
 - [ ] Insight articles (4 topics drafted as subjects only) — until written, keep Insights out of the nav (already the case).
 - [ ] Aṣọ Ìgbàlódé logo (currently text treatment); source file of the Brandfirst mark so brand colours can be measured exactly (currently sampled by eye).
 
@@ -55,7 +67,10 @@ Technical tasks:
 - [ ] Configure a form endpoint (Formspree per the note in `site.js`) and set `site.formEndpoint`; verify success/error states. Current fallback: pre-filled mailto.
 - [ ] Sweep `public/assets/` for any remaining CrowdyTheme demo assets (the README warns the demo showreel/photography are not licensed for production) and confirm nothing unlicensed is referenced by the build.
 - [ ] Optional: purge Beatrice Trial / Getaway font files from git history (`git filter-repo`, commit `6526454`) if the repo will ever be shared.
-- [ ] Decide hosting: `vercel.json` is ready (Vite framework, `dist/`, SPA rewrites) — provision the Vercel project, connect the repo, set the production domain. **Domain: TBD.**
+- [x] Hosting: Cloudflare Worker with static assets, live at **https://brandfirstmedia.com** and `www.` (see TRD §4). Deploy with `npm run deploy`.
+- [ ] Retire the Vercel copy (`brandfirst-media.vercel.app` still auto-deploys every push) — or keep it deliberately as a staging URL.
+- [ ] Optional: deploy to Cloudflare on push (Workers Builds, connected in the Cloudflare dashboard) so publishing no longer depends on a logged-in machine.
+- [ ] Choose a canonical host and redirect the other (e.g. `www` → apex via a Cloudflare Redirect Rule); today both serve the same site.
 - [ ] SEO pass: per-route titles/descriptions (only the global meta in `index.html` exists), OG image, `sitemap.xml`, `robots.txt` — none present yet.
 - [ ] Analytics: none configured — choose and add if the client wants measurement (PRD metrics depend on it).
 
@@ -66,7 +81,8 @@ Technical tasks:
 - [ ] Test contact form end-to-end (endpoint POST, error state, mailto fallback removed or kept deliberately) and the WhatsApp/phone links on a real device.
 - [ ] Reduced-motion, mobile (<768 px, no pinning/cursor) and touch verification.
 - [ ] 404 route, favicon set, social share preview.
-- [ ] Point the domain, enable HTTPS (automatic on Vercel), submit sitemap to Search Console.
+- [x] Point the domain and enable HTTPS — done on Cloudflare (Workers Custom Domains issue the certificates).
+- [ ] Submit a sitemap to Search Console (no `sitemap.xml` exists yet).
 - [ ] Client sign-off against the "Notes for Client Confirmation" list in the content document.
 
 ## Post-launch (candidates, not commitments)
@@ -84,6 +100,6 @@ Technical tasks:
 | React site: pages, routing, motion | Done (build in `dist/` exists) |
 | Content & client media | Done, minus client-dependent gaps above |
 | Form endpoint | Pending (mailto fallback active) |
-| Hosting / domain | Pending / TBD |
+| Hosting / domain | Live on Cloudflare at brandfirstmedia.com; Vercel copy still running |
 | SEO extras, analytics | Pending |
 | Client confirmations | Pending |

@@ -1,66 +1,47 @@
-.wk__filters { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 44px; }
-.wk__filter {
+/* Work. A contact sheet in the hero, then the filtered record. */
+
+/* --- hero contact sheet ----------------------------------------------------- */
+.wk-sheet { --crop: rgba(255, 255, 255, .5); margin: 12px; }
+.wk-sheet__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.wk-sheet__frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-sm); background: rgba(255, 255, 255, .06); }
+.wk-sheet__frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Frame number and discipline on a small solid plate — legible on any photo. */
+.wk-sheet__no, .wk-sheet__tag {
+  position: absolute; top: 8px;
+  padding: 4px 7px; border-radius: 2px;
+  background: rgba(8, 26, 75, .86); color: var(--paper);
+  font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+}
+.wk-sheet__no  { left: 8px; }
+.wk-sheet__tag { right: 8px; }
+
+/* --- filters ------------------------------------------------------------------ */
+.wk-filter {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px;
+  margin-bottom: 44px; padding-bottom: 20px; border-bottom: 1px solid var(--rule);
+}
+/* A segmented control: one outlined bar, the selected segment filled. */
+.wk-filter__group { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--rule-strong); border-radius: var(--radius); overflow: hidden; }
+.wk-filter__btn {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 12px 22px; border-radius: 999px;
-  border: 1px solid rgba(18,18,18,.18);
-  background: transparent; color: var(--ink);
-  font-family: var(--font-body); font-size: 15px; cursor: pointer;
-  transition: background .3s ease, color .3s ease, border-color .3s ease;
+  min-height: 48px; padding: 0 20px;
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  background: var(--paper);
+  transition: background .2s ease, color .2s ease;
 }
-.wk__filter:hover { border-color: var(--brand); color: var(--brand); }
-.wk__filter.is-on { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-.wk__count { font-size: 13px; opacity: .6; }
+.wk-filter__btn + .wk-filter__btn { border-left: 1px solid var(--rule-strong); }
+.wk-filter__btn:hover { background: var(--sec-tint); }
+.wk-filter__btn[aria-pressed='true'] { background: var(--brand-ink); color: var(--paper); }
+.wk-filter__btn:focus-visible { outline: 2px solid var(--brand); outline-offset: -4px; }
+.wk-filter__count { font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; opacity: .6; }
+.wk-filter__status { font-size: 14px; color: var(--muted); }
 
-/* dense back-fills the holes the double-height portrait tiles leave; without
-   it the grid strands gaps wherever a tall tile starts mid-row. */
-.wk__gallery { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-flow: dense; gap: 20px; padding-bottom: 20px; }
-.wk__shot {
-  position: relative;
-  border-radius: 18px; overflow: hidden;
-  /* Landscape and portrait sources share the grid, so tiles are a fixed shape
-     and the image covers — native ratios made the rows ragged. Portraits get a
-     taller tile so they are not cropped to a letterbox. */
-  aspect-ratio: 4 / 3;
-  background: var(--sec-tint);
-}
-.wk__shot--tall { aspect-ratio: 4 / 5; grid-row: span 2; }
-.wk__shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-
-/* The caption is the accessible alt text made visible on hover — no separate
-   copy to keep in sync. */
-.wk__caption {
-  position: absolute; inset: auto 0 0 0;
-  display: flex; flex-direction: column; gap: 6px;
-  padding: 44px 20px 18px;
-  font-size: 14px; line-height: 1.4em; color: var(--paper);
-  background: linear-gradient(to top, rgba(6,14,38,.88), rgba(6,14,38,0));
-  opacity: 0; transition: opacity .35s ease;
-}
-.wk__shot:hover .wk__caption, .wk__shot:focus-within .wk__caption { opacity: 1; }
-.wk__tag {
-  align-self: flex-start;
-  font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
-  padding: 4px 10px; border-radius: 999px;
-  background: var(--shot-accent, var(--brand)); color: var(--paper);
-}
-.wk__shot--brand  { --shot-accent: var(--brand); }
-.wk__shot--room16 { --shot-accent: var(--room16); }
-.wk__shot--aso    { --shot-accent: var(--aso); }
-
-.wk__film { padding: 80px 0 0; }
-.wk__film-note { max-width: 520px; margin: 18px 0 34px; font-size: 17px; line-height: 1.6em; color: var(--muted); }
-
-.wk__cta { padding: 90px 0 150px; }
-.wk__cta-body { max-width: 560px; margin: 20px 0 32px; font-size: 18px; line-height: 1.6em; color: var(--muted); }
-
-@media (max-width: 1024px) { .wk__gallery { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 767px) {
-  .wk__gallery { grid-template-columns: 1fr; gap: 14px; }
-  /* One column: spanning two rows would leave a hole. */
-  .wk__shot--tall { grid-row: auto; }
-  .wk__filters { padding-bottom: 28px; }
-  .wk__filter { padding: 10px 16px; font-size: 14px; }
-  /* No hover on touch, so the caption stays up. */
-  .wk__caption { opacity: 1; }
-  .wk__cta { padding: 60px 0 90px; }
+  .wk-sheet { margin: 8px; }
+  .wk-sheet__grid { gap: 6px; }
+  .wk-filter { margin-bottom: 32px; }
+  /* Four equal segments across the full width on phones. */
+  .wk-filter__group { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: 100%; }
+  .wk-filter__btn { justify-content: center; flex-direction: column; gap: 2px; min-height: 56px; padding: 0 6px; font-size: 14px; }
 }

@@ -1,6 +1,6 @@
 .vcard {
   position: relative; margin: 0;
-  border-radius: 18px; overflow: hidden;
+  border-radius: var(--radius-sm, 4px); overflow: hidden;
   background: var(--sec-tint);
   /* Portrait phone clips and landscape stage clips share a row, so the tile is
      a fixed shape and the video covers it. */
@@ -38,8 +38,20 @@
 /* A grid of clips, shared by the Work page and the brand pages. */
 .vgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 @media (max-width: 1024px) { .vgrid { grid-template-columns: 1fr 1fr; } }
+/* Phones: a swipeable strip instead of a column of full-width clips (eight on
+   ROOM16, twelve on Work, each taller than the screen is wide). The strip
+   bleeds to the screen edges and the next clip peeks in, which is what says
+   it scrolls. Native scroll with snap points: no scroll-jacking. */
 @media (max-width: 767px) {
-  .vgrid { grid-template-columns: 1fr; gap: 14px; }
+  .vgrid {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%;
+    gap: 12px; margin: 0 -20px; padding: 0 20px 4px;
+    overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding: 0 20px;
+    scrollbar-width: none;
+  }
+  .vgrid::-webkit-scrollbar { display: none; }
+  .vgrid > li { scroll-snap-align: start; }
   /* No hover on touch, so the caption would never appear. */
   .vcard__caption { opacity: 1; }
 }

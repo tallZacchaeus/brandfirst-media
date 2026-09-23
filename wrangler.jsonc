@@ -1,0 +1,23 @@
+{
+  // Cloudflare hosting: an assets-only Worker serving the Vite build.
+  // Deploy with `npm run deploy` (builds, then `wrangler deploy`).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "brandfirst-media",
+  "compatibility_date": "2026-09-23",
+
+  "assets": {
+    "directory": "./dist",
+    // React Router owns every path: any request that is not a real file gets
+    // index.html, so deep links and refreshes on /about, /brands/room16 etc.
+    // resolve in the browser instead of 404ing.
+    "not_found_handling": "single-page-application"
+  },
+
+  // Both hostnames attach as Workers Custom Domains, which create and manage
+  // their own DNS records and certificates. Deploying replaces whatever DNS
+  // record each hostname had before (it was a Hostinger parked page).
+  "routes": [
+    { "pattern": "brandfirstmedia.com", "custom_domain": true },
+    { "pattern": "www.brandfirstmedia.com", "custom_domain": true }
+  ]
+}

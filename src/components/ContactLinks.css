@@ -1,3 +1,8 @@
 /* Icon + number. Sized in em so the icon tracks each footer's own type size. */
-.contact-link { display: inline-flex; align-items: center; gap: .55em; }
+.contact-link { position: relative; display: inline-flex; align-items: center; gap: .55em; }
 .contact-link svg { width: 1em; height: 1em; flex: 0 0 auto; opacity: .85; }
+/* Both footers underline these with border-bottom, so the link can't simply
+   grow to 44px without dropping the underline away from the text. The hit
+   area grows instead; each footer spaces the rows 44px apart so neighbouring
+   targets meet rather than overlap. */
+.contact-link::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%); }

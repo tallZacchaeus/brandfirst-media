@@ -72,7 +72,7 @@ export default function HeroArt() {
               /* Only the first frame of each capsule competes with the fold;
                  the rest are not seen for seconds, so they queue behind it. */
               loading={i === 0 ? 'eager' : 'lazy'}
-              fetchPriority={i === 0 ? 'auto' : 'low'}
+              fetchpriority={i === 0 ? 'auto' : 'low'}
               decoding="async"
             />
           ))}

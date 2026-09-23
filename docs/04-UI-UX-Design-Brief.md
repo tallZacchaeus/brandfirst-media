@@ -54,7 +54,8 @@ All four font tokens (`--font-hero`, `--font-display`, `--font-inner`, `--font-b
 Handling rules specific to this face (from `FONTS.md`):
 
 - Negative tracking `-0.02em` at display sizes (otherwise heavy-weight counters read as letter gaps).
-- Smaller display scale than the demo's serif: section titles 70 px → 56 px, page titles 100 px → 76 px.
+- Smaller display scale than the demo's serif: section titles 70 px → 56 px, page titles 100 px → 76 px (home).
+- **Inner pages** step the type at breakpoints instead of scaling with the viewport: page titles 56 / 48 / 42 / 34 px and section titles 44 / 38 / 32 / 28 px (≥ 1200 / ≥ 1024 / ≥ 768 / phones). Their headings carry no letter-spacing; only the small uppercase metadata labels are tracked (`.12em`, 11–12 px).
 
 **Type scale (demo-derived, px):** 16, 18, 24, 30, 60, 70, 120, 150, 300, 450.
 
@@ -62,10 +63,19 @@ Handling rules specific to this face (from `FONTS.md`):
 
 - **Container:** 1320 px (`--container`), gutter `clamp(16px, 4vw, 64px)`. Templates use boxed widths of 1290–1760 px per the Elementor specs.
 - **Stacked-card sections:** every top-level home section is a rounded card — `border-radius: 80px`, `margin-top: -100px` — pinned via ScrollTrigger (`pinSpacing: false`) so each holds still while the next scrolls up over it. Desktop only (≥ 768 px); the final section stays unpinned so the footer scrolls in cleanly.
-- **Header:** overlay variant on home (absolute, boxed 1720, logo 20% / nav 60% / action 20%); in-flow light and dark variants on inner pages. At ≤ 1024 px the nav collapses behind a burger into an absolutely positioned panel inside the header.
-- **Layering:** page content sits at `auto` (hero art `0`, hero copy `1`); the WhatsApp float at `40`; the header — every variant — at `50`. The mobile menu panel and the desktop Brands dropdown are absolute children of the header, so they can only ever sit as high as the header itself: give the header its own `z-index` on every variant, never just the overlay one. Without it, the inner-page header fell to the bottom of the stack and page titles (whose split-word reveal creates positioned boxes) painted over the open menu.
-- **Footer:** `#121212`, boxed 1760, 80 px top radius; inner-page variant on `#171717`.
-- **Cards:** dark service cards `#1C1C1C` at radius 20; images at radius up to 80.
+- **Header:** transparent overlay variant (absolute, boxed 1720, logo 20% / nav 60% / action 20%, white type) on every page that opens with a blue hero — home, About, Services, Work, Brands, each brand page, Contact. The in-flow light variant is kept for pages on white (the 404, including unknown brand slugs); `SiteLayout` names the hero routes explicitly so the white nav can never land on a white page. The current section is marked in the nav (`NavLink`, `aria-current="page"`): a short rule under the label on desktop, brand colour and weight in the mobile panel. At ≤ 1024 px the nav collapses behind a burger into an absolutely positioned panel inside the header, with 44 px rows.
+- **Inner-page hero (`PageHero`):** a flat navy band (`--brand-ink #081A4B`, the site grain at 12 %), square-cornered, and compact: 600–730 px tall at 1440 × 900, so the next section always shows. Copy sits on the same 1290 px column as the page: breadcrumb (Home — Section — Page), optional eyebrow with a small brand-coloured square, title, lede (max 54 ch), optional actions. The right column is one photograph framed with print crop marks, or a page-specific aside so each page keeps its character: on **Brands** the group structure (the parent above its two in-house brands, joined by connector lines, each node linking to its page); on **Work** a four-frame contact sheet. Photos live in `pageHeroImages` (an optional `focus` sets the crop of a tall photo); brand pages use each brand's `heroImage` and mark their accent with a 3 px rule along the foot of the band. There is no key-figures row: the counts (3 brands, 9 services…) were removed at the client's request. Entrance is CSS on load (0.55 s rise, 70 ms apart; a plain fade on phones; none under reduced motion).
+- **Inner-page system** (`src/styles/inner.css`, `SectionHead`): full-width bands rather than floating cards — `.ix-section` at 104 / 80 / 60 px vertical padding on white, `--sec-tint` or navy. Each opens with a numbered head: index and label on a hairline rule, then the title and an optional lede (or a split layout, lede beside the title). Columns, lists and rows are divided by hairlines (`--rule`, `--rule-strong`, `--rule-light` on navy) instead of boxed. Radii 4–6 px (`--radius-sm`, `--radius`); key photographs carry print crop marks (`.ix-frame`). Each brand's colour appears only as a short rule or small square marker (`--accent`). Pages close on a navy CTA band. Page by page:
+  - **About:** the group as three hairline-divided columns (brand, line, its three services as links), philosophy with Mission/Vision, the five-point standard, values on navy.
+  - **Services:** a three-column index directly under the hero (each brand → its three services, all jump links), then one band per brand with its services as alternating text/photo rows ("What this includes" lists).
+  - **Brands:** one full-width row per brand (photo, name, line, blurb, services, Explore + Instagram).
+  - **Brand pages:** numbered sections — Services, Capabilities, Process, Use cases, Film, Photographs, Questions, The group — renumbered as they render, so a brand without film or photos has fewer sections, never a gap; closes on an enquiry band.
+  - **Work:** segmented filter (All / Print / Events / Clothing, with counts) and a live "Showing N photographs · N film clips" line; every photo captioned beneath with discipline, brand and what it shows (`ShotGrid`); film below.
+  - **Contact:** call, WhatsApp and email are the hero's actions (64 px rows with icons); the form sits beside the office and all three Instagram accounts.
+- **Phones (< 768 px):** photo grids become a two-column masonry (CSS columns, each tile at its own height; the brand name drops from captions since the discipline tag carries its colour); film clips become a swipeable scroll-snap strip that bleeds to the screen edges with the next clip peeking in. One column had run the Work page past 16,000 px.
+- **Layering:** page content sits at `auto` (hero art `0`, hero copy `1`); the WhatsApp float at `40` (hidden on `/contact`, where WhatsApp is already a primary action); the header — every variant — at `50`. The mobile menu panel and the desktop Brands dropdown are absolute children of the header, so they can only ever sit as high as the header itself: give the header its own `z-index` on every variant, never just the overlay one. Without it, the inner-page header fell to the bottom of the stack and page titles (whose split-word reveal creates positioned boxes) painted over the open menu.
+- **Footer:** `#121212`, boxed 1760, 80 px top radius; inner-page variant on `#171717`. Link lists are 44 px rows. The contact links keep their `border-bottom` underline tight to the text, so they take a 44 px hit area through a pseudo-element instead, with rows spaced just over 44 px apart so neighbouring targets never overlap. On phones the bottom bar leaves 96 px clear for the WhatsApp float.
+- **Cards (home):** dark service cards `#1C1C1C` at radius 20; images at radius up to 80. Inner pages use no cards and radii of 4–6 px.
 
 ## 5. Imagery style
 
@@ -79,10 +89,12 @@ Handling rules specific to this face (from `FONTS.md`):
 ## 6. Motion and interaction
 
 - **Smooth scroll:** Lenis, clocked with GSAP's ticker so pinned sections don't jitter.
-- **Reveals:** IntersectionObserver (not ScrollTrigger) with a 2.5 s failsafe so nothing can strand at `opacity: 0`.
+- **Reveals:** IntersectionObserver (not ScrollTrigger) with a 2.5 s failsafe so nothing can strand at `opacity: 0`. Inner pages use `useReveal`: 0.55 s, 70 ms stagger capped at 0.6 s per group, 16 px rise; opacity only (0.45 s) on phones, coarse pointers and devices with ≤ 4 cores.
+- **Scroll position (`ScrollManager`):** a new page starts at the top; a link with a hash (`/services#event-lighting`, the Services index, `#brand-…`) scrolls to its target through Lenis, honouring `scroll-margin-top`; back/forward keeps the browser's own restoration. React Router does none of this by itself — before it, deep links to a service landed at the top of the page and pages opened at the previous page's scroll depth.
 - **Custom cursor:** 40 px ring + 8 px dot + 100 px labelled disc on `data-cursor` elements, ported from the theme's plugins (`gsap.quickTo`, 0.6 s, `power4.out`/`expo`). Native pointer stays visible, matching the theme.
 - **Hero video:** autoplays muted and loops (no poster, per the demo's own settings); its control toggles sound first, then pause.
 - **Accessibility gates:** all of the above disabled under `prefers-reduced-motion`; cursor and pinning disabled for touch/coarse pointers and widths < 768 px.
+- **Touch targets:** 44 px minimum across the inner pages, header and footers, verified by hit-testing at 1440 / 1024 / 768 / 390 px. Breadcrumb links keep their label size and take the 44 px through a pseudo-element. Known exceptions: the desktop nav links (36 px, mouse only; the burger takes over at ≤ 1024 px) and the home services section's "Learn more" link (homepage body, left as designed).
 
 ## 7. Voice
 

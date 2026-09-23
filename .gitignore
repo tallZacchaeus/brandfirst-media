@@ -3,3 +3,6 @@ dist
 .DS_Store
 
 .vercel
+
+# Wrangler local state (dev server cache, temp bundles)
+.wrangler/

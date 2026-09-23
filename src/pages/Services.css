@@ -1,39 +1,71 @@
-.sv__stack { padding-top: 40px; }
-/* Copy on the left, photograph on the right. Alternating the picture side
-   down the page stops six identical blocks reading as a spreadsheet. */
-.sv__block {
-  padding: 56px 0; border-top: 1px solid rgba(18,18,18,.14); scroll-margin-top: 120px;
-  display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-  column-gap: 56px; align-items: start;
+/* Services. Index under the hero, then one section per brand. */
+
+/* --- index ---------------------------------------------------------------- */
+.sv-index { background: var(--paper); border-bottom: 1px solid var(--rule); }
+.sv-index__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sv-index__col { --accent: var(--brand); position: relative; padding: 40px 32px 36px 0; }
+.sv-index__col + .sv-index__col { padding-left: 32px; border-left: 1px solid var(--rule); }
+.sv-index__col::before { content: ''; position: absolute; top: 0; left: 0; width: 56px; height: 3px; background: var(--accent); }
+.sv-index__col + .sv-index__col::before { left: 32px; }
+.sv-index__col--room16 { --accent: var(--room16); }
+.sv-index__col--aso    { --accent: var(--aso); }
+.sv-index__kind { color: var(--accent); }
+.sv-index__brand {
+  display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px;
+  font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink);
 }
-.sv__block-head, .sv__block-body { grid-column: 1; }
-.sv__shot {
-  grid-column: 2; grid-row: 1 / span 2; margin: 0;
-  border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 3;
-  background: var(--sec-tint);
+.sv-index__brand:hover { color: var(--accent); }
+.sv-index ul { margin-top: 8px; }
+.sv-index li { border-top: 1px solid var(--rule); }
+.sv-index li a {
+  display: flex; align-items: baseline; gap: 14px; min-height: 44px; padding: 12px 0;
+  font-size: 16px; line-height: 1.35; color: var(--ink); transition: color .2s ease;
 }
-.sv__shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sv__block:nth-child(even) .sv__block-head,
-.sv__block:nth-child(even) .sv__block-body { grid-column: 2; }
-.sv__block:nth-child(even) .sv__shot { grid-column: 1; }
-.sv__block-head { display: flex; align-items: baseline; gap: 20px; margin-bottom: 26px; }
-.sv__block-n { font-size: 14px; letter-spacing: .08em; color: var(--muted); }
-.sv__block-title { font-family: var(--font-display); font-weight: 700; font-size: 40px; line-height: 1.15em; color: var(--ink); }
-.sv__block-body { display: grid; grid-template-columns: 1fr; gap: 28px; }
-.sv__block-body p { font-size: 18px; line-height: 1.66em; color: var(--muted); }
-.sv__includes-label { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-.sv__includes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
-.sv__includes li { font-size: 16px; line-height: 1.5em; color: var(--ink); padding-left: 16px; position: relative; }
-.sv__includes li::before { content: ''; position: absolute; left: 0; top: .6em; width: 6px; height: 1px; background: var(--muted); }
-.sv__cta { padding: 100px 0 150px; display: flex; flex-direction: column; align-items: flex-start; gap: 20px; border-top: 1px solid rgba(18,18,18,.14); }
-.sv__cta .page__lede { margin: 0; }
-@media (max-width: 1024px) {
-  .sv__block-title { font-size: 30px; }
-  .sv__block { grid-template-columns: 1fr; row-gap: 28px; }
-  .sv__block-head, .sv__block-body,
-  .sv__block:nth-child(even) .sv__block-head,
-  .sv__block:nth-child(even) .sv__block-body { grid-column: 1; }
-  /* Stacked: the picture sits under the copy for every block. */
-  .sv__shot, .sv__block:nth-child(even) .sv__shot { grid-column: 1; grid-row: auto; }
+.sv-index li a:hover, .sv-index li a:focus-visible { color: var(--accent); }
+
+/* --- brand groups ----------------------------------------------------------- */
+.sv-group { --accent: var(--brand); scroll-margin-top: 24px; }
+.sv-group--room16 { --accent: var(--room16); }
+.sv-group--aso    { --accent: var(--aso); }
+.sv-group .ix-head__meta .ix-label { color: var(--accent); }
+.sv-group__list { border-top: 1px solid var(--rule-strong); }
+
+/* Copy beside the photograph; the photo swaps sides on alternate rows. */
+.sv-row {
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  column-gap: 72px; align-items: center;
+  padding: 48px 0; border-bottom: 1px solid var(--rule);
+  scroll-margin-top: 24px;
 }
-@media (max-width: 767px) { .sv__includes { grid-template-columns: 1fr; } .sv__block { padding: 40px 0; } }
+.sv-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.sv-row--flip .sv-row__copy { order: 2; }
+.sv-row__n { color: var(--accent); }
+.sv-row__title { margin-top: 12px; font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1.15; color: var(--ink); }
+.sv-row__body { margin-top: 16px; max-width: 58ch; font-size: 17px; line-height: 1.7; color: var(--muted); }
+.sv-row__label { margin-top: 28px; }
+.sv-row__includes { margin-top: 14px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 28px; }
+.sv-row__includes li {
+  position: relative; padding: 9px 0 9px 20px; border-top: 1px solid var(--rule);
+  font-size: 15px; line-height: 1.45; color: var(--ink);
+}
+.sv-row__includes li::before { content: ''; position: absolute; left: 0; top: 1.05em; width: 8px; height: 2px; background: var(--accent); }
+.sv-row__frame { margin: 12px; }
+.sv-row__photo { aspect-ratio: 4 / 3; }
+
+@media (max-width: 1023px) {
+  .sv-index__grid { grid-template-columns: minmax(0, 1fr); }
+  .sv-index__col, .sv-index__col + .sv-index__col { padding: 30px 0 22px; border-left: 0; }
+  .sv-index__col + .sv-index__col { border-top: 1px solid var(--rule); }
+  .sv-index__col + .sv-index__col::before { left: 0; }
+  .sv-row { grid-template-columns: minmax(0, 1fr); row-gap: 28px; }
+  .sv-row--flip .sv-row__copy { order: 0; }
+  .sv-row__photo { aspect-ratio: 16 / 9; }
+}
+@media (max-width: 767px) {
+  .sv-row { padding: 36px 0; }
+  .sv-row__title { font-size: 24px; }
+  .sv-row__body { font-size: 16px; }
+  .sv-row__includes { grid-template-columns: minmax(0, 1fr); }
+  .sv-row__frame { margin: 8px; }
+  .sv-row__photo { aspect-ratio: 4 / 3; }
+}
