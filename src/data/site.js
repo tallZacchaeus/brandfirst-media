@@ -25,15 +25,21 @@ export const site = {
   name: 'Brandfirst Media',
   tagline: 'Print, Publicity and Event Production',
   location: 'Lagos, Nigeria',
-  // From the Brandfirst Media Facebook Page.
+  // Supplied by the client.
   phone: '0708 413 7772',
   phoneIntl: '+2347084137772',
-  // TODO: replace with a domain address before launch — a gmail.com address
-  // undercuts the positioning on an agency/production site.
-  email: 'brandfirstmedia@gmail.com',
+  // Domain addresses, replacing the old gmail.com one. Both appear wherever
+  // contact details are shown, and the contact form's mailto fallback
+  // addresses both, so an enquiry reaches whichever person is free.
+  // NOTE: brandfirstmedia.com had no MX records when these were added, so mail
+  // to it had nowhere to be delivered. Confirm the mailboxes receive before
+  // this goes live.
+  emails: [
+    'oluwabamise.femi@brandfirstmedia.com',
+    'christiana.oluwabami@brandfirstmedia.com',
+  ],
   social: [
     { label: 'Instagram', href: 'https://www.instagram.com/brandfirstmedia/' },
-    { label: 'Facebook', href: 'https://www.facebook.com/BrandfirstMedia' },
   ],
 
   /**
@@ -51,7 +57,7 @@ export const site = {
 
   /** WhatsApp is how most Lagos SMB enquiries actually arrive. */
   whatsapp: '2348066442508',
-  whatsappDisplay: '0806 644 2508',
+  whatsappDisplay: '0806 6442508',
   whatsappMessage: [
     'Hello Brandfirst Media,',
     '',
@@ -252,7 +258,6 @@ export const brands = [
     ],
     social: [
       { label: 'Instagram', href: 'https://www.instagram.com/brandfirstmedia/' },
-      { label: 'Facebook', href: 'https://www.facebook.com/BrandfirstMedia' },
     ],
   },
   {
@@ -289,10 +294,8 @@ export const brands = [
       ['Can you work in a venue with limited power?', 'We survey power on the site visit and bring distribution, and can advise on generator sizing.'],
       ['How far ahead should we book?', 'Two weeks is comfortable for most events. Large stage builds or peak dates should be booked earlier.'],
     ],
-    // ROOM16 has its own Instagram; Facebook currently uses the parent channel.
     social: [
       { label: 'Instagram', href: 'https://www.instagram.com/room16pro/' },
-      { label: 'Facebook (Brandfirst Media)', href: 'https://www.facebook.com/BrandfirstMedia' },
     ],
   },
   {
@@ -327,7 +330,6 @@ export const brands = [
     heroImage: media('aso-group-wide', PHOTO, 5600, 4000, 'The Aṣọ Ìgbàlódé range worn by four models'),
     social: [
       { label: 'Instagram', href: 'https://www.instagram.com/asoigbalode/' },
-      { label: 'Facebook', href: 'https://www.facebook.com/Asoigbalode/' },
     ],
   },
 ];

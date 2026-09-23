@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import EmailLink from '../components/EmailLink';
 import { site, services, nav } from '../data/site';
 import BrandSocialLinks from '../components/BrandSocialLinks';
 import './Footer.css';
@@ -29,8 +30,7 @@ export default function Footer() {
                   WhatsApp: {site.whatsappDisplay}
                 </a>
               )}
-              {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
-              <span className="footer__place">{site.location}</span>
+              {site.emails.map((e) => <EmailLink key={e} email={e} />)}
             </div>
           </div>
 

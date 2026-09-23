@@ -1,10 +1,9 @@
-import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import { brands } from '../data/site';
 import './BrandSocialLinks.css';
 
 function SocialIcon({ label }) {
   if (label.startsWith('Instagram')) return <FaInstagram aria-hidden="true" focusable="false" />;
-  if (label.startsWith('Facebook')) return <FaFacebookF aria-hidden="true" focusable="false" />;
   return null;
 }
 

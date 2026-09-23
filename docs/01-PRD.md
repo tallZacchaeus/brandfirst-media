@@ -26,11 +26,16 @@ A public marketing website for **Brandfirst Media**, a production group in Lagos
 Known contact details (from `src/data/site.js`, as supplied by the client):
 
 - Phone (calls): 0708 413 7772 (+234 708 413 7772)
-- WhatsApp: 0806 644 2508 (+234 806 644 2508) — every WhatsApp link opens with a pre-filled enquiry message (`site.whatsappMessage`)
-- Email: brandfirstmedia@gmail.com — flagged in code as TODO: replace with a domain address before launch
-- Brandfirst Media: Instagram https://www.instagram.com/brandfirstmedia/ · Facebook https://www.facebook.com/BrandfirstMedia
-- ROOM16: Instagram https://www.instagram.com/room16pro/ · no Facebook page of its own (links to Brandfirst Media's)
-- Aṣọ Ìgbàlódé: Instagram https://www.instagram.com/asoigbalode/ · Facebook https://www.facebook.com/Asoigbalode/
+- WhatsApp: 0806 6442508, displayed in that form at the client's request (+234 806 644 2508) — every WhatsApp link opens with a pre-filled enquiry message (`site.whatsappMessage`)
+- Email (two domain addresses, shown together wherever contact details appear; the contact form's mailto fallback addresses both):
+  - oluwabamise.femi@brandfirstmedia.com
+  - christiana.oluwabami@brandfirstmedia.com
+
+  **Warning:** when these were added (September 2026), `brandfirstmedia.com` resolved (A record 2.57.91.91) but had **no MX records**, so mail to the domain had no designated server and would likely bounce. Email hosting has to be set up and tested before these addresses can be relied on.
+- Social — Instagram only, one per brand (Facebook links removed at the client's request):
+  - Brandfirst Media: https://www.instagram.com/brandfirstmedia/
+  - ROOM16: https://www.instagram.com/room16pro/
+  - Aṣọ Ìgbàlódé: https://www.instagram.com/asoigbalode/
 - Office: Lagos, Nigeria (exact address TBD — content doc lists it as a placeholder)
 
 ## 3. Positioning evolution (important context)
@@ -84,7 +89,7 @@ Success metrics: TBD — no analytics tooling is configured in the project. Reas
 
 Carried in the content doc's "Notes for Client Confirmation" and in code TODOs:
 
-- Domain email address (replace gmail.com)
+- Email hosting for `brandfirstmedia.com`: the domain addresses are on the site, but the domain had no MX records when checked, so mail to them may not arrive
 - Final office address
 - Real case studies (five placeholders currently)
 - Insight articles (four topics, unwritten — page hidden from nav until then)

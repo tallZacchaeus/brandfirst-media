@@ -32,13 +32,15 @@
 - [x] Client's own media processed: ~33 photos as responsive webp sets, 12 silent ~10 s video loops; demo photography replaced in the shipped pages.
 - [x] Contact details added from the client's Facebook page (phone, WhatsApp, email, Facebook).
 - [x] WhatsApp float on every page, WhatsApp on its own number (0806 644 2508) with a pre-filled message, calls on 0708 413 7772; per-brand Instagram/Facebook links in the footer; services expanded to nine (three per brand); "Apparel" renamed "Clothing" site-wide. Commit `00c1385`.
+- [x] Facebook links removed site-wide; each brand links to its Instagram only. Footer contact block standardised on both footers to "Call: 0708 413 7772 / WhatsApp: 0806 6442508 / email", one item per line (the inner-page footer previously wrapped them unevenly in a 220px paragraph).
 - [x] Sister deliverable: ROOM16 Instagram launch kit (`room16-instagram/` — posts, reels, drafted captions).
 
 ## Phase 5 — Pre-launch (PENDING)
 
 Client inputs (blocking):
 
-- [ ] Domain email address to replace `brandfirstmedia@gmail.com` (flagged TODO in code).
+- [x] Domain email addresses replace `brandfirstmedia@gmail.com`: oluwabamise.femi@ and christiana.oluwabami@brandfirstmedia.com.
+- [ ] **Email hosting for `brandfirstmedia.com` (blocking).** The domain had no MX records when the addresses went on the site, so mail to them has nowhere to be delivered. Set up the mailboxes, add the MX (and SPF) records, then send a test message to each address and reply from it.
 - [ ] Written permission to show PremiumTrust Bank work (billboard + merchandise appear in the showcase; flagged in code comments).
 - [ ] Final office address; confirmation of registered company name.
 - [ ] Real case studies to replace the 5 placeholder titles on `/work`.

@@ -63,7 +63,7 @@ All in `brandfirst-media/src/data/site.js` (single file):
 
 | Export | Shape |
 |---|---|
-| `site` | name, tagline, location, phone/phoneIntl, email, social[], formEndpoint (null ⇒ mailto fallback), whatsapp (wa.me digits), whatsappDisplay, whatsappMessage (pre-filled enquiry text used by every WhatsApp link), meta{title, description} |
+| `site` | name, tagline, location, phone/phoneIntl, emails[] (two domain addresses, rendered via `EmailLink`, which breaks long addresses at the @), social[], formEndpoint (null ⇒ mailto fallback), whatsapp (wa.me digits), whatsappDisplay, whatsappMessage (pre-filled enquiry text used by every WhatsApp link), meta{title, description} |
 | `home` | hero{headlineLines, sub, primary, secondary}, intro, group, why{highlights[]}, industries{sectors[]}, cta |
 | `services[]` (6) | { n, slug, brand, image, title, card, body, includes[] } — `brand` ∈ brandfirst / room16 / aso-igbalode |
 | `brands[]` (3) | { slug, name, kind, line, blurb, services[], accent, logo, image, heroImage, offer[[label,text]], process[[step,text]], useCases[], faq[[q,a]], social[] } |

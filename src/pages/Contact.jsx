@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import EmailLink from '../components/EmailLink';
 import { FaWhatsapp } from 'react-icons/fa';
 import PageHero from '../components/PageHero';
 import { useFadeIn } from '../hooks/useGsap';
@@ -59,7 +60,7 @@ export default function Contact() {
     // Never silently discards.
     const subject = `Website enquiry${data.name ? ` from ${data.name}` : ''}`;
     window.location.href =
-      `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      `mailto:${site.emails.join(',')}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setStatus('sent');
   };
 
@@ -95,7 +96,7 @@ export default function Contact() {
 
             <h2 className="contact__label contact__label--gap">Direct</h2>
             <a className="contact__line" href={`tel:${site.phoneIntl}`}>{site.phone}</a>
-            <a className="contact__line" href={`mailto:${site.email}`}>{site.email}</a>
+            {site.emails.map((e) => <EmailLink key={e} email={e} className="contact__line" />)}
 
             <h2 className="contact__label contact__label--gap">Office</h2>
             <p className="contact__addr">{site.location}</p>

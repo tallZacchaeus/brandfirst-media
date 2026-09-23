@@ -58,7 +58,6 @@
 .footer__copy strong { color: var(--paper); font-weight: 400; }
 
 @media (max-width: 1200px) { .footer__cols { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; } }
-.footer__place { font-size: 18px; color: var(--muted-2); }
 .footer__copy { max-width: none; }
 @media (max-width: 1024px) {
   .footer__top { flex-direction: column; }
