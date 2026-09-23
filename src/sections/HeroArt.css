@@ -46,7 +46,7 @@
 /* Overlapped rather than tiled: the stack is what stops four capsules reading
    as a gallery. Each drifts a different distance, on its own clock.
      a  stage, top
-     b  apparel, portrait, left
+     b  clothing, portrait, left
      d  print, between the two stage shots
      c  stage, bottom */
 .hero-art__cap--a { top: 0;    right: 0;   width: 86%; aspect-ratio: 16 / 9; }

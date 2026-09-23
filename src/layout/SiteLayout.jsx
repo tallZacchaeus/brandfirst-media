@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import FooterInner from './FooterInner';
+import WhatsAppFloat from '../components/WhatsAppFloat';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 
 /** Shared chrome for every route: cursor, header, footer, smooth scroll.
@@ -21,6 +22,7 @@ export default function SiteLayout() {
       <Header variant={variant} />
       <Outlet />
       {isHome ? <Footer /> : <FooterInner />}
+      <WhatsAppFloat />
     </>
   );
 }

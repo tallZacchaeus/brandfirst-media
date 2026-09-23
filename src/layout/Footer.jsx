@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { site, services, nav } from '../data/site';
+import BrandSocialLinks from '../components/BrandSocialLinks';
 import './Footer.css';
 
 /** Footer. Layout from Elementor template #1354 (#121212, boxed 1760,
@@ -22,7 +23,12 @@ export default function Footer() {
               one standard.
             </p>
             <div className="footer__contact">
-              {site.phone && <a href={`tel:${site.phone}`}>{site.phone}</a>}
+              {site.phone && <a href={`tel:${site.phoneIntl}`}>Call: {site.phone}</a>}
+              {site.whatsapp && (
+                <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`} target="_blank" rel="noreferrer">
+                  WhatsApp: {site.whatsappDisplay}
+                </a>
+              )}
               {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
               <span className="footer__place">{site.location}</span>
             </div>
@@ -49,13 +55,7 @@ export default function Footer() {
               <h3 className="footer__col-title">Office</h3>
               <p className="footer__addr">{site.location}</p>
               <h3 className="footer__col-title" style={{ marginTop: '32px' }}>Follow</h3>
-              <ul className="footer__list">
-                {site.social.map((s) => (
-                  <li key={s.label}>
-                    <a href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
-                  </li>
-                ))}
-              </ul>
+              <BrandSocialLinks />
             </div>
           </div>
         </div>

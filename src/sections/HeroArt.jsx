@@ -5,7 +5,7 @@ import './HeroArt.css';
  *  rather than dropped into it.
  *
  *  Four capsules, one per discipline the headline claims — two stage, one
- *  print, one apparel — so the pictures back the words rather than repeating
+ *  print, one clothing — so the pictures back the words rather than repeating
  *  one of them. The two stage capsules are deliberately unalike: a warm live
  *  performance and a cool empty rig, not two frames of the same event. One of
  *  the print shots is an installed PremiumTrust billboard: named client work,

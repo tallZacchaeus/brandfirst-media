@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTextReveal, useFadeIn } from '../hooks/useGsap';
 import { site, home } from '../data/site';
+import BrandSocialLinks from '../components/BrandSocialLinks';
 import './FooterInner.css';
 
 /** Inner-page footer. Layout from Elementor template #558 (#171717, boxed 1290,
@@ -29,18 +30,17 @@ export default function FooterInner() {
             </div>
             <div className="footer-inner__addr">
               <h3 className="footer-inner__city">Follow</h3>
-              <p className="footer-inner__lines">
-                {site.social.map((s) => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noreferrer">{s.label}</a>
-                ))}
-              </p>
+              <BrandSocialLinks />
             </div>
           </div>
 
           <div className="footer-inner__signup">
             <span className="footer-inner__label">Talk to us</span>
             <p className="footer-inner__lines">
-              <a href={`tel:${site.phoneIntl}`}>{site.phone}</a>
+              <a href={`tel:${site.phoneIntl}`}>Call: {site.phone}</a>
+              <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`} target="_blank" rel="noreferrer">
+                WhatsApp: {site.whatsappDisplay}
+              </a>
               <a href={`mailto:${site.email}`}>{site.email}</a>
             </p>
           </div>

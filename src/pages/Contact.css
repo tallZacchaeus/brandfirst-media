@@ -34,9 +34,14 @@
   font-size: 14px; letter-spacing: .04em; text-transform: uppercase;
   transition: filter .3s ease, transform .3s ease;
 }
-.btn--whatsapp::before { content: '💬'; font-size: 15px; }
+.btn--whatsapp svg, .btn--ghost-dark svg { width: 18px; height: 18px; flex: 0 0 auto; }
 .btn--whatsapp:hover { filter: brightness(1.06); transform: translateY(-1px); }
+.contact__whatsapp-number {
+  display: block; width: fit-content; margin-top: 12px;
+  color: var(--muted); font-size: 16px; border-bottom: 1px solid currentColor;
+}
 .btn--ghost-dark {
+  display: inline-flex; align-items: center; gap: 9px;
   padding: 22px 30px; border-radius: 999px;
   border: 1px solid rgba(18,18,18,.3); color: var(--ink);
   transition: background .3s ease, color .3s ease;

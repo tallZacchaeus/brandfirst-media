@@ -1,13 +1,27 @@
-/* Section 4 — dark. bg #121212, cards #1C1C1C radius 20, 4-up grid. */
+/* Section 4 — dark, grouped into one three-card row per brand. */
 .services { background: var(--sec-dark); }
 .services .sec__title { color: var(--paper); }
 .services__lead { width: 790px; max-width: 100%; }
+.services__groups { display: grid; gap: 68px; padding-top: 70px; }
+.services__group { --group-accent: var(--brand-bright); }
+.services__group--room16 { --group-accent: var(--room16); }
+.services__group--aso-igbalode { --group-accent: var(--aso); }
+.services__group-head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 20px;
+  padding-bottom: 18px; border-bottom: 1px solid rgba(255,255,255,.14);
+}
+.services__brand {
+  font-family: var(--font-display); font-size: 24px; line-height: 1.2;
+  color: var(--group-accent);
+}
+.services__count { font-size: 13px; color: var(--muted-2); text-transform: uppercase; letter-spacing: .06em; }
 .services__grid {
   display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 20px; padding-top: 70px;
+  gap: 20px; padding-top: 20px;
 }
 .services__card {
   background: var(--sec-dark-card); border-radius: 20px;
+  border-top: 2px solid var(--group-accent);
   padding: 43px 50px;
   display: flex; flex-direction: column; justify-content: space-between;
   row-gap: 28px;
@@ -22,7 +36,9 @@
 .services__link { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--brand-bright); border-bottom: 1px solid currentColor; align-self: flex-start; }
 @media (max-width: 1200px) { .services__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 767px)  {
-  .services__grid { grid-template-columns: 1fr; padding-top: 40px; gap: 14px; }
+  .services__groups { gap: 48px; padding-top: 40px; }
+  .services__group-head { align-items: flex-end; }
+  .services__grid { grid-template-columns: 1fr; gap: 14px; }
   .services__card { row-gap: 48px; padding: 32px 28px; }
   .services__name { font-size: 24px; }
 }

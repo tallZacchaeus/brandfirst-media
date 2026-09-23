@@ -40,7 +40,7 @@
 .bd__faq div:first-child { border-top: 0; padding-top: 0; }
 .bd__faq dt { font-family: var(--font-inner); font-size: 22px; line-height: 1.3em; color: var(--ink); margin-bottom: 8px; }
 .bd__faq dd { font-size: 17px; line-height: 1.6em; color: var(--muted); }
-/* Portrait apparel shots and 16:9 stage frames share this grid, so the tiles
+/* Portrait clothing shots and 16:9 stage frames share this grid, so the tiles
    are a fixed 4:5 and the images cover — mixing native ratios here made the
    rows ragged. */
 /* Same treatment as the Work page: fixed tiles, portraits twice as tall, and

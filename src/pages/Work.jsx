@@ -18,7 +18,7 @@ import './Work.css';
  * says plainly that written case studies follow. Real pictures of real jobs
  * earn more trust than a fabricated case study anyway.
  */
-const FILTERS = ['All', 'Print', 'Events', 'Apparel'];
+const FILTERS = ['All', 'Print', 'Events', 'Clothing'];
 
 export default function Work() {
   const [filter, setFilter] = useState('All');

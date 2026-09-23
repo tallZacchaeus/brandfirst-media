@@ -6,7 +6,7 @@ import '../styles/page.css';
 import '../styles/section.css';
 import './Services.css';
 
-/** Services page — six services from the content document, each with its body
+/** Services page — nine services across the three brands, each with its body
  *  and "what this includes" list. */
 export default function Services() {
   return (
@@ -14,7 +14,7 @@ export default function Services() {
       <div className="page__inner">
         <PageHero
           title="Everything We Produce"
-          lede="Six things we produce, across the three brands in the group. Brief any one of us and you have all three."
+          lede="Nine things we produce, with three services from each brand in the group. Brief any one of us and you have all three."
         />
         <div className="sv__stack">
           {services.map((s, i) => <ServiceBlock key={s.slug} {...s} index={i} />)}

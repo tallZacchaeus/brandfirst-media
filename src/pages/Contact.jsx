@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 import PageHero from '../components/PageHero';
 import { useFadeIn } from '../hooks/useGsap';
 import { contact, site, services } from '../data/site';
@@ -67,7 +68,7 @@ export default function Contact() {
     const data = el ? readForm(el) : {};
     const text = data.message || data.name
       ? composeMessage(data)
-      : `Hello ${site.name}, I would like to enquire about a project.`;
+      : site.whatsappMessage;
     window.open(`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
   };
 
@@ -80,8 +81,17 @@ export default function Contact() {
           <aside className="contact__aside">
             <h2 className="contact__label">Talk to us now</h2>
             <button type="button" className="btn btn--whatsapp" onClick={sendWhatsApp}>
+              <FaWhatsapp aria-hidden="true" focusable="false" />
               Message on WhatsApp
             </button>
+            <a
+              className="contact__whatsapp-number"
+              href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {site.whatsappDisplay}
+            </a>
 
             <h2 className="contact__label contact__label--gap">Direct</h2>
             <a className="contact__line" href={`tel:${site.phoneIntl}`}>{site.phone}</a>
@@ -133,6 +143,7 @@ export default function Contact() {
                 {status === 'sending' ? 'Sending…' : 'Send enquiry'}
               </button>
               <button type="button" className="btn btn--ghost-dark" onClick={sendWhatsApp}>
+                <FaWhatsapp aria-hidden="true" focusable="false" />
                 Send on WhatsApp instead
               </button>
             </div>

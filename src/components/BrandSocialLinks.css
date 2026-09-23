@@ -1,0 +1,36 @@
+.brand-socials { display: grid; gap: 18px; }
+
+.brand-socials__group { display: grid; gap: 7px; }
+
+.brand-socials__name {
+  color: var(--paper);
+  font-size: 13px;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.brand-socials__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 14px;
+}
+
+.brand-socials__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted-2);
+  font-size: 14px;
+  line-height: 1.45;
+  transition: color .25s ease;
+}
+
+.brand-socials__links a:hover,
+.brand-socials__links a:focus-visible { color: var(--paper); }
+
+.brand-socials__links svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}

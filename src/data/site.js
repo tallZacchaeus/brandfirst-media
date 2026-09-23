@@ -26,12 +26,15 @@ export const site = {
   tagline: 'Print, Publicity and Event Production',
   location: 'Lagos, Nigeria',
   // From the Brandfirst Media Facebook Page.
-  phone: '0814 212 2000',
-  phoneIntl: '+2348142122000',
+  phone: '0708 413 7772',
+  phoneIntl: '+2347084137772',
   // TODO: replace with a domain address before launch — a gmail.com address
   // undercuts the positioning on an agency/production site.
   email: 'brandfirstmedia@gmail.com',
-  social: [{ label: 'Facebook', href: 'https://www.facebook.com/BrandfirstMedia' }],
+  social: [
+    { label: 'Instagram', href: 'https://www.instagram.com/brandfirstmedia/' },
+    { label: 'Facebook', href: 'https://www.facebook.com/BrandfirstMedia' },
+  ],
 
   /**
    * Where contact-form submissions go.
@@ -47,12 +50,23 @@ export const site = {
   formEndpoint: null,
 
   /** WhatsApp is how most Lagos SMB enquiries actually arrive. */
-  whatsapp: '2348142122000',
+  whatsapp: '2348066442508',
+  whatsappDisplay: '0806 644 2508',
+  whatsappMessage: [
+    'Hello Brandfirst Media,',
+    '',
+    'My name is [Your name]. I am reaching out through your website and would like to enquire about a project.',
+    '',
+    'What I need: [Briefly describe your project]',
+    'Preferred date: [Date]',
+    '',
+    'Thank you.',
+  ].join('\n'),
 
   meta: {
     title: 'Brandfirst Media | Print, Publicity and Event Production in Lagos',
     description:
-      'Brandfirst Media is a production group in Lagos, Nigeria: print of all kinds, branded apparel, and event staging and lighting through ROOM16 and Aṣọ Ìgbàlódé.',
+      'Brandfirst Media is a production group in Lagos, Nigeria: print of all kinds, clothing and branded apparel through Aṣọ Ìgbàlódé, and event staging and lighting through ROOM16.',
   },
 };
 
@@ -63,8 +77,8 @@ export const home = {
     // a column, that is what gives the block its stepped edge. Reordering is
     // safe here because these are three items in a list, not a sentence — and
     // DOM order is kept identical to visual order so it reads the same aloud.
-    headlineLines: ['Print.', 'Events.', 'Apparel.'],
-    headline: 'Print. Events. Apparel.',
+    headlineLines: ['Print.', 'Events.', 'Clothing.'],
+    headline: 'Print. Events. Clothing.',
     // Support, not a second headline. An earlier version restated the three
     // words in the headline at 70px, which gave the first screen two competing
     // display blocks. This adds what the headline cannot say: where we are, how
@@ -83,7 +97,7 @@ export const home = {
       'Most campaigns come apart at the seams. The banner came from one supplier, the shirts from another, the stage from a third, and none of the colours agree. We produce all three under one roof, so the blues match and the deadlines line up.',
     ],
   },
-  // The hero claims print, apparel and events; this section names the three
+  // The hero claims print, clothing and events; this section names the three
   // brands that deliver them so the claim is backed before the services list.
   // The cards carry the detail, so the heading stands alone.
   group: {
@@ -138,12 +152,12 @@ export const services = [
     includes: ['Banners and backdrops', 'Roll-up and pull-up stands', 'Outdoor and site signage', 'Event and exhibition graphics', 'Substrate and finish selection', 'On-site fitting coordination'],
   },
   {
-    n: '03', slug: 'branded-apparel', brand: 'aso-igbalode',
-    image: media('aso-jersey-white', PHOTO, 4516, 5644, 'A branded jersey from the Aṣọ Ìgbàlódé range'),
-    title: 'Branded Apparel and Merchandise',
-    card: 'Shirts, vests, caps and merchandise for teams, campaigns and events, produced by Aṣọ Ìgbàlódé.',
-    body: 'Aṣọ Ìgbàlódé is our apparel brand. It dresses corporate teams, campaign volunteers, conference staff and event crews in their own colours, matched properly rather than approximately, so the polo agrees with the banner standing behind it.',
-    includes: ['Branded shirts and polos', 'Vests and workwear', 'Caps and headwear', 'Event and campaign merchandise', 'Colour matching to brand standards', 'Bulk production and sizing'],
+    n: '03', slug: 'publicity-and-brand-visibility', brand: 'brandfirst',
+    image: media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'),
+    title: 'Publicity and Brand Visibility',
+    card: 'Print, clothing and event presence planned together, so a campaign reads as one thing wherever it turns up.',
+    body: 'Most visibility problems are really coordination problems. The banner, the shirts and the stage all exist, but they came from three suppliers and none of them quite match. We plan and produce them together, so the campaign looks deliberate on every surface it touches.',
+    includes: ['Campaign visibility planning', 'Coordinated collateral across formats', 'Event brand presence', 'Brand consistency across production', 'Launch and activation support', 'Supplier and vendor coordination'],
   },
   {
     n: '04', slug: 'event-lighting', brand: 'room16',
@@ -156,18 +170,42 @@ export const services = [
   {
     n: '05', slug: 'stage-and-event-equipment', brand: 'room16',
     image: media('room16-truss', FRAME, 832, 464, 'Truss and moving heads rigged over an outdoor stage'),
-    title: 'Stage and Event Equipment',
-    card: 'Staging, truss and the equipment around them, built and struck to your running order, delivered by ROOM16.',
+    title: 'Stage Design and Build',
+    card: 'Stages, truss and the equipment around them, designed, built and struck to your running order by ROOM16.',
     body: 'We build the physical structure of an event: staging, truss, and everything that hangs off it. Set-up and strike run to your programme rather than the other way round, so rehearsal and handover happen when they were meant to.',
     includes: ['Stage supply and construction', 'Truss and rigging structures', 'Equipment rental', 'Setup and strike scheduling', 'Venue survey and load-in planning', 'On-site crew'],
   },
   {
-    n: '06', slug: 'publicity-and-brand-visibility', brand: 'brandfirst',
-    image: media('bfm-billboard-design', PHOTO, 3024, 2016, 'Billboard design for PremiumTrust Bank'),
-    title: 'Publicity and Brand Visibility',
-    card: 'Print, apparel and event presence planned together, so a campaign reads as one thing wherever it turns up.',
-    body: 'Most visibility problems are really coordination problems. The banner, the shirts and the stage all exist, but they came from three suppliers and none of them quite match. We plan and produce them together, so the campaign looks deliberate on every surface it touches.',
-    includes: ['Campaign visibility planning', 'Coordinated collateral across formats', 'Event brand presence', 'Brand consistency across production', 'Launch and activation support', 'Supplier and vendor coordination'],
+    n: '06', slug: 'set-design-and-production', brand: 'room16',
+    image: media('room16-screens', FRAME, 832, 464, 'A branded event set with stage and LED screens'),
+    title: 'Set Design and Production',
+    card: 'Venue-specific event sets, scenic backdrops and branded environments designed and built by ROOM16.',
+    body: 'ROOM16 turns the event brief into a physical setting. We plan the set around the venue, audience sightlines, programme and brand, then coordinate its production, installation and removal with the stage and lighting teams.',
+    includes: ['Set concepts and layouts', 'Scenic and branded backdrops', 'Stage dressing and set elements', 'Material and finish planning', 'Build and installation', 'Strike and removal'],
+  },
+  {
+    n: '07', slug: 'branded-apparel', brand: 'aso-igbalode',
+    image: media('aso-jersey-white', PHOTO, 4516, 5644, 'A branded jersey from the Aṣọ Ìgbàlódé range'),
+    title: 'Clothing and Branded Apparel',
+    card: 'T-shirts, polos, jerseys and vests produced in your colours by Aṣọ Ìgbàlódé.',
+    body: 'Aṣọ Ìgbàlódé produces clothing and branded apparel for campaigns, teams and events. Every run is planned around the people wearing it, the brand colours to match and the date everything needs to be ready.',
+    includes: ['T-shirts and polos', 'Vests and jerseys', 'Printing and embroidery', 'Colour matching to brand standards', 'Size planning', 'Bulk production and packing'],
+  },
+  {
+    n: '08', slug: 'corporate-and-team-clothing', brand: 'aso-igbalode',
+    image: media('aso-corporate-wear', PHOTO, 4024, 1713, 'Branded corporate shirts packed for delivery'),
+    title: 'Corporate and Team Clothing',
+    card: 'Coordinated shirts, uniforms and workwear for front-of-house staff, field teams and event crews.',
+    body: 'Teams need clothing that looks consistent, fits the job and remains comfortable through a full working day. We produce coordinated corporate shirts, uniforms and workwear, organise sizing, and pack each order for a straightforward handover.',
+    includes: ['Corporate shirts and polos', 'Uniforms and workwear', 'Event staff clothing', 'Names and role identification', 'Team sizing schedules', 'Packing by person or size'],
+  },
+  {
+    n: '09', slug: 'custom-pieces-and-merchandise', brand: 'aso-igbalode',
+    image: media('aso-back-print', PHOTO, 4844, 6055, 'A custom printed jersey by Aṣọ Ìgbàlódé'),
+    title: 'Custom Pieces and Merchandise',
+    card: 'Limited clothing runs, statement pieces and useful branded merchandise for campaigns and special occasions.',
+    body: 'For projects that need more than a standard shirt, Aṣọ Ìgbàlódé develops custom pieces and matching merchandise in limited or bulk runs. The clothing, print placement and accessories are planned as one collection rather than unrelated items.',
+    includes: ['Custom clothing pieces', 'Caps and headwear', 'Tote and drawstring bags', 'Lanyards and accessories', 'Campaign giveaways', 'Limited and bulk runs'],
   },
 ];
 
@@ -196,7 +234,7 @@ export const brands = [
       ['Marketing print', 'Posters, handbills, stickers, labels, calendars and branded stationery.'],
       ['Large format', 'Banners, roll-ups, backdrops, billboards and vehicle and window graphics.'],
       ['Signage', 'Shop fronts, directional and event signage, cut vinyl and mounted boards.'],
-      ['Publicity', 'Coordinating print, outdoor, apparel and event so they all say the same thing.'],
+      ['Publicity', 'Coordinating print, outdoor, clothing and event production so they all say the same thing.'],
       ['Event collateral', 'Programmes, badges, table cards, wristbands: the small print a day runs on.'],
       ['Branded merchandise', 'Presentation boxes, folders, pens and corporate gifts, branded to match.'],
     ],
@@ -212,15 +250,18 @@ export const brands = [
       ['What is the minimum order?', 'There is no fixed minimum on most business print. Large format and signage are quoted per job.'],
       ['Do you deliver and install?', 'Yes, across Lagos, and further afield by arrangement. Our team can install signage and event print.'],
     ],
-    social: [{ label: 'Facebook', href: 'https://web.facebook.com/BrandfirstMedia' }],
+    social: [
+      { label: 'Instagram', href: 'https://www.instagram.com/brandfirstmedia/' },
+      { label: 'Facebook', href: 'https://www.facebook.com/BrandfirstMedia' },
+    ],
   },
   {
     slug: 'room16',
     name: 'ROOM16',
     kind: 'In-house brand',
-    line: 'Lighting and stage for events',
-    blurb: 'ROOM16 hires out, rigs and operates lighting and staging for events. It is named after the shop number where the whole business started.',
-    services: ['event-lighting', 'stage-and-event-equipment'],
+    line: 'Stage, light and set design',
+    blurb: 'ROOM16 designs and delivers stages, lighting and event sets. It is named after the shop number where the whole business started.',
+    services: ['event-lighting', 'stage-and-event-equipment', 'set-design-and-production'],
     accent: 'room16',
     // The client's own artwork, used as supplied. It reads "RE16 Pro" while the
     // brand is named ROOM16 throughout the site; that is the client's call, made
@@ -248,22 +289,26 @@ export const brands = [
       ['Can you work in a venue with limited power?', 'We survey power on the site visit and bring distribution, and can advise on generator sizing.'],
       ['How far ahead should we book?', 'Two weeks is comfortable for most events. Large stage builds or peak dates should be booked earlier.'],
     ],
-    social: [],
+    // ROOM16 has its own Instagram; Facebook currently uses the parent channel.
+    social: [
+      { label: 'Instagram', href: 'https://www.instagram.com/room16pro/' },
+      { label: 'Facebook (Brandfirst Media)', href: 'https://www.facebook.com/BrandfirstMedia' },
+    ],
   },
   {
     slug: 'aso-igbalode',
     name: 'Aṣọ Ìgbàlódé',
     kind: 'In-house brand',
-    line: 'Branded apparel and clothing prints',
-    blurb: 'Our apparel brand, and where anything printed or stitched onto clothing is made. Shirts, jerseys, vests and caps for teams, campaigns and events, built to be worn again rather than once.',
-    services: ['branded-apparel'],
+    line: 'Clothing and branded apparel',
+    blurb: 'Our clothing and branded apparel brand, and where anything printed or stitched onto clothing is made. Shirts, jerseys, vests and caps for teams, campaigns and events, built to be worn again rather than once.',
+    services: ['branded-apparel', 'corporate-and-team-clothing', 'custom-pieces-and-merchandise'],
     accent: 'aso',
     offer: [
       ['T-shirts and polos', 'Screen-printed, DTF or embroidered on quality cotton and blends.'],
       ['Vests and jerseys', 'Event vests, volunteer bibs and team jerseys, numbered if you need them.'],
       ['Caps and headwear', 'Embroidered caps, bucket hats and face caps in your brand colours.'],
       ['Corporate wear', 'Embroidered shirts and uniforms for front-of-house and field teams.'],
-      ['Merchandise', 'Tote bags, lanyards, drawstring bags and giveaways to match the apparel.'],
+      ['Merchandise', 'Tote bags, lanyards, drawstring bags and giveaways to match the clothing.'],
       ['Custom pieces', 'Limited runs and statement pieces for campaigns and special occasions.'],
     ],
     process: [
@@ -280,27 +325,30 @@ export const brands = [
     ],
     image: media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'),
     heroImage: media('aso-group-wide', PHOTO, 5600, 4000, 'The Aṣọ Ìgbàlódé range worn by four models'),
-    social: [{ label: 'Instagram', href: 'https://www.instagram.com/asoigbalode/' }],
+    social: [
+      { label: 'Instagram', href: 'https://www.instagram.com/asoigbalode/' },
+      { label: 'Facebook', href: 'https://www.facebook.com/Asoigbalode/' },
+    ],
   },
 ];
 
 export const about = {
   hero: {
     headline: 'About Brandfirst Media',
-    sub: 'A production group in Lagos. Print and publicity in-house, lighting and stage through ROOM16, branded apparel through Aṣọ Ìgbàlódé.',
+    sub: 'A production group in Lagos. Print and publicity in-house, lighting and stage through ROOM16, clothing and branded apparel through Aṣọ Ìgbàlódé.',
   },
   overview: [
-    'The whole business started in a single shop. Today Brandfirst Media prints, publicises, dresses and builds: campaign collateral and large format in-house, lighting and staging through ROOM16, branded apparel through Aṣọ Ìgbàlódé.',
+    'The whole business started in a single shop. Today Brandfirst Media prints, publicises, dresses and builds: campaign collateral and large format in-house, lighting and staging through ROOM16, clothing and branded apparel through Aṣọ Ìgbàlódé.',
     'The name is the promise. Whatever the job, whether a run of brochures, a batch of shirts or a stage for a launch, the client’s brand comes first. Their colours, their standard, their date.',
   ],
   philosophy: {
     headline: 'Brand First. Every Surface.',
     body: [
       'A brand only exists where people can actually see it: on paper, on a shirt, on a lit stage. Our job is to make it look right in each of those places, and to make it look like the same brand in all three.',
-      'That is why print, apparel and events sit under one roof. When one team handles all three, the blue on the banner is the blue on the polo is the blue washing across the stage. Nobody has to chase three suppliers to find out why it is not.',
+      'That is why print, clothing and events sit under one roof. When one team handles all three, the blue on the banner is the blue on the polo is the blue washing across the stage. Nobody has to chase three suppliers to find out why it is not.',
     ],
   },
-  mission: 'To produce print, apparel and events that put the client’s brand first: delivered on time, matched to colour, and finished to a standard that holds up close.',
+  mission: 'To produce print, clothing and events that put the client’s brand first: delivered on time, matched to colour, and finished to a standard that holds up close.',
   vision: 'To be the production partner brands in Lagos call first, because a single brief to us covers everything the day needs.',
   values: [
     { title: 'Craft',         text: 'Proof it, check it, then run it. The standard is the artwork, not “close enough”.' },
@@ -376,28 +424,28 @@ export const showcase = [
   { ...media('room16-hall-yellow', PHOTO, 4000, 2252, 'Yellow beams over a full auditorium'), tag: 'Events', brand: 'room16' },
   { ...media('room16-presence', PHOTO, 4000, 3000, 'Stage, screen and lighting built for a conference'), tag: 'Events', brand: 'room16' },
 
-  // --- Branded apparel ---
-  { ...media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-group-wide', PHOTO, 5600, 4000, 'The Aṣọ Ìgbàlódé range worn by four models'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-jersey-white', PHOTO, 4516, 5644, 'White jersey with an orange 83'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-jersey-hold', PHOTO, 4708, 5884, 'A jersey held up to show the front print'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-back-print', PHOTO, 4844, 6055, 'Back of a jersey reading HALLELUYAH 83'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-pair-orange', PHOTO, 4000, 5600, 'Two models in the orange colourway'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-pair-white', PHOTO, 4000, 5600, 'Two models in the white colourway'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-duo-studio', PHOTO, 4916, 6144, 'Two models photographed on white'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-solo-white', PHOTO, 4708, 5884, 'Full-length shot of the white jersey'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-family', PHOTO, 4612, 5764, 'A customer and child in Aṣọ Ìgbàlódé apparel'), tag: 'Apparel', brand: 'aso' },
-  { ...media('aso-corporate-wear', PHOTO, 4024, 1713, 'Branded corporate shirts bagged and ready to deliver'), tag: 'Apparel', brand: 'aso' },
+  // --- Clothing and branded apparel ---
+  { ...media('aso-group', PHOTO, 5600, 4000, 'Four models in Aṣọ Ìgbàlódé jerseys'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-group-wide', PHOTO, 5600, 4000, 'The Aṣọ Ìgbàlódé range worn by four models'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-jersey-white', PHOTO, 4516, 5644, 'White jersey with an orange 83'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-jersey-hold', PHOTO, 4708, 5884, 'A jersey held up to show the front print'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-back-print', PHOTO, 4844, 6055, 'Back of a jersey reading HALLELUYAH 83'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-pair-orange', PHOTO, 4000, 5600, 'Two models in the orange colourway'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-pair-white', PHOTO, 4000, 5600, 'Two models in the white colourway'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-duo-studio', PHOTO, 4916, 6144, 'Two models photographed on white'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-solo-white', PHOTO, 4708, 5884, 'Full-length shot of the white jersey'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-family', PHOTO, 4612, 5764, 'A customer and child in Aṣọ Ìgbàlódé clothing'), tag: 'Clothing', brand: 'aso' },
+  { ...media('aso-corporate-wear', PHOTO, 4024, 1713, 'Branded corporate shirts bagged and ready to deliver'), tag: 'Clothing', brand: 'aso' },
 ];
 
 export const work = {
   hero: {
     headline: 'Our Work',
-    sub: 'Print, apparel, lighting and stage. Jobs we have produced and events we have built, photographed on the floor and on site rather than staged for a brochure.',
+    sub: 'Print, clothing, lighting and stage. Jobs we have produced and events we have built, photographed on the floor and on site rather than staged for a brochure.',
   },
   cta: {
     headline: 'Have an Event Coming Up?',
-    body: 'Send us the date, the venue and the artwork. We will plan the print, the apparel and the stage as one job, and quote it that way.',
+    body: 'Send us the date, the venue and the artwork. We will plan the print, the clothing and the stage as one job, and quote it that way.',
     button: { label: 'Start a Project', href: '/contact' },
   },
   /**
@@ -408,16 +456,16 @@ export const work = {
   placeholders: [
     { slug: 'conference-print-and-stage',  title: 'Conference Print, Backdrop and Stage Package',     sector: 'Corporate event' },
     { slug: 'product-launch-lighting',     title: 'Event Lighting and Stage for a Product Launch',    sector: 'Launch' },
-    { slug: 'corporate-team-apparel',      title: 'Branded Apparel for a Corporate Team',             sector: 'Apparel' },
+    { slug: 'corporate-team-apparel',      title: 'Clothing and Branded Apparel for a Corporate Team', sector: 'Clothing' },
     { slug: 'campaign-large-format',       title: 'Large-Format Banners and Signage for a Campaign',  sector: 'Print' },
-    { slug: 'full-brand-activation',       title: 'Full Activation: Print, Apparel and Lighting',     sector: 'Activation' },
+    { slug: 'full-brand-activation',       title: 'Full Activation: Print, Clothing and Lighting',    sector: 'Activation' },
   ],
 };
 
 export const insights = {
   hero: {
     headline: 'Insights',
-    sub: 'Practical notes on print, apparel and event production: the things that save a job when you know them early.',
+    sub: 'Practical notes on print, clothing and event production: the things that save a job when you know them early.',
   },
   intro: 'Short, useful reading for anyone who orders print, dresses a team, or runs an event. No theory, just what makes the difference between a job that lands and one that limps.',
   /** TODO: planned subjects, not yet written. Hide the route from the nav if
@@ -433,7 +481,7 @@ export const insights = {
 export const contact = {
   hero: {
     headline: 'Let\u2019s Talk About Your Brand',
-    sub: 'A print run, a batch of branded apparel, or lighting and stage for an event. Tell us what you need and when you need it, and we will come back with a plan and a price.',
+    sub: 'A print run, clothing and branded apparel, or lighting and stage for an event. Tell us what you need and when you need it, and we will come back with a plan and a price.',
   },
   body: 'The more you can tell us (artwork, quantities, the event date, the venue), the faster the quote comes back, and the closer it will be to the final figure.',
   fields: ['Name', 'Company or organization', 'Email address', 'Phone number', 'Service interest', 'Project budget range', 'Message'],

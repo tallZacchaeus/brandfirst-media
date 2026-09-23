@@ -5,7 +5,7 @@ import { brands, home } from '../data/site';
 import '../styles/section.css';
 import './BrandsStrip.css';
 
-/** Home "The group" — the hero promises print, apparel and events, and this is
+/** Home "The group" — the hero promises print, clothing and events, and this is
  *  the section that shows those are three named brands under one roof. Sits
  *  straight after the intro so the claim is backed before the services list. */
 export default function BrandsStrip() {
