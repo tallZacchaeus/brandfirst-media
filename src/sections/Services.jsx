@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { useTextReveal, useFadeIn } from '../hooks/useGsap';
+import { useReveal } from '../hooks/useReveal';
+import { HOME_BLOCK, HOME_REVEAL } from './homeMotion';
 import { services } from '../data/site';
 import '../styles/section.css';
 import './Services.css';
@@ -10,16 +11,21 @@ const SERVICE_GROUPS = [
   { key: 'aso-igbalode', name: 'Aṣọ Ìgbàlódé' },
 ];
 
-/** Home "What We Produce" — three services for each brand in the group. */
+/** Home "What We Produce" — three services for each brand in the group.
+ *
+ *  Motion: by brand row, not by card. Each row rises as one piece when it
+ *  reaches the screen, so a long list arrives in three calm steps instead of
+ *  nine separate entrances. The cards' own hover lift is independent. */
 export default function Services() {
-  const heading = useTextReveal();
+  const heading = useReveal(HOME_BLOCK);
+  const rows = useReveal({ ...HOME_REVEAL, selector: ':scope > .services__group', each: true });
   return (
     <section className="sec services">
       <div className="sec__inner">
-        <div className="services__lead">
-          <h2 ref={heading} className="sec__title">What We Produce</h2>
+        <div ref={heading} className="services__lead">
+          <h2 className="sec__title">What We Produce</h2>
         </div>
-        <div className="services__groups">
+        <div ref={rows} className="services__groups">
           {SERVICE_GROUPS.map((group) => {
             const grouped = services.filter((service) => service.brand === group.key);
             return (
@@ -29,9 +35,7 @@ export default function Services() {
                   <span className="services__count">{grouped.length} services</span>
                 </div>
                 <div className="services__grid">
-                  {grouped.map((service, index) => (
-                    <ServiceCard key={service.slug} {...service} index={index} />
-                  ))}
+                  {grouped.map((service) => <ServiceCard key={service.slug} {...service} />)}
                 </div>
               </section>
             );
@@ -42,10 +46,9 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ n, slug, title, card, index }) {
-  const el = useFadeIn({ delay: index * 0.06 });
+function ServiceCard({ n, slug, title, card }) {
   return (
-    <article ref={el} className="services__card">
+    <article className="services__card">
       <span className="services__num">{n}</span>
       <h3 className="services__name">{title}</h3>
       <p className="services__text">{card}</p>

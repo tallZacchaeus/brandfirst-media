@@ -21,7 +21,7 @@
 
 ## Phase 3 — React build (DONE)
 
-- [x] Vite + React 18 + react-router v7 scaffold; GSAP pinning, Lenis smooth scroll, IntersectionObserver reveals, custom cursor — all with reduced-motion/touch gates.
+- [x] Vite + React 18 + react-router v7 scaffold; GSAP pinning, Lenis smooth scroll, IntersectionObserver reveals, custom cursor (later removed, `cc80238`) — all with reduced-motion/touch gates.
 - [x] All Arolax demo templates rebuilt; then routing trimmed to the pages the Brandfirst content supports.
 - [x] Header/footer variants, shared PageHero, 404 handling; 0 unresolved nav links (verified per SECTION-MAP).
 
@@ -49,6 +49,20 @@
   - the header stays at the top after scrolling (and scrolls away on desktop);
   - all 9 menu links are reachable mid-page;
   - `/services` anchors land below the header.
+- [x] **Homepage motion calmed** (content, layout and links unchanged):
+  - Pins cut from 6 to 1 (hero only), on mouse/trackpad only.
+  - Scroll reveals cut from 124 hidden elements plus 169 split-text fragments to 14 blocks; authored animation targets from 33 to 18.
+  - No word or character splitting on the homepage.
+  - Hero entrance finishes in 0.6 s (was 1.2 s), with no scale overshoot.
+  - The collage no longer drifts, and its cross-fade runs at half speed.
+  - Lenis switched from a fixed 0.85 s glide to `lerp: 0.15`.
+  - The homepage reveal failsafe no longer plays everything off-screen at 2.5 s.
+  - Verified at 1440, 1024, 768 and 390 px and on a 1024 touch tablet:
+    - slow, reverse and fast scrolling, with no scroll jumps, gaps, replays or content left waiting;
+    - no duplicated ScrollTriggers after three round trips to About;
+    - reduced motion shows everything at once;
+    - content still appears with IntersectionObserver missing or silent;
+    - no console errors.
 - [x] Sister deliverable: ROOM16 Instagram launch kit (`room16-instagram/` — posts, reels, drafted captions).
 
 ## Phase 5 — Pre-launch (PENDING)
@@ -83,7 +97,7 @@ Technical tasks:
 - [ ] `npm run build` clean; test all routes on the production URL (SPA rewrite must serve deep links).
 - [ ] Lighthouse pass on `/`, `/work`, a brand page (media-heavy pages; confirm webp/srcSet behaviour and video weight on mobile data).
 - [ ] Test contact form end-to-end (endpoint POST, error state, mailto fallback removed or kept deliberately) and the WhatsApp/phone links on a real device.
-- [ ] Reduced-motion, mobile (<768 px, no pinning/cursor) and touch verification.
+- [ ] Reduced-motion, mobile (<768 px, no pinning) and touch verification on real devices (emulated checks done).
 - [ ] 404 route, favicon set, social share preview.
 - [x] Point the domain and enable HTTPS — done on Cloudflare (Workers Custom Domains issue the certificates).
 - [ ] Submit a sitemap to Search Console (no `sitemap.xml` exists yet).

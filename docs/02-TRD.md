@@ -62,7 +62,7 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 |---|---|
 | Framework | React 18.3, Vite 6 (`@vitejs/plugin-react` 4.3) |
 | Routing | `react-router-dom` v7 (BrowserRouter; SPA fallback via `not_found_handling` in `wrangler.jsonc`, and via the rewrite in `vercel.json` on the legacy Vercel copy) |
-| Animation | GSAP 3.13 (ScrollTrigger pinning), Lenis 1.1 smooth scroll; IntersectionObserver for reveals (`useReveal` on inner pages) |
+| Animation | GSAP 3.13 (ScrollTrigger: the home hero pin only), Lenis 1.3 smooth scroll (`lerp: 0.15`, mouse/trackpad only); IntersectionObserver reveals through `useReveal` on the homepage and inner pages (the older `useGsap` hooks remain for the inner footer, Insights and the 404) |
 | Scroll | `ScrollManager` (in `SiteLayout`): top of page on each new route, hash targets scrolled through Lenis (`lenisRef` from `useSmoothScroll`); back/forward left to the browser |
 | Icons | `react-icons` 5.7 — phone, WhatsApp, envelope and Instagram marks only (imported per icon, so only those four are bundled) |
 | Content | All copy in `src/data/site.js` — single source of truth; components render from it |
@@ -91,9 +91,9 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 
 ## 6. Non-functional requirements observed in the build
 
-- `prefers-reduced-motion` disables smooth scroll, pinning, cursor effects and the autoplaying hero video.
-- Pinning and custom cursor gated to ≥ 768 px / fine pointers.
-- A 2.5 s failsafe reveals all animated content so nothing can remain invisible.
+- `prefers-reduced-motion` disables smooth scroll, pinning, all reveals and the hero entrance and collage cycle: content shows immediately.
+- Pinning gated to ≥ 768 px with a fine pointer (mouse/trackpad); never on touch.
+- Reveals always carry a failsafe so nothing can remain invisible: on inner pages a 2.5 s timer; on the homepage, a reveal of everything if IntersectionObserver has not reported within 1.5 s (checked by disabling the observer: all content visible by 2.1 s).
 - Inner-page motion: 0.45–0.65 s durations, 60–90 ms staggers, no parallax or scroll-jacking; opacity-only on phones, coarse pointers and ≤ 4-core devices.
 - Touch targets ≥ 44 px on inner pages, header and footers; no horizontal overflow at 1440 / 1024 / 768 / 390 px (checked with a headless-Chrome audit).
 - Responsive images via `srcSet`; videos muted/looped (silent production clips).

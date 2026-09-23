@@ -62,7 +62,7 @@ Notes:
 7. Work preview
 8. CTA — "Ready to Put Your Brand First?"
 
-Sections render as stacked, pinned, rounded cards (desktop only), per the Arolax demo behaviour documented in `SECTION-MAP.md`.
+Sections render as overlapping rounded cards, per the Arolax demo (`SECTION-MAP.md`). Only the hero pins, so the page rises over it; the rest scroll at the visitor's pace (desktop mouse/trackpad only; see `04-UI-UX-Design-Brief.md` §6).
 
 ## 4. Key visitor journeys
 

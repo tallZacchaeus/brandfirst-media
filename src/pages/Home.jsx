@@ -8,11 +8,13 @@ import Testimonials from '../sections/Testimonials';
 import CTAFooter from '../sections/CTAFooter';
 
 // Team is omitted: the Brandfirst content document has no team content.
-// Offsets are by position in `main`, so they move when a section is added or
-// removed above the one they target. The demo pins its intro and services
-// sections at "bottom bottom-=150" and the rest at "bottom bottom"; here those
-// are StatsIntro (1) and Services (3).
-const PIN_OFFSETS = { 1: 150, 3: 150 };
+//
+// Only the hero pins: it holds while the page rises over it, the one stacked
+// transition that earns its motion. The demo pinned all six sections above the
+// CTA, which made every boundary a held beat — including Services, a list two
+// to three screens tall. The rest still overlap under rounded tops, so the
+// stack reads; they simply scroll. Indexes are positions in `main`.
+const PINS = { 0: 0 };
 
 /* SelectedWork and Journal are omitted: both rendered placeholder cards
    labelled "in preparation". They return when there is real work to show.
@@ -24,7 +26,7 @@ const PIN_OFFSETS = { 1: 150, 3: 150 };
  *  still follows its section order, less the demo sections that carried no
  *  Brandfirst content, plus BrandsStrip. */
 export default function Home() {
-  useStackedPin('main > section', PIN_OFFSETS);
+  useStackedPin('main > section', PINS);
   return (
     <main>
       <Hero />

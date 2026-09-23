@@ -29,9 +29,16 @@ export function useSmoothScroll({ enabled = true } = {}) {
     // rAF loop on the least powerful hardware for no perceptible gain.
     if (window.matchMedia?.('(hover: none), (pointer: coarse)').matches) return;
 
+    // Direct rather than floaty. With `duration` + `easing` (0.85 s, expo out)
+    // Lenis restarts a fixed-length glide on every wheel tick, so the page
+    // trails the wheel and keeps moving after the hand has stopped. `lerp`
+    // instead closes 15% of the remaining gap each frame (frame-rate
+    // independent): the page tracks the wheel closely and settles in a
+    // fraction of that time, while still smoothing a notched mouse wheel.
+    // Wheel distance is 1:1 with native scrolling.
     const lenis = new Lenis({
-      duration: 0.85,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.15,
+      wheelMultiplier: 1,
       smoothWheel: true,
       syncTouch: false, // native momentum on touch feels better than emulated
     });

@@ -5,35 +5,43 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * The demo pins every top-level section container:
- *   wcf_enable_pin_area: yes
- *   start  "bottom bottom"  (sections 2 and 3: "bottom bottom-=150")
+ * Stacked-card pinning, from the Arolax demo:
+ *   start  "bottom bottom" (optionally "bottom bottom-=N")
  *   end    "bottom top"
- *   wcf_enable_pin_area_mobile: "no"
  *
- * Each section holds still once its bottom reaches the viewport bottom, and the
- * next section — which overlaps by -100px and has an 80px rounded top — scrolls
- * up over it. That is what produces the stacked-card feel.
+ * A pinned section holds still once its bottom reaches the viewport bottom,
+ * and the next section — which overlaps it by -100px under an 80px rounded
+ * top — scrolls up over it.
+ *
+ * `pins` names which sections pin, by index in `selector`, with an optional
+ * start offset in px: `{ 0: 0 }` pins only the first. The demo pinned every
+ * section; the homepage now pins only its hero (see Home.jsx). Every other
+ * section still overlaps the one before it, so the stack still reads — it just
+ * scrolls at the visitor's pace instead of holding still.
  *
  * `pinSpacing: false` is essential: the sections already overlap by margin, so
- * adding pin spacers would insert gaps and break the stack.
+ * pin spacers would insert gaps and break the stack. It also means a pin adds
+ * no scroll distance: passing a pinned section takes exactly as much scrolling
+ * as passing an unpinned one.
+ *
+ * Mouse and trackpad at 768px and up only. Under native touch scrolling a pin
+ * lands a frame late and visibly judders, and phones never pinned (the demo's
+ * wcf_enable_pin_area_mobile: "no"). Off entirely under reduced motion.
  */
-export function useStackedPin(selector = 'main > section', offsets = {}) {
+export function useStackedPin(selector = 'main > section', pins = {}) {
   useEffect(() => {
     if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
 
     const mm = gsap.matchMedia();
 
-    // Pinning is desktop/tablet only, matching wcf_enable_pin_area_mobile: "no".
-    mm.add('(min-width: 768px)', () => {
+    mm.add('(min-width: 768px) and (hover: hover) and (pointer: fine)', () => {
       const sections = gsap.utils.toArray(selector);
-      const triggers = sections.map((el, i) => {
-        // Last section stays unpinned so the footer can scroll in cleanly.
-        if (i === sections.length - 1) return null;
-        const start = offsets[i] ? `bottom bottom-=${offsets[i]}` : 'bottom bottom';
+      const triggers = Object.entries(pins).map(([i, offset]) => {
+        const el = sections[i];
+        if (!el) return null;
         return ScrollTrigger.create({
           trigger: el,
-          start,
+          start: offset ? `bottom bottom-=${offset}` : 'bottom bottom',
           end: 'bottom top',
           pin: true,
           pinSpacing: false,
@@ -46,5 +54,5 @@ export function useStackedPin(selector = 'main > section', offsets = {}) {
 
     const t = setTimeout(() => ScrollTrigger.refresh(), 450);
     return () => { clearTimeout(t); mm.revert(); };
-  }, [selector, offsets]);
+  }, [selector, pins]);
 }

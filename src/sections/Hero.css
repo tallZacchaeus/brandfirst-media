@@ -85,64 +85,36 @@
 }
 
 /* --- entrance -------------------------------------------------------------
-   The pills rise and settle in sequence, then the supporting line and the
-   buttons follow. CSS rather than GSAP, and running on load rather than on
-   scroll: an earlier scroll-triggered version left this content invisible
-   until a ScrollTrigger resolved and pushed LCP to 6s. Here the whole sequence
-   is over in about a second, and it is transform and opacity only, so it stays
-   on the compositor.
+   One coordinated entrance, finished inside 0.6 s: the three pills slide in
+   from the margin they align to, 50 ms apart, and the supporting line rises
+   with its buttons as one block just behind them. CSS rather than GSAP, and on
+   load rather than on scroll: an earlier scroll-triggered version left this
+   content invisible until a ScrollTrigger resolved and pushed LCP to 6 s.
 
-   transform-origin is the left edge so the pills grow out of the margin they
-   are aligned to rather than swelling from their centres. */
-/* Each pill feeds in from the left, the way a sheet comes off a press: it
-   arrives short and slightly low, stretches past its width, then settles.
-
-   Deliberately transform and opacity only. A clip-path wipe was the obvious way
-   to draw this and it looked right, but clip-path animates on the main thread
-   and needs a repaint every frame — on the largest text on the first screen,
-   which is the LCP element. Transform and opacity stay on the compositor, so
-   the sequence costs no layout and no paint. */
+   Opacity plus a single short move per element, so it stays on the
+   compositor. The pills used to overshoot — stretching past their width
+   (scaleX) before settling, over 0.72 s with the last element landing at
+   1.2 s; now they simply arrive. power3.out as a cubic-bezier. */
 @keyframes hero-pill-in {
-  0% {
-    opacity: 0;
-    transform: translate3d(-34px, 12px, 0) scaleX(.86);
-  }
-  60% { opacity: 1; }
-  72% {
-    transform: translate3d(0, 0, 0) scaleX(1.03);
-  }
-  100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scaleX(1);
-  }
+  from { opacity: 0; transform: translate3d(-24px, 0, 0); }
+  to   { opacity: 1; transform: none; }
 }
 @keyframes hero-rise {
-  from { opacity: 0; transform: translateY(14px); }
+  from { opacity: 0; transform: translate3d(0, 16px, 0); }
   to   { opacity: 1; transform: none; }
 }
 
-.hero__line {
-  /* Left edge, so the stretch runs out into the empty half of the hero rather
-     than pulling the pills off the margin they are aligned to. */
-  transform-origin: left center;
-  /* Longer than the old rise so the wipe is legible as a wipe, but the whole
-     stack is still finished inside a second. */
-  animation: hero-pill-in .72s cubic-bezier(.22, 1, .36, 1) both;
-}
-/* Enough of a gap to read as three separate beats. The delays stay small on
-   purpose: the pills are the largest text on the first screen, so LCP is
-   recorded when the first of them starts painting, not when the last lands. */
-.hero__line:nth-child(1) { animation-delay: .06s; }
-.hero__line:nth-child(2) { animation-delay: .20s; }
-.hero__line:nth-child(3) { animation-delay: .34s; }
-
-.hero__lede    { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .52s both; }
-.hero__actions { animation: hero-rise .6s cubic-bezier(.22, 1, .36, 1) .62s both; }
+.hero__line { animation: hero-pill-in .45s cubic-bezier(.215, .61, .355, 1) both; }
+/* Small delays on purpose: the pills are the largest text on the first screen,
+   so LCP is recorded when the first starts painting, not when the last lands. */
+.hero__line:nth-child(2) { animation-delay: .05s; }
+.hero__line:nth-child(3) { animation-delay: .10s; }
+.hero__lede-col { animation: hero-rise .45s cubic-bezier(.215, .61, .355, 1) .14s both; }
 
 /* Nothing moves, and nothing is hidden waiting for a movement that will not
    come. */
 @media (prefers-reduced-motion: reduce) {
-  .hero__line, .hero__lede, .hero__actions { animation: none; }
+  .hero__line, .hero__lede-col { animation: none; }
 }
 
 /* The art is absolutely positioned over the hero's right half from 1101px up,

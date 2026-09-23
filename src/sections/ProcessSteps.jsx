@@ -1,35 +1,33 @@
-import { useTextReveal, useFadeIn } from '../hooks/useGsap';
+import { useReveal } from '../hooks/useReveal';
+import { HOME_REVEAL } from './homeMotion';
 import { home } from '../data/site';
 import '../styles/section.css';
 import './ProcessSteps.css';
 
 /** Home "Why Brandfirst Media" — content document headline
- *  "Built Around Strategy, Reach, and Results" + five highlights. */
+ *  "Built Around Strategy, Reach, and Results" + five highlights.
+ *
+ *  Motion: two blocks — the heading with its copy, then the highlights as one
+ *  list — rather than a separate entrance for each of the five points. */
 export default function ProcessSteps() {
-  const heading = useTextReveal();
-  const body = useFadeIn();
+  const ref = useReveal({ ...HOME_REVEAL, stagger: 0.08 });
   const { why } = home;
   return (
     <section className="sec process">
-      <div className="sec__inner">
-        <div className="process__head">
-          <h2 ref={heading} className="sec__title process__title">{why.headline}</h2>
-          <p ref={body} className="process__body">{why.body}</p>
+      <div ref={ref} className="sec__inner">
+        <div className="process__head" data-reveal>
+          <h2 className="sec__title process__title">{why.headline}</h2>
+          <p className="process__body">{why.body}</p>
         </div>
-        <ul className="process__highlights">
-          {why.highlights.map((h, i) => <Highlight key={h} text={h} index={i} />)}
+        <ul className="process__highlights" data-reveal>
+          {why.highlights.map((h, i) => (
+            <li key={h} className="process__highlight">
+              <span className="process__hn">{String(i + 1).padStart(2, '0')}</span>
+              <span className="process__ht">{h}</span>
+            </li>
+          ))}
         </ul>
       </div>
     </section>
-  );
-}
-
-function Highlight({ text, index }) {
-  const el = useFadeIn({ delay: index * 0.07, y: 24 });
-  return (
-    <li ref={el} className="process__highlight">
-      <span className="process__hn">{String(index + 1).padStart(2, '0')}</span>
-      <span className="process__ht">{text}</span>
-    </li>
   );
 }

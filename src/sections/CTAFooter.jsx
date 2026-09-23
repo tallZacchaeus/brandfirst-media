@@ -1,20 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useTextReveal, useFadeIn } from '../hooks/useGsap';
+import { useReveal } from '../hooks/useReveal';
+import { HOME_BLOCK } from './homeMotion';
 import { home } from '../data/site';
 import '../styles/section.css';
 import './CTAFooter.css';
 
-/** Home closing CTA — content document "Ready to Put Your Brand First?" */
+/** Home closing CTA — content document "Ready to Put Your Brand First?"
+ *
+ *  Motion: one clean entrance — heading, copy and button rise together. */
 export default function CTAFooter() {
-  const eyebrow = useTextReveal({ by: 'words' });
-  const body = useFadeIn();
+  const col = useReveal(HOME_BLOCK);
   const { cta } = home;
   return (
     <section className="sec cta">
       <div className="sec__inner">
-        <div className="cta__col">
-          <h2 ref={eyebrow} className="cta__line">{cta.headline}</h2>
-          <p ref={body} className="cta__body">{cta.body}</p>
+        <div ref={col} className="cta__col">
+          <h2 className="cta__line">{cta.headline}</h2>
+          <p className="cta__body">{cta.body}</p>
           <Link className="btn btn--primary" to={cta.button.href}>{cta.button.label}</Link>
         </div>
       </div>
