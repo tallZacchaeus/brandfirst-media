@@ -40,7 +40,7 @@ graph TD
 
 **Header (all pages, via `SiteLayout`):** Home · About · Services · Work · **Brands ▾** (Brandfirst Media / ROOM16 / Aṣọ Ìgbàlódé) · Contact — plus a "Get in touch" action button.
 
-**Footer:** brand block + link columns (dark `#121212` footer, per the Arolax template), a contact block (shared `ContactLinks` component) — phone icon + 0708 413 7772, WhatsApp icon + 0806 6442508, then info@brandfirstmedia.com, one per line; the icons replace the old "Call:" / "WhatsApp:" labels and each link carries an aria-label with that meaning — and each brand's Instagram, copyright. A floating WhatsApp button sits bottom-right on every page (layered below the header, so an open mobile menu covers it).
+**Footer:** brand block + link columns (dark `#121212` footer, per the Arolax template), a contact block (shared `ContactLinks` component) — phone icon + 0708 413 7772, WhatsApp icon + 0806 6442508, envelope icon + info@brandfirstmedia.com, one per line with icons and text each on a shared left edge; the icons replace the old "Call:" / "WhatsApp:" labels and each link carries an aria-label with that meaning — and each brand's Instagram, copyright. A floating WhatsApp button sits bottom-right on every page (layered below the header, so an open mobile menu covers it).
 
 Notes:
 

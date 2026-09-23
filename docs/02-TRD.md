@@ -63,7 +63,7 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 | Framework | React 18.3, Vite 6 (`@vitejs/plugin-react` 4.3) |
 | Routing | `react-router-dom` v7 (BrowserRouter; SPA rewrite in `vercel.json`) |
 | Animation | GSAP 3.13 (ScrollTrigger pinning), Lenis 1.1 smooth scroll; IntersectionObserver for reveals |
-| Icons | `react-icons` 5.7 — phone, WhatsApp and Instagram marks only (imported per icon, so only those three are bundled) |
+| Icons | `react-icons` 5.7 — phone, WhatsApp, envelope and Instagram marks only (imported per icon, so only those four are bundled) |
 | Content | All copy in `src/data/site.js` — single source of truth; components render from it |
 | Fonts | Montserrat Alternates (Google Fonts, OFL) — one family site-wide; see `FONTS.md` for the licensing history (theme's Beatrice Trial and Getaway faces could not ship) |
 | Build | `npm run dev` (localhost:5173), `npm run build` → `dist/` (a build exists) |

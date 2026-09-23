@@ -1,4 +1,4 @@
-import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 import EmailLink from './EmailLink';
 import { site } from '../data/site';
 import './ContactLinks.css';
@@ -9,9 +9,11 @@ import './ContactLinks.css';
  *  drifted once (one stacked, the other wrapped inline in a narrow paragraph).
  *  Returns a fragment so each footer keeps its own container and spacing.
  *
- *  Icons replace the "Call:" / "WhatsApp:" labels on screen. They are
- *  decorative to assistive tech, so each link carries an aria-label that keeps
- *  the meaning the visible label used to give. */
+ *  Icons replace the "Call:" / "WhatsApp:" labels on screen; the email gets an
+ *  envelope so all three lines start their text at the same point. The icons
+ *  are decorative to assistive tech, so the phone and WhatsApp links carry
+ *  aria-labels that keep the meaning the visible labels used to give; the
+ *  email needs none, since its text already says what it is. */
 export default function ContactLinks() {
   const whatsappHref = `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`;
   return (
@@ -30,7 +32,14 @@ export default function ContactLinks() {
         <FaWhatsapp aria-hidden="true" focusable="false" />
         <span>{site.whatsappDisplay}</span>
       </a>
-      {site.emails.map((e) => <EmailLink key={e} email={e} />)}
+      {site.emails.map((e) => (
+        <EmailLink
+          key={e}
+          email={e}
+          className="contact-link"
+          icon={<FaEnvelope aria-hidden="true" focusable="false" />}
+        />
+      ))}
     </>
   );
 }
