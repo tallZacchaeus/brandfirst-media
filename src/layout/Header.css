@@ -153,3 +153,31 @@
   .header { padding: 20px 16px; }
   .header .btn--primary { display: none; }
 }
+
+/* --- fixed header where the nav is behind the burger ------------------------
+   The menu stays one tap away however far down the page a visitor is. The
+   overlay header was already out of flow (absolute), so fixing it moves
+   nothing; headers that sit in flow stick instead, keeping their space. Once
+   the page leaves the top the header tightens and takes a solid ground:
+   navy under the overlay's white type, white with a hairline on light pages.
+   Anchor jumps and keyboard focus clear it through scroll-padding-top on the
+   root; ScrollManager adds the same offset when Lenis does the scrolling. */
+@media (max-width: 1024px) {
+  html { scroll-padding-top: 92px; }
+  .header--overlay { position: fixed; }
+  .header--inner, .header--dark { position: sticky; top: 0; }
+  .header { transition: background-color .25s ease, padding .25s ease, box-shadow .25s ease; }
+  .header.is-stuck { padding-top: 14px; padding-bottom: 14px; }
+  .header--overlay.is-stuck {
+    background: var(--brand-ink);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .08), 0 10px 30px rgba(8, 26, 75, .28);
+  }
+  .header--inner.is-stuck { box-shadow: 0 1px 0 var(--rule), 0 10px 30px rgba(18, 18, 18, .08); }
+  /* A landscape phone can be shorter than the menu: the panel scrolls itself. */
+  .header__nav-col.is-open { max-height: calc(100dvh - 110px); overflow-y: auto; overscroll-behavior: contain; }
+}
+@media (max-width: 767px) {
+  html { scroll-padding-top: 84px; }
+  .header.is-stuck { padding-top: 10px; padding-bottom: 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .header { transition: none; } }

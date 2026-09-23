@@ -13,7 +13,6 @@
 .ct-channel:hover, .ct-channel:focus-visible { background: rgba(255, 255, 255, .11); border-color: rgba(255, 255, 255, .38); }
 .ct-channel:focus-visible { outline: 2px solid var(--brand-bright); outline-offset: 2px; }
 .ct-channel > svg { width: 20px; height: 20px; flex: 0 0 auto; color: var(--brand-bright); }
-.ct-channel--wa > svg { color: #25D366; }
 .ct-channel__text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
 .ct-channel__label { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .6); }
 .ct-channel__value { font-size: 18px; font-weight: 600; line-height: 1.3; }

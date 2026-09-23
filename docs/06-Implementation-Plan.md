@@ -45,6 +45,10 @@
     - no horizontal overflow, no clipped headings, no console errors;
     - anchors, filters, video playback, the WhatsApp and mailto routes, the mobile menu and reveals with motion on all tested.
   - Not yet checked on real devices; that folds into the Phase 6 check.
+- [x] Header fixed at ≤ 1024 px (burger widths), so the menu can be opened from anywhere on the page. It turns solid navy and tightens once scrolled, the white 404 header sticks, and anchor jumps clear it via `scroll-padding-top`. Desktop is unchanged. WhatsApp float recoloured from WhatsApp green to black (`--ink`) with a faint white ring, to match the site's buttons. Verified at 1440, 1024, 768 and 390 px:
+  - the header stays at the top after scrolling (and scrolls away on desktop);
+  - all 9 menu links are reachable mid-page;
+  - `/services` anchors land below the header.
 - [x] Sister deliverable: ROOM16 Instagram launch kit (`room16-instagram/` — posts, reels, drafted captions).
 
 ## Phase 5 — Pre-launch (PENDING)

@@ -19,7 +19,7 @@ function scrollToTarget(target) {
   } else if (typeof target === 'number') {
     window.scrollTo(0, target);
   } else {
-    // Honours the target's scroll-margin-top.
+    // Honours the target's scroll-margin-top and the root's scroll-padding-top.
     target.scrollIntoView({ block: 'start' });
   }
 }
@@ -45,8 +45,12 @@ export default function ScrollManager() {
       if (el) {
         const lenis = lenisRef.current;
         if (lenis) {
+          // Native scrolling adds both of these itself: the target's own
+          // margin, and the root's padding that clears the fixed header on
+          // burger-width screens. Lenis needs them passed in.
           const margin = parseFloat(getComputedStyle(el).scrollMarginTop) || 0;
-          lenis.scrollTo(el, { immediate: true, force: true, offset: -margin });
+          const pad = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+          lenis.scrollTo(el, { immediate: true, force: true, offset: -(margin + pad) });
         } else {
           scrollToTarget(el);
         }

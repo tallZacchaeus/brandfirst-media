@@ -1,3 +1,7 @@
+/* Black, like the site's primary buttons, rather than WhatsApp green: the
+   glyph alone says what it is. A faint white ring keeps it visible where it
+   crosses the near-black footer and the navy bands. Hover inverts, as the
+   primary button does. */
 .whatsapp-float {
   position: fixed;
   right: max(24px, env(safe-area-inset-right));
@@ -8,24 +12,24 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: #25d366;
-  color: #fff;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, .24);
-  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .24), 0 10px 28px rgba(0, 0, 0, .28);
+  transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
 }
 
 .whatsapp-float svg { width: 29px; height: 29px; }
 
 .whatsapp-float:hover,
 .whatsapp-float:focus-visible {
-  background: #20bd5a;
-  color: #fff;
+  background: var(--paper);
+  color: var(--ink);
   transform: translateY(-3px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, .28);
+  box-shadow: 0 0 0 1px rgba(18, 18, 18, .12), 0 14px 32px rgba(0, 0, 0, .28);
 }
 
 .whatsapp-float:focus-visible {
-  outline: 3px solid var(--paper);
+  outline: 3px solid var(--brand-bright);
   outline-offset: 3px;
 }
 
