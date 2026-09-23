@@ -27,9 +27,7 @@ Known contact details (from `src/data/site.js`, as supplied by the client):
 
 - Phone (calls): 0708 413 7772 (+234 708 413 7772)
 - WhatsApp: 0806 6442508, displayed in that form at the client's request (+234 806 644 2508) — every WhatsApp link opens with a pre-filled enquiry message (`site.whatsappMessage`)
-- Email (two domain addresses, shown together wherever contact details appear; the contact form's mailto fallback addresses both):
-  - oluwabamise.femi@brandfirstmedia.com
-  - christiana.oluwabami@brandfirstmedia.com
+- Email: info@brandfirstmedia.com — a single shared inbox, shown wherever contact details appear and used by the contact form's mailto fallback (two personal addresses were tried briefly and withdrawn)
 
   **Warning:** when these were added (September 2026), `brandfirstmedia.com` resolved (A record 2.57.91.91) but had **no MX records**, so mail to the domain had no designated server and would likely bounce. Email hosting has to be set up and tested before these addresses can be relied on.
 - Social — Instagram only, one per brand (Facebook links removed at the client's request):

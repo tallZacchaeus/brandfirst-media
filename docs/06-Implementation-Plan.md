@@ -39,7 +39,9 @@
 
 Client inputs (blocking):
 
-- [x] Domain email addresses replace `brandfirstmedia@gmail.com`: oluwabamise.femi@ and christiana.oluwabami@brandfirstmedia.com.
+- [x] Domain email replaces `brandfirstmedia@gmail.com`: info@brandfirstmedia.com (two personal addresses were put up first, then withdrawn in favour of the shared inbox).
+- [x] Footer contact block: phone and WhatsApp icons replace the "Call:" / "WhatsApp:" labels; both footers now render one shared `ContactLinks` component.
+- [x] Contact form fits a 320 px screen: the service dropdown had been held at its longest option's width (306 px).
 - [ ] **Email hosting for `brandfirstmedia.com` (blocking).** The domain had no MX records when the addresses went on the site, so mail to them has nowhere to be delivered. Set up the mailboxes, add the MX (and SPF) records, then send a test message to each address and reply from it.
 - [ ] Written permission to show PremiumTrust Bank work (billboard + merchandise appear in the showcase; flagged in code comments).
 - [ ] Final office address; confirmation of registered company name.

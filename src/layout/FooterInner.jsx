@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import EmailLink from '../components/EmailLink';
+import ContactLinks from '../components/ContactLinks';
 import { useTextReveal, useFadeIn } from '../hooks/useGsap';
 import { site, home } from '../data/site';
 import BrandSocialLinks from '../components/BrandSocialLinks';
@@ -38,11 +38,7 @@ export default function FooterInner() {
           <div className="footer-inner__signup">
             <span className="footer-inner__label">Talk to us</span>
             <p className="footer-inner__lines footer-inner__contact">
-              <a href={`tel:${site.phoneIntl}`}>Call: {site.phone}</a>
-              <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`} target="_blank" rel="noreferrer">
-                WhatsApp: {site.whatsappDisplay}
-              </a>
-              {site.emails.map((e) => <EmailLink key={e} email={e} />)}
+              <ContactLinks />
             </p>
           </div>
         </div>

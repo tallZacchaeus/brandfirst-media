@@ -28,16 +28,13 @@ export const site = {
   // Supplied by the client.
   phone: '0708 413 7772',
   phoneIntl: '+2347084137772',
-  // Domain addresses, replacing the old gmail.com one. Both appear wherever
-  // contact details are shown, and the contact form's mailto fallback
-  // addresses both, so an enquiry reaches whichever person is free.
-  // NOTE: brandfirstmedia.com had no MX records when these were added, so mail
-  // to it had nowhere to be delivered. Confirm the mailboxes receive before
-  // this goes live.
-  emails: [
-    'oluwabamise.femi@brandfirstmedia.com',
-    'christiana.oluwabami@brandfirstmedia.com',
-  ],
+  // A single shared inbox, shown wherever contact details appear and used by
+  // the contact form's mailto fallback. Kept as a list so a second address can
+  // be added without touching the components.
+  // NOTE: brandfirstmedia.com had no MX records when this was set, so mail to
+  // it has nowhere to be delivered. Confirm the mailbox receives before
+  // relying on it.
+  emails: ['info@brandfirstmedia.com'],
   social: [
     { label: 'Instagram', href: 'https://www.instagram.com/brandfirstmedia/' },
   ],

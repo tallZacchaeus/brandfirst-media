@@ -6,7 +6,9 @@
 .contact__pending, .contact__addr { font-size: 17px; line-height: 1.5em; color: var(--muted); margin-top: 18px; max-width: 260px; }
 .contact__form { display: flex; flex-direction: column; gap: 22px; align-items: flex-start; }
 .contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; width: 100%; }
-.contact__field { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+/* min-width: 0 lets the grid track shrink below its content's natural width;
+   without it the field could never be narrower than its widest control. */
+.contact__field { display: flex; flex-direction: column; gap: 8px; width: 100%; min-width: 0; }
 .contact__field span { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .contact__field input, .contact__field textarea {
   font: inherit; font-size: 17px; color: var(--ink);
@@ -19,7 +21,12 @@
 .contact__label--gap { margin-top: 34px; }
 .contact__intro { font-size: 18px; line-height: 1.66em; color: var(--muted); max-width: 620px; margin-bottom: 8px; }
 .contact__pending { font-style: italic; }
+/* A select is as wide as its longest option by default — "Publicity and Brand
+   Visibility" held this field at 306px, wider than a 320px phone allows.
+   Filling the field instead lets the control clip long options like any
+   native select does. */
 .contact__field select {
+  width: 100%; max-width: 100%; min-width: 0;
   font: inherit; font-size: 17px; color: var(--ink);
   border: 0; border-bottom: 1px solid rgba(18,18,18,.2); background: none; padding: 12px 0;
 }

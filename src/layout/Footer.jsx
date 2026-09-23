@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import EmailLink from '../components/EmailLink';
+import ContactLinks from '../components/ContactLinks';
 import { site, services, nav } from '../data/site';
 import BrandSocialLinks from '../components/BrandSocialLinks';
 import './Footer.css';
@@ -24,13 +24,7 @@ export default function Footer() {
               one standard.
             </p>
             <div className="footer__contact">
-              {site.phone && <a href={`tel:${site.phoneIntl}`}>Call: {site.phone}</a>}
-              {site.whatsapp && (
-                <a href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent(site.whatsappMessage)}`} target="_blank" rel="noreferrer">
-                  WhatsApp: {site.whatsappDisplay}
-                </a>
-              )}
-              {site.emails.map((e) => <EmailLink key={e} email={e} />)}
+              <ContactLinks />
             </div>
           </div>
 
