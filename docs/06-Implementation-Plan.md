@@ -72,7 +72,7 @@ Client inputs (blocking):
 - [x] Domain email replaces `brandfirstmedia@gmail.com`: info@brandfirstmedia.com (two personal addresses were put up first, then withdrawn in favour of the shared inbox).
 - [x] Footer contact block: phone and WhatsApp icons replace the "Call:" / "WhatsApp:" labels, and an envelope marks the email so all three lines align; both footers now render one shared `ContactLinks` component.
 - [x] Contact form fits a 320 px screen: the service dropdown had been held at its longest option's width (306 px).
-- [ ] **Email hosting for `brandfirstmedia.com` (blocking).** The domain had no MX records when the addresses went on the site, so mail to them has nowhere to be delivered. Set up the mailboxes, add the MX (and SPF) records, then send a test message to each address and reply from it.
+- [ ] **Email hosting for `brandfirstmedia.com`.** MX records now exist (Hostinger mail, found September 2026). Remaining: send a test message to info@ and reply from it, and confirm an SPF record so replies are not marked as spam.
 - [ ] Written permission to show PremiumTrust Bank work (billboard + merchandise appear in the showcase; flagged in code comments).
 - [ ] Final office address; confirmation of registered company name.
 - [ ] Real case studies to replace the 5 placeholder titles (`work.placeholders`, shown in the home page's Selected Work section).
@@ -88,19 +88,33 @@ Technical tasks:
 - [x] Hosting: Cloudflare Worker with static assets, live at **https://brandfirstmedia.com** and `www.` (see TRD §4). Deploy with `npm run deploy`.
 - [ ] Retire the Vercel copy (`brandfirst-media.vercel.app` still auto-deploys every push) — or keep it deliberately as a staging URL.
 - [ ] Optional: deploy to Cloudflare on push (Workers Builds, connected in the Cloudflare dashboard) so publishing no longer depends on a logged-in machine.
-- [ ] Choose a canonical host and redirect the other (e.g. `www` → apex via a Cloudflare Redirect Rule); today both serve the same site.
-- [ ] SEO pass: per-route titles/descriptions (only the global meta in `index.html` exists), OG image, `sitemap.xml`, `robots.txt` — none present yet.
+- [x] Canonical host chosen: the apex, `https://brandfirstmedia.com` — every canonical, the sitemap and structured data use it (`src/seo/config.js`).
+- [ ] Redirect `www` → apex with a 301 (Cloudflare dashboard → Rules → Redirect Rules → "Redirect from WWW to root"). Canonicals already consolidate it; the redirect makes it explicit.
+- [x] **SEO pass** (September 2026):
+  - Every public route prerendered to static HTML and hydrated, with its own title, description, canonical, Open Graph and Twitter tags and JSON-LD (`react-helmet-async`, `src/seo/`).
+  - `sitemap.xml` (9 URLs) and `robots.txt` generated from the route list.
+  - Real 404 status for unknown URLs, plus a helpful 404 page.
+  - Vercel copy set to noindex.
+  - Structured data: Organization + ProfessionalService, Brand, WebSite, page types, BreadcrumbList, Service and FAQPage.
+  - Nine 1200×630 JPEG share images.
+  - Home H1 reads "Print. Events. Clothing." (it ran the words together); "Learn more" links carry their service name for screen readers and search.
+  - Work and brand-page photos carry alt text.
+  - Vague brand-page headings made specific; Work links on to the brands.
+  - Contact shows the service area.
+  - Fonts self-hosted; logo mark cut from 87 KB to 7 KB; hero grain preloaded.
+  - Small accent labels darkened to pass 4.5:1 contrast.
+  - Verified: routes load directly with the right status; metadata swaps on client navigation with no duplicate tags; no hydration errors; 244 internal links and 468 asset references resolve; the external Instagram and WhatsApp links answer; Lighthouse SEO / Best Practices / Accessibility 100 on all nine routes.
 - [ ] Analytics: none configured — choose and add if the client wants measurement (PRD metrics depend on it).
 
 ## Phase 6 — Launch checklist
 
-- [ ] `npm run build` clean; test all routes on the production URL (SPA rewrite must serve deep links).
-- [ ] Lighthouse pass on `/`, `/work`, a brand page (media-heavy pages; confirm webp/srcSet behaviour and video weight on mobile data).
+- [ ] `npm run build` clean (runs the prerender); test all routes on the production URL: each serves its own prerendered HTML, unknown URLs a 404.
+- [x] Lighthouse pass on all nine routes (local build, simulated mobile): Performance 81–92, Accessibility / Best Practices / SEO 100; desktop home 99. Repeat on the live URL after deploy.
 - [ ] Test contact form end-to-end (endpoint POST, error state, mailto fallback removed or kept deliberately) and the WhatsApp/phone links on a real device.
 - [ ] Reduced-motion, mobile (<768 px, no pinning) and touch verification on real devices (emulated checks done).
-- [ ] 404 route, favicon set, social share preview.
+- [x] 404 route (real 404 status), favicon set, social share previews (per-page 1200×630 cards).
 - [x] Point the domain and enable HTTPS — done on Cloudflare (Workers Custom Domains issue the certificates).
-- [ ] Submit a sitemap to Search Console (no `sitemap.xml` exists yet).
+- [ ] Verify the domain in Google Search Console and submit `https://brandfirstmedia.com/sitemap.xml` (owner action; also Bing Webmaster Tools). Create or claim the Google Business Profile, then add its URL to the Organization `sameAs`.
 - [ ] Client sign-off against the "Notes for Client Confirmation" list in the content document.
 
 ## Post-launch (candidates, not commitments)
@@ -119,5 +133,6 @@ Technical tasks:
 | Content & client media | Done, minus client-dependent gaps above |
 | Form endpoint | Pending (mailto fallback active) |
 | Hosting / domain | Live on Cloudflare at brandfirstmedia.com; Vercel copy still running |
-| SEO extras, analytics | Pending |
+| SEO | Done (Search Console submission and Business Profile pending, owner actions) |
+| Analytics | Pending |
 | Client confirmations | Pending |

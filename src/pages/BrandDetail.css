@@ -15,7 +15,7 @@
 .bd-services h3 { margin-top: 14px; font-family: var(--font-display); font-weight: 800; font-size: 24px; line-height: 1.2; }
 /* Padding with a matching negative margin: a 44px+ target at the title's size. */
 .bd-services h3 a { display: inline-block; padding: 10px 0; margin: -10px 0; color: var(--ink); transition: color .2s ease; }
-.bd-services h3 a:hover, .bd-services h3 a:focus-visible { color: var(--accent); }
+.bd-services h3 a:hover, .bd-services h3 a:focus-visible { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .bd-services p { margin-top: 12px; flex: 1; font-size: 16px; line-height: 1.65; color: var(--muted); }
 .bd-services .ix-link { margin-top: 12px; }
 
@@ -31,7 +31,7 @@
 .bd-process li::before { content: ''; position: absolute; top: 0; left: 0; right: -32px; height: 1px; background: var(--rule-strong); }
 .bd-process li:last-child::before { right: 0; }
 .bd-process li::after { content: ''; position: absolute; top: -4px; left: 0; width: 9px; height: 9px; border-radius: 2px; background: var(--accent); }
-.bd-process__step { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+.bd-process__step { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .bd-process h3 { margin-top: 10px; font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink); }
 .bd-process p { margin-top: 10px; font-size: 15px; line-height: 1.65; color: var(--muted); }
 

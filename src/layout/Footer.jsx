@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <Link className="footer__logo" to="/" aria-label={`${site.name} home`}>
-              <img className="footer__mark" src="/assets/brandfirst-logo-sm.png" alt="" width="300" height="400" />
+              <img className="footer__mark" src="/assets/brandfirst-mark.webp" alt="" width="83" height="112" loading="lazy" />
               <span className="footer__wordmark">{site.name}</span>
             </Link>
             <p className="footer__blurb">
@@ -55,8 +55,10 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
+          {/* The year is prerendered at build time; after New Year the browser's
+              differs until the next deploy, which is allowed rather than an error. */}
           <p className="footer__copy">
-            © {new Date().getFullYear()} <strong>{site.name}</strong> · {site.tagline}
+            © <span suppressHydrationWarning>{new Date().getFullYear()}</span> <strong>{site.name}</strong> · {site.tagline}
           </p>
         </div>
       </div>

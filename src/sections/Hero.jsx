@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import HeroArt from './HeroArt';
 import { home } from '../data/site';
@@ -33,9 +34,15 @@ export default function Hero() {
         <div className="hero__row">
           <div className="hero__headline-col">
             <div className="hero__headline-wrap">
+              {/* A space between the pills, so the heading reads "Print. Events.
+                  Clothing." to search engines and screen readers rather than
+                  one run-together word. The flex column never renders it. */}
               <h1 className="hero__headline">
-                {hero.headlineLines.map((line) => (
-                  <span key={line} className="hero__line">{line}</span>
+                {hero.headlineLines.map((line, i) => (
+                  <Fragment key={line}>
+                    {i > 0 && ' '}
+                    <span className="hero__line">{line}</span>
+                  </Fragment>
                 ))}
               </h1>
             </div>

@@ -9,7 +9,7 @@
 .sv-index__col + .sv-index__col::before { left: 32px; }
 .sv-index__col--room16 { --accent: var(--room16); }
 .sv-index__col--aso    { --accent: var(--aso); }
-.sv-index__kind { color: var(--accent); }
+.sv-index__kind { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .sv-index__brand {
   display: inline-flex; align-items: center; min-height: 44px; margin-top: 4px;
   font-family: var(--font-display); font-weight: 800; font-size: 22px; color: var(--ink);
@@ -21,13 +21,13 @@
   display: flex; align-items: baseline; gap: 14px; min-height: 44px; padding: 12px 0;
   font-size: 16px; line-height: 1.35; color: var(--ink); transition: color .2s ease;
 }
-.sv-index li a:hover, .sv-index li a:focus-visible { color: var(--accent); }
+.sv-index li a:hover, .sv-index li a:focus-visible { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 
 /* --- brand groups ----------------------------------------------------------- */
 .sv-group { --accent: var(--brand); scroll-margin-top: 24px; }
 .sv-group--room16 { --accent: var(--room16); }
 .sv-group--aso    { --accent: var(--aso); }
-.sv-group .ix-head__meta .ix-label { color: var(--accent); }
+.sv-group .ix-head__meta .ix-label { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .sv-group__list { border-top: 1px solid var(--rule-strong); }
 
 /* Copy beside the photograph; the photo swaps sides on alternate rows. */
@@ -39,7 +39,7 @@
 }
 .sv-row:last-child { border-bottom: 0; padding-bottom: 0; }
 .sv-row--flip .sv-row__copy { order: 2; }
-.sv-row__n { color: var(--accent); }
+.sv-row__n { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .sv-row__title { margin-top: 12px; font-family: var(--font-display); font-weight: 800; font-size: 30px; line-height: 1.15; color: var(--ink); }
 .sv-row__body { margin-top: 16px; max-width: 58ch; font-size: 17px; line-height: 1.7; color: var(--muted); }
 .sv-row__label { margin-top: 28px; }

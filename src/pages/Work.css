@@ -17,6 +17,9 @@
 .wk-sheet__tag { right: 8px; }
 
 /* --- filters ------------------------------------------------------------------ */
+/* Links to the three brands, under the section title. */
+.wk-brands { display: flex; flex-wrap: wrap; gap: 0 28px; }
+
 .wk-filter {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px;
   margin-bottom: 44px; padding-bottom: 20px; border-bottom: 1px solid var(--rule);

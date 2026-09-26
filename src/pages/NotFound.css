@@ -12,6 +12,17 @@
 }
 .nf__title { font-family: var(--font-display); font-weight: 800; font-size: 60px; line-height: 65px; color: var(--ink); }
 .nf__text { font-size: 18px; line-height: 26px; color: var(--muted); max-width: 381px; }
+.nf__text a { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; }
+/* Onward links: a wrapped row of 44px targets under the message. */
+.nf__nav { max-width: 720px; }
+.nf__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 22px; }
+.nf__links a {
+  display: inline-flex; align-items: center; min-height: 44px;
+  font-size: 16px; font-weight: 600; color: var(--brand);
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px;
+}
+.nf__links a:hover, .nf__links a:focus-visible { color: var(--ink); }
+.nf { padding-top: 48px; padding-bottom: 72px; }
 @media (max-width: 767px) {
   .nf__code { font-size: 110px; }
   .nf__title { font-size: 34px; line-height: 40px; }

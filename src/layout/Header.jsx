@@ -13,8 +13,9 @@ import { nav as NAV, site } from '../data/site';
  * inner pages sit on a light ground with no hero to overlay.
  * `variant="dark"` = template #6033, kept for any future dark-hero page.
  *
- * Lockup: the Brandfirst "B" mark (public/assets/brandfirst-logo-sm.png,
- * white background knocked out) beside the name in the hero face.
+ * Lockup: the Brandfirst "B" mark (public/assets/brandfirst-mark.webp, 7 KB at
+ * 2.5x its 44px display height; the PNG it replaced was 87 KB) beside the name
+ * in the hero face.
  *
  * Where the nav collapses behind the burger (≤ 1024 px) the header stays on
  * screen so another page is always one tap away. `is-stuck` marks that the
@@ -38,10 +39,10 @@ export default function Header({ variant = 'overlay' }) {
     <header className={`header header--${variant}${stuck ? ' is-stuck' : ''}`}>
       <div className="header__inner">
         <div className="header__logo-col">
-          <a className="header__logo" href="/" aria-label={`${site.name} home`}>
-            <img className="header__mark" src="/assets/brandfirst-logo-sm.png" alt="" width="300" height="400" />
+          <Link className="header__logo" to="/" aria-label={`${site.name} home`}>
+            <img className="header__mark" src="/assets/brandfirst-mark.webp" alt="" width="83" height="112" />
             <span className="header__wordmark">{site.name}</span>
-          </a>
+          </Link>
         </div>
 
         {/* data-lenis-prevent: on a short screen the open panel scrolls on its

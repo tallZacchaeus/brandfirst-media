@@ -27,9 +27,13 @@
   color: var(--muted);
 }
 .ix-section--dark .ix-label { color: rgba(255, 255, 255, .62); }
+/* Brand colours as small text are darkened 12% (color-mix; the plain colour
+   before it is the fallback): the Aṣọ orange and the ROOM16 red on the tint
+   fall just short of 4.5:1 at label sizes. Rules, squares and fills keep the
+   exact brand colours. */
 .ix-index {
   font-size: 12px; font-weight: 700; letter-spacing: .08em;
-  font-variant-numeric: tabular-nums; color: var(--accent);
+  font-variant-numeric: tabular-nums; color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000);
 }
 .ix-section--dark .ix-index { color: var(--brand-bright); }
 
@@ -62,7 +66,7 @@
   transition: color .2s ease, text-decoration-color .2s ease;
 }
 .ix-link::after { content: '→'; text-decoration: none; transition: transform .25s ease; }
-.ix-link:hover, .ix-link:focus-visible { color: var(--accent); text-decoration-color: currentColor; }
+.ix-link:hover, .ix-link:focus-visible { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); text-decoration-color: currentColor; }
 .ix-link:hover::after { transform: translateX(3px); }
 .ix-section--dark .ix-link { color: var(--paper); text-decoration-color: var(--rule-light); }
 

@@ -79,7 +79,7 @@ Goals stated or implied by the content and build:
 1. **Generate qualified enquiries** — primary CTAs are "Start a Project", "Contact Brandfirst Media"; contact form, phone, WhatsApp all prominent.
 2. **Prove capability with real work** — the Work page uses the client's own production photography and footage rather than stock.
 3. **Establish the group structure** — make clear that ROOM16 and Aṣọ Ìgbàlódé are in-house brands, so one brief covers print + apparel + stage.
-4. **Local SEO visibility** — draft meta targets "print, publicity and event production in Lagos"; the original doc listed Lagos/Nigeria agency keywords.
+4. **Local SEO visibility** — each page targets one theme with Lagos context (the group; print, signage and publicity; event lighting, stage and set design; branded and corporate clothing), with its own title, description and structured data (`src/seo/pages.js`, `02-TRD.md`). The original doc listed Lagos/Nigeria agency keywords.
 
 Success metrics: TBD — no analytics tooling is configured in the project. Reasonable candidates (to be agreed with the client): enquiry volume (form/WhatsApp/calls), search visibility for Lagos production terms, and time-to-quote follow-through.
 

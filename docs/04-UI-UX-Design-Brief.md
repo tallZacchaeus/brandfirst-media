@@ -41,13 +41,15 @@ Sampled by eye from supplied artwork; can be measured exactly once the source fi
 
 Both sub-brands sit in the red family; the blue parent anchors the group without competing.
 
+As **small text** (labels, section numbers, tags, 11–15 px) the accents are darkened 12% with `color-mix(in srgb, var(--accent) 88%, #000)`: the Aṣọ orange (4.36:1 on white) and the ROOM16 red on the tint (4.25:1) fall just short of the 4.5:1 WCAG AA minimum at those sizes. Rules, squares, fills and icons keep the exact brand values.
+
 ### Section grounds
 
 The demo's per-section pastels were replaced with cool neutrals derived from the mark's silver: `--sec-tint #EDF1F7`, `--sec-mint #F4F7FB` (near-white), `--sec-dark #121212` (cards `#1C1C1C`), `--tint-grey #EFEFEF`. Rationale encoded in the tokens file: light grounds carry print work (judged against white); the dark ground carries event/lighting work (which only reads against darkness).
 
 ## 3. Typography
 
-**One family site-wide: Montserrat Alternates** (Google Fonts, OFL) — chosen by the client from a reference site (adikastakes.store), run the same way there: Black/ExtraBold for display, Regular for body. A geometric sans with single-storey `a` and hooked `y` descenders. Weights loaded: 400–900.
+**One family site-wide: Montserrat Alternates** (OFL; self-hosted from `public/fonts/`, see `FONTS.md`) — chosen by the client from a reference site (adikastakes.store), run the same way there: Black/ExtraBold for display, Regular for body. A geometric sans with single-storey `a` and hooked `y` descenders. Weights loaded: 400–900.
 
 All four font tokens (`--font-hero`, `--font-display`, `--font-inner`, `--font-body`) resolve to it. History: the demo used Kanit + Instrument Sans + Beatrice Trial + Getaway; the last two could not be licensed (see `FONTS.md`), and the client asked for one voice rather than a serif/sans split.
 

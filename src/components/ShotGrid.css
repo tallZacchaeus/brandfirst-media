@@ -16,7 +16,7 @@
 .shot__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .shot__tag {
   font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000);
   padding-left: 14px; position: relative;
 }
 .shot__tag::before { content: ''; position: absolute; left: 0; top: 50%; width: 8px; height: 8px; border-radius: 1px; background: var(--accent); transform: translateY(-50%); }

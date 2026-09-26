@@ -52,7 +52,9 @@ function ServiceCard({ n, slug, title, card }) {
       <span className="services__num">{n}</span>
       <h3 className="services__name">{title}</h3>
       <p className="services__text">{card}</p>
-      <Link className="services__link" to={`/services#${slug}`}>Learn more</Link>
+      <Link className="services__link" to={`/services#${slug}`}>
+        Learn more<span className="sr-only"> about {title}</span>
+      </Link>
     </article>
   );
 }

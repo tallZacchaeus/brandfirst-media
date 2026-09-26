@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
 /**
@@ -28,12 +28,18 @@ import { gsap } from 'gsap';
  *   - phones and low-core devices: shorter rise (or none) and stagger.
  *
  * Hidden before paint (layout effect), so content never flashes up and then
- * vanishes to wait for its entrance. A failsafe guarantees nothing is stranded
- * invisible: IntersectionObserver does not fire in a hidden tab, and a reveal
- * that never runs would leave content at opacity 0.
+ * vanishes to wait for its entrance. Pieces already on screen when the page
+ * mounts are left alone: pages arrive prerendered, so that content has been
+ * visible since the first paint, and hiding it at hydration would make it
+ * blink out and back. A failsafe guarantees nothing is stranded invisible:
+ * IntersectionObserver does not fire in a hidden tab, and a reveal that never
+ * runs would leave content at opacity 0.
  */
 const reduced = () => window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 const phone = () => window.matchMedia?.('(max-width: 767px)').matches;
+// useLayoutEffect warns when the prerender runs the app in Node, where there is
+// nothing to lay out; the effect only matters in the browser anyway.
+const useIsoLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 const lite = () =>
   window.matchMedia?.('(max-width: 767px), (pointer: coarse)').matches ||
   (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
@@ -51,12 +57,13 @@ export function useReveal({
 } = {}) {
   const ref = useRef(null);
 
-  useLayoutEffect(() => {
+  useIsoLayoutEffect(() => {
     const root = ref.current;
     if (!root || reduced()) return;
-    const items = selector === null || (phoneBlock && phone())
+    const items = (selector === null || (phoneBlock && phone())
       ? [root]
-      : [...root.querySelectorAll(selector)];
+      : [...root.querySelectorAll(selector)]
+    ).filter((el) => el.getBoundingClientRect().top >= window.innerHeight);
     if (!items.length) return;
 
     const light = lite();

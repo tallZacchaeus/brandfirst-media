@@ -50,7 +50,7 @@
 .br-row--flip .br-row__frame { order: 2; }
 .br-row__frame { margin: 12px; }
 .br-row__photo { aspect-ratio: 5 / 4; }
-.br-row__kind { color: var(--accent); }
+.br-row__kind { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .br-row__name { font-family: var(--font-display); font-weight: 800; font-size: 44px; line-height: 1.1; color: var(--ink); }
 .br-row__line { margin-top: 10px; font-size: 18px; line-height: 1.5; color: var(--ink); }
 .br-row__blurb { margin-top: 18px; max-width: 56ch; font-size: 17px; line-height: 1.7; color: var(--muted); }
@@ -61,13 +61,13 @@
   display: flex; align-items: baseline; gap: 14px; min-height: 44px; padding: 12px 0;
   font-size: 16px; color: var(--ink); transition: color .2s ease;
 }
-.br-row__services a:hover, .br-row__services a:focus-visible { color: var(--accent); }
-.br-row__services .ix-index { color: var(--accent); }
+.br-row__services a:hover, .br-row__services a:focus-visible { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
+.br-row__services .ix-index { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .br-row__actions { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
 .br-row__social::after { content: none; }
 
 /* Used by the sibling list on brand pages. */
-.brand-card__kind { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--card-accent, var(--brand)); }
+.brand-card__kind { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--card-accent, var(--brand)); color: color-mix(in srgb, var(--card-accent, var(--brand)) 88%, #000); }
 
 @media (max-width: 1199px) {
   .br-row__name { font-size: 38px; }

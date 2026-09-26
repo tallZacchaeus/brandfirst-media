@@ -75,7 +75,8 @@ function BrandRow({ brand, index }) {
                 alt={image.alt}
                 width={image.w}
                 height={image.h}
-                loading="lazy"
+                // The first row's photo shows on the first screen.
+                loading={index === 0 ? 'eager' : 'lazy'}
                 decoding="async"
               />
             </figure>

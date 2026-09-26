@@ -7,10 +7,13 @@
 
   "assets": {
     "directory": "./dist",
-    // React Router owns every path: any request that is not a real file gets
-    // index.html, so deep links and refreshes on /about, /brands/room16 etc.
-    // resolve in the browser instead of 404ing.
-    "not_found_handling": "single-page-application"
+    // Every public page is a prerendered file (scripts/prerender.mjs), served
+    // at its clean URL: /about from about.html, /brands/room16 from
+    // brands/room16.html (html_handling's default, auto-trailing-slash). Any
+    // other path gets 404.html with a real 404 status. It used to get
+    // index.html with a 200, which told search engines every mistyped URL was
+    // a duplicate of the homepage.
+    "not_found_handling": "404-page"
   },
 
   // Both hostnames attach as Workers Custom Domains, which create and manage

@@ -23,7 +23,7 @@
 .ab-brand + .ab-brand::before { left: 36px; }
 .ab-brand--room16 { --accent: var(--room16); }
 .ab-brand--aso    { --accent: var(--aso); }
-.ab-brand__kind { color: var(--accent); }
+.ab-brand__kind { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 .ab-brand__name { margin-top: 12px; font-family: var(--font-display); font-weight: 800; font-size: 28px; line-height: 1.15; color: var(--ink); }
 .ab-brand__line { margin-top: 8px; font-size: 16px; line-height: 1.5; color: var(--muted); }
 .ab-brand__services { margin: 24px 0 18px; flex: 1; }
@@ -31,7 +31,7 @@
 .ab-brand__services li:last-child { border-bottom: 1px solid var(--rule); }
 /* The link fills the row, so the whole 44px band is the touch target. */
 .ab-brand__services a { flex: 1; display: flex; align-items: center; min-height: 44px; padding: 10px 0; font-size: 16px; line-height: 1.4; color: var(--ink); transition: color .2s ease; }
-.ab-brand__services a:hover, .ab-brand__services a:focus-visible { color: var(--accent); }
+.ab-brand__services a:hover, .ab-brand__services a:focus-visible { color: var(--accent); color: color-mix(in srgb, var(--accent) 88%, #000); }
 
 /* 02 Philosophy ------------------------------------------------------------ */
 .ab-philosophy__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 72px; }

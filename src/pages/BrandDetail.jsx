@@ -102,7 +102,7 @@ function BrandPage({ brand }) {
       )}
 
       {brand.useCases && (
-        <Block index={next()} label="Use cases" title="Good for" compact>
+        <Block index={next()} label="Use cases" title={`What ${brand.name} is booked for`} compact>
           <ul className="bd-uses">
             {brand.useCases.map((u) => <li key={u} data-reveal>{u}</li>)}
           </ul>
@@ -136,7 +136,7 @@ function BrandPage({ brand }) {
       <Block
         index={next()}
         label="The group"
-        title="Works with"
+        title="The rest of the group"
         lede={`${brand.name} is one part of the group. The other two cover the rest of an event, and one brief can book all three.`}
       >
         <ul className="bd-siblings">

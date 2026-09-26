@@ -25,15 +25,15 @@ export const site = {
   name: 'Brandfirst Media',
   tagline: 'Print, Publicity and Event Production',
   location: 'Lagos, Nigeria',
+  // In the group's own words (brand FAQ: delivery and installation).
+  serviceArea: 'Across Lagos, and further afield by arrangement',
   // Supplied by the client.
   phone: '0708 413 7772',
   phoneIntl: '+2347084137772',
   // A single shared inbox, shown wherever contact details appear and used by
   // the contact form's mailto fallback. Kept as a list so a second address can
-  // be added without touching the components.
-  // NOTE: brandfirstmedia.com had no MX records when this was set, so mail to
-  // it has nowhere to be delivered. Confirm the mailbox receives before
-  // relying on it.
+  // be added without touching the components. brandfirstmedia.com has MX
+  // records (Hostinger mail) since September 2026.
   emails: ['info@brandfirstmedia.com'],
   social: [
     { label: 'Instagram', href: 'https://www.instagram.com/brandfirstmedia/' },
@@ -66,11 +66,7 @@ export const site = {
     'Thank you.',
   ].join('\n'),
 
-  meta: {
-    title: 'Brandfirst Media | Print, Publicity and Event Production in Lagos',
-    description:
-      'Brandfirst Media is a production group in Lagos, Nigeria: print of all kinds, clothing and branded apparel through Aṣọ Ìgbàlódé, and event staging and lighting through ROOM16.',
-  },
+  // Page titles, descriptions and share images live in src/seo/pages.js.
 };
 
 export const home = {

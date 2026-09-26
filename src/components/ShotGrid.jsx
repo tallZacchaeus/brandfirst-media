@@ -5,7 +5,9 @@ import './ShotGrid.css';
  *  — discipline, the brand that did the job, and what the picture shows — so
  *  the grid reads as a record of work rather than a mood board. The caption is
  *  the image's alt text made visible, so there is no second copy to keep in
- *  sync. Used by the Work page and the brand pages.
+ *  sync. The alt stays on the image (search engines index a photo by it) and
+ *  the visible copy is hidden from screen readers, so it is read once.
+ *  Used by the Work page and the brand pages.
  *
  *  `eager` loads the first few tiles immediately (Work, where the grid starts
  *  near the fold); everything else is lazy. */
@@ -23,7 +25,7 @@ export default function ShotGrid({ shots, eager = 0, showBrand = true }) {
                   src={s.src}
                   srcSet={s.srcSet}
                   sizes="(max-width: 1023px) 46vw, 30vw"
-                  alt=""
+                  alt={s.alt}
                   width={s.w}
                   height={s.h}
                   loading={i < eager ? 'eager' : 'lazy'}
@@ -35,7 +37,7 @@ export default function ShotGrid({ shots, eager = 0, showBrand = true }) {
                   <span className="shot__tag">{s.tag}</span>
                   {showBrand && brand && <span className="shot__brand">{brand.name}</span>}
                 </span>
-                <span className="shot__desc">{s.alt}</span>
+                <span className="shot__desc" aria-hidden="true">{s.alt}</span>
               </figcaption>
             </figure>
           </li>

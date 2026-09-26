@@ -6,3 +6,6 @@ dist
 
 # Wrangler local state (dev server cache, temp bundles)
 .wrangler/
+
+# Build-time server bundle for the prerender (deleted after each build)
+dist-ssr

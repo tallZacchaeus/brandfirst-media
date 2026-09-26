@@ -48,13 +48,18 @@ family. That site runs it the same way: Black for display, Regular for body.
 | `--font-hero` | 900 / 800 | hero headline and tagline, both wordmarks, closing CTA |
 | `--font-display` | 800 / 700 | section titles, card titles |
 | `--font-inner` | 800 / 700 | inner-page titles |
-| `--font-body` | 400 / 500 / 600 | body copy, labels, form fields |
+| `--font-body` | 400 / 600 | body copy, labels, form fields |
 
-**Montserrat Alternates**, SIL Open Font License, loaded from Google Fonts in
-`index.html`. Nothing is self-hosted, so `public/assets/fonts/` is gone along
-with its gitignore entry, and `src/styles/fonts.css` holds no `@font-face`
-rules. It is Montserrat with alternate letterforms — single-storey `a`, hooked
-`y` and `Y` descenders — which is what gives the reference its character.
+**Montserrat Alternates**, SIL Open Font License, self-hosted since September
+2026: Google Fonts' own woff2 subsets in `public/fonts/` (licence alongside as
+`OFL.txt`), declared in `src/styles/fonts.css` with the same unicode ranges.
+Weights 400, 600, 700, 800 and 900 (500 is not used), each in latin, latin-ext
+and vietnamese, because "Aṣọ Ìgbàlódé" needs all three (ṣ is latin-ext; ọ is in
+Google's vietnamese file). It had been linked from fonts.googleapis.com, whose
+stylesheet held up the first paint for about 1.5 s on a simulated mobile
+connection. It is Montserrat with alternate letterforms — single-storey `a`,
+hooked `y` and `Y` descenders — which is what gives the reference its
+character.
 
 Two things this face needs that the previous serif did not:
 

@@ -61,13 +61,14 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 | Item | Value |
 |---|---|
 | Framework | React 18.3, Vite 6 (`@vitejs/plugin-react` 4.3) |
-| Routing | `react-router-dom` v7 (BrowserRouter; SPA fallback via `not_found_handling` in `wrangler.jsonc`, and via the rewrite in `vercel.json` on the legacy Vercel copy) |
+| Routing | `react-router-dom` v7: BrowserRouter in the browser. Every public route is **prerendered** to static HTML at build time (`scripts/prerender.mjs`: StaticRouter + `renderToString` from `src/entry-server.jsx`), then hydrated (`hydrateRoot` in `src/main.jsx`). Unknown paths get `404.html` with a real 404 status. |
+| SEO | `react-helmet-async` 2.0.5 via `src/seo/Seo.jsx` (per-route title, description, canonical, robots, Open Graph, Twitter card, JSON-LD). `src/seo/config.js` holds the production URL (`SITE_URL`, overridable with `VITE_SITE_URL`); `pages.js` the route metadata; `schema.js` the JSON-LD graph. `sitemap.xml` and `robots.txt` are generated at build from the same route list. |
 | Animation | GSAP 3.13 (ScrollTrigger: the home hero pin only), Lenis 1.3 smooth scroll (`lerp: 0.15`, mouse/trackpad only); IntersectionObserver reveals through `useReveal` on the homepage and inner pages (the older `useGsap` hooks remain for the inner footer, Insights and the 404) |
 | Scroll | `ScrollManager` (in `SiteLayout`): top of page on each new route, hash targets scrolled through Lenis (`lenisRef` from `useSmoothScroll`); back/forward left to the browser |
 | Icons | `react-icons` 5.7 — phone, WhatsApp, envelope and Instagram marks only (imported per icon, so only those four are bundled) |
 | Content | All copy in `src/data/site.js` — single source of truth; components render from it |
-| Fonts | Montserrat Alternates (Google Fonts, OFL) — one family site-wide; see `FONTS.md` for the licensing history (theme's Beatrice Trial and Getaway faces could not ship) |
-| Build | `npm run dev` (localhost:5173), `npm run build` → `dist/` (a build exists) |
+| Fonts | Montserrat Alternates (OFL), **self-hosted** woff2 subsets in `public/fonts/` (latin, latin-ext, vietnamese; weights 400/600/700/800/900), declared in `src/styles/fonts.css`; 400-latin preloaded. See `FONTS.md` for the licensing history (theme's Beatrice Trial and Getaway faces could not ship) |
+| Build | `npm run dev` (localhost:5173, client-rendered). `npm run build` = `vite build` (client) → `vite build --ssr src/entry-server.jsx` (server bundle in `dist-ssr/`, deleted after) → `node scripts/prerender.mjs` (writes each route's HTML, `404.html`, `sitemap.xml`, `robots.txt` into `dist/`). |
 | Media | `public/media/` — client photography/video, exported as responsive `.webp` sets (480/900/1400 widths) and re-encoded ~10 s muted `.mp4` loops |
 
 ### Form handling
@@ -77,11 +78,12 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 ## 4. Hosting
 
 - **Production: Cloudflare**, live at **https://brandfirstmedia.com** (and `www.`), since September 2026. The site is an assets-only **Worker with static assets** named `brandfirst-media` (config: `brandfirst-media/wrangler.jsonc`), in the Cloudflare account that also holds the `brandfirstmedia.com` zone.
-  - `assets.directory: ./dist`, `not_found_handling: single-page-application` — every non-file path serves `index.html`, so React Router handles deep links and refreshes.
+  - `assets.directory: ./dist`. Each public page is a prerendered file served at its clean URL (`/about` from `about.html`, `/brands/room16` from `brands/room16.html`; `html_handling` default). `/about/`, `/about.html` and `/index.html` redirect to the clean URL. `not_found_handling: 404-page` serves `404.html` with a 404 status for anything else. (It was `single-page-application`, which answered every unknown URL with the homepage and a 200: soft 404s.)
   - Both hostnames are **Workers Custom Domains**, which own their DNS records and TLS certificates. The zone's earlier A records (a Hostinger parked page) had to be deleted by hand first: Cloudflare will not let a custom domain replace a DNS record it did not create.
   - `public/.assetsignore` keeps macOS `.DS_Store` files out of the upload.
   - **Deploy:** `npm run deploy` (runs `vite build`, then `wrangler deploy`). Wrangler 4.137 is a devDependency. Deploys are manual from a logged-in machine: pushing to GitHub does **not** deploy to Cloudflare.
-- **Legacy: Vercel.** `vercel.json` (framework `vite`, output `dist/`, SPA rewrite excluding `/assets/`) still exists and the Vercel project still auto-deploys every push to `master` at `brandfirst-media.vercel.app` — a second public copy of the site. To be retired once Cloudflare is confirmed as the only host.
+- **Legacy: Vercel.** `vercel.json` (framework `vite`, output `dist/`, `cleanUrls`) still exists and the Vercel project still auto-deploys every push to `master` at `brandfirst-media.vercel.app` — a second public copy of the site. It sends `X-Robots-Tag: noindex, nofollow` on every response so it can never compete with brandfirstmedia.com in search, and its pages' canonicals name brandfirstmedia.com anyway. To be retired once Cloudflare is confirmed as the only host.
+- **Canonical host:** `https://brandfirstmedia.com` (apex). Every canonical, `og:url`, JSON-LD URL, the sitemap and robots.txt use it. `www.` serves the same pages with canonicals to the apex; a 301 redirect rule (Cloudflare dashboard → Rules → Redirect Rules) is still recommended. Any other host (localhost, previews) is marked `noindex` in the browser by `Seo.jsx`.
 - WordPress hosting: **TBD / likely none** — wp-local is a local reference environment only.
 
 ## 5. Licensing constraints (must-hold requirements)
@@ -96,4 +98,6 @@ Note: `wp-local/import.log` ends in a critical-error/EXIT=1 from one demo-import
 - Reveals always carry a failsafe so nothing can remain invisible: on inner pages a 2.5 s timer; on the homepage, a reveal of everything if IntersectionObserver has not reported within 1.5 s (checked by disabling the observer: all content visible by 2.1 s).
 - Inner-page motion: 0.45–0.65 s durations, 60–90 ms staggers, no parallax or scroll-jacking; opacity-only on phones, coarse pointers and ≤ 4-core devices.
 - Touch targets ≥ 44 px on inner pages, header and footers; no horizontal overflow at 1440 / 1024 / 768 / 390 px (checked with a headless-Chrome audit).
-- Responsive images via `srcSet`; videos muted/looped (silent production clips).
+- Responsive images via `srcSet`; videos muted/looped (silent production clips), `preload="none"` behind ~36 KB WebP posters.
+- SEO: one unique title, description, canonical and social card per route, prerendered into the HTML; JSON-LD validated structurally (no dangling references, no unverified properties); 1 H1 per page; every image carries alt text (decorative ones empty).
+- Lighthouse (Sept 2026, local build, simulated mobile/slow 4G): SEO 100, Best Practices 100 and Accessibility 100 on all nine routes (with motion reduced; mid-animation sampling otherwise drags a few labels' contrast), Performance 81–92 mobile (LCP 2.9–4.5 s, CLS 0, TBT 0 ms) and 99 desktop (LCP 0.8 s). Self-hosting the font and a 7 KB logo mark took the homepage from 76 to 89.

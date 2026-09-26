@@ -181,10 +181,14 @@ export default function Contact() {
               </p>
             </form>
 
-            <aside className="ct-aside" aria-label="Office and social">
+            <aside className="ct-aside" aria-label="Office, service area and social">
               <div className="ct-aside__block" data-reveal>
                 <p className="ix-label">Office</p>
                 <p className="ct-aside__value">{site.location}</p>
+              </div>
+              <div className="ct-aside__block" data-reveal>
+                <p className="ix-label">Service area</p>
+                <p className="ct-aside__value">{site.serviceArea}</p>
               </div>
               <div className="ct-aside__block" data-reveal>
                 <p className="ix-label">Follow the group</p>

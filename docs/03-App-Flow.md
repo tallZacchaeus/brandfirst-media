@@ -47,8 +47,9 @@ graph TD
 Notes:
 
 - Insights is deliberately absent from the nav: *"the page exists but its articles are still unwritten, and an empty journal advertises that nobody is minding it"* (comment in `site.js`). Add it the day the first pieces are published.
-- Unknown URLs render the 404 template, never an empty page.
+- Unknown URLs render the 404 page — never an empty page — served with a real 404 status and `noindex`, offering links to Services, each brand, Work and Contact, plus the phone number.
 - Every service card carries a `brand` tag (`brandfirst` / `room16` / `aso-igbalode`) linking the service to the brand that delivers it.
+- **Crawl surface:** the nine routes in §1 (minus 404) are the only indexable pages, listed in `/sitemap.xml` and prerendered with their own metadata (`src/seo/pages.js`). Insights stays unrouted until its articles exist; the placeholder case-study titles (`work.placeholders`) render nowhere. The Work page links each discipline on to its brand page.
 - **Deep links into Services:** `/services#<service-slug>` (e.g. `#event-lighting`) and `/services#brand-<brand-slug>` scroll to that service or brand group. The footer, About, Brands and the brand pages link this way, and the index under the Services hero uses the same anchors in-page. `ScrollManager` makes them land; any link without a hash opens the new page at the top.
 
 ## 3. Homepage section order

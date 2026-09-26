@@ -5,11 +5,19 @@ import SectionHead from '../components/SectionHead';
 import ShotGrid from '../components/ShotGrid';
 import VideoCard from '../components/VideoCard';
 import { useReveal } from '../hooks/useReveal';
-import { showcase, videos, work } from '../data/site';
+import { brands, showcase, videos, work } from '../data/site';
 import { pad } from '../data/group';
 import '../styles/page.css';
 import '../styles/inner.css';
 import './Work.css';
+
+// Each discipline links on to the brand that does it, so a visitor who likes
+// a photograph is one step from the page that sells that service.
+const BY_BRAND = {
+  'brandfirst-media': 'Print by Brandfirst Media',
+  room16: 'Stage and lighting by ROOM16',
+  'aso-igbalode': 'Clothing by Aṣọ Ìgbàlódé',
+};
 
 /**
  * Work: the group's production record, filterable by discipline.
@@ -69,6 +77,13 @@ export default function Work() {
             label="Photographs"
             title="Photographed on the floor and on site"
             id="wk-photos"
+            action={
+              <ul className="wk-brands" aria-label="The brands behind this work">
+                {brands.map((b) => (
+                  <li key={b.slug}><Link className="ix-link" to={`/brands/${b.slug}`}>{BY_BRAND[b.slug]}</Link></li>
+                ))}
+              </ul>
+            }
           />
 
           <div className="wk-filter" data-reveal>

@@ -43,8 +43,12 @@ export default function FooterInner() {
           </div>
         </div>
 
+        {/* The year is prerendered at build time; after New Year the browser's
+
+            differs until the next deploy, which is allowed rather than an error. */}
+
         <div className="footer-inner__bottom">
-          © {new Date().getFullYear()} <strong>{site.name}</strong> · {site.tagline}
+          © <span suppressHydrationWarning>{new Date().getFullYear()}</span> <strong>{site.name}</strong> · {site.tagline}
         </div>
       </div>
     </footer>

@@ -3,17 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A2E8C" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <title>Brandfirst Media | Print, Publicity and Event Production in Lagos</title>
-    <meta name="description" content="Brandfirst Media is a production group in Lagos, Nigeria — print of all kinds, branded apparel, and event staging and lighting through ROOM16 and Aṣọ Ìgbàlódé." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Title, description, canonical, social and JSON-LD tags: written per
+         page by scripts/prerender.mjs from src/seo, and kept current in the
+         browser by Seo.jsx. -->
+    <!--app-head-->
+    <!-- Fonts are self-hosted (src/styles/fonts.css). Only the body weight is
+         preloaded: it sets the first screen's running text on every page. The
+         heading weights are found as soon as the stylesheet is read. -->
+    <link rel="preload" href="/fonts/montserrat-alternates-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- The grain over every hero (9 KB). Being a full-width background, it is
+         what the browser times as the largest paint on the inner pages; found
+         only once the stylesheet is parsed, it landed a second after the text.
+         Preloaded, it arrives with the first render. -->
+    <link rel="preload" href="/assets/noise-overlay-img.webp" as="image" type="image/webp" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

@@ -4,6 +4,7 @@ import Footer from './Footer';
 import FooterInner from './FooterInner';
 import WhatsAppFloat from '../components/WhatsAppFloat';
 import ScrollManager from '../components/ScrollManager';
+import Seo from '../seo/Seo';
 import { useSmoothScroll } from '../hooks/useSmoothScroll';
 import { brands } from '../data/site';
 
@@ -28,6 +29,7 @@ export default function SiteLayout() {
 
   return (
     <>
+      <Seo />
       <ScrollManager />
       <Header variant={variant} />
       <Outlet />

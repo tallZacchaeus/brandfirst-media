@@ -22,7 +22,7 @@ export default function Services() {
       <PageHero
         trail={[{ label: 'Services' }]}
         title="Everything We Produce"
-        lede="Nine things we produce, with three services from each brand in the group. Brief any one of us and you have all three."
+        lede="Nine things we produce in Lagos, with three services from each brand in the group. Brief any one of us and you have all three."
         image={pageHeroImages.services}
       />
 
