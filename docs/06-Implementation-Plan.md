@@ -114,7 +114,7 @@ Technical tasks:
 - [ ] Reduced-motion, mobile (<768 px, no pinning) and touch verification on real devices (emulated checks done).
 - [x] 404 route (real 404 status), favicon set, social share previews (per-page 1200×630 cards).
 - [x] Point the domain and enable HTTPS — done on Cloudflare (Workers Custom Domains issue the certificates).
-- [ ] Verify the domain in Google Search Console and submit `https://brandfirstmedia.com/sitemap.xml` (owner action; also Bing Webmaster Tools). Create or claim the Google Business Profile, then add its URL to the Organization `sameAs`.
+- [ ] Google Search Console: HTML verification file published (`public/googleca6914e6c961c46d.html`, served at its exact URL by `worker/index.js`); owner clicks Verify, then submits `https://brandfirstmedia.com/sitemap.xml` (also Bing Webmaster Tools). Keep the file in place: removing it un-verifies the property. Create or claim the Google Business Profile, then add its URL to the Organization `sameAs`.
 - [ ] Client sign-off against the "Notes for Client Confirmation" list in the content document.
 
 ## Post-launch (candidates, not commitments)

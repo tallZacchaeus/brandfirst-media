@@ -1,12 +1,19 @@
 {
-  // Cloudflare hosting: an assets-only Worker serving the Vite build.
+  // Cloudflare hosting: a Worker serving the Vite build as static assets.
   // Deploy with `npm run deploy` (builds, then `wrangler deploy`).
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "brandfirst-media",
   "compatibility_date": "2026-09-23",
 
+  // A Worker in front of the files, but only for the paths in
+  // run_worker_first below (search engine verification files); see
+  // worker/index.js. Everything else is served straight from ./dist.
+  "main": "worker/index.js",
+
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/google*.html"],
     // Every public page is a prerendered file (scripts/prerender.mjs), served
     // at its clean URL: /about from about.html, /brands/room16 from
     // brands/room16.html (html_handling's default, auto-trailing-slash). Any
